@@ -49,7 +49,7 @@ export const pageType = defineType({
               of: [
                 "creditsAndAwards",
                 "imageCarousel",
-                "workDetails",
+                "workInformation",
                 "workHeaderMedia",
                 "workLandscapeMedia",
               ],
