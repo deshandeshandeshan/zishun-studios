@@ -16,7 +16,7 @@ export const pageBuilderType = defineType({
     defineArrayMember({ type: "longImageRight" }),
     defineArrayMember({ type: "creditsAndAwards" }),
     defineArrayMember({ type: "imageCarousel" }),
-    defineArrayMember({ type: "workDetails" }),
+    defineArrayMember({ type: "workInformation" }),
     defineArrayMember({ type: "workHeaderMedia" }),
     defineArrayMember({ type: "workLandscapeMedia" }),
     defineArrayMember({ type: "eventBlock" }),
