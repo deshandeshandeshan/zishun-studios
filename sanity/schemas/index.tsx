@@ -1,5 +1,4 @@
 import { SchemaTypeDefinition } from "sanity";
-import { pageType } from "./page";
 import { pageBuilderType } from "./pageBuilder";
 import { footerSettingsType } from "./footerSettings";
 import { eventBlockType } from "./blocks/eventBlocks/eventBlock";
@@ -19,12 +18,19 @@ import { imageCarouselType } from "./blocks/workBlocks/imageCarousel";
 import { workHeaderMediaType } from "./blocks/workBlocks/workHeaderMedia";
 import { workInformationType } from "./blocks/workBlocks/workInformation";
 import { workLandscapeMediaType } from "./blocks/workBlocks/workLandscapeMedia";
+import { aboutType } from "./about";
+import { selectedWorkType } from "./selectedWork";
+import { paintingType } from "./painting";
+import { homeType } from "./home";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
-    pageType,
+    homeType,
     pageBuilderType,
     footerSettingsType,
+    aboutType,
+    selectedWorkType,
+    paintingType,
 
     eventBlockType,
     aboutBlockType,

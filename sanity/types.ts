@@ -13,6 +13,570 @@
  */
 
 // Source: schema.json
+export type WorkLandscapeMedia = {
+  _type: "workLandscapeMedia";
+  title?: string;
+  description?: string;
+  video?: MuxVideo;
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    caption?: string;
+    alt?: string;
+    _type: "image";
+  };
+};
+
+export type WorkInformation = {
+  _type: "workInformation";
+  title?: string;
+  description?: string;
+  workDetails?: Array<{
+    role?: string;
+    location?: string;
+    year?: string;
+    _type: "workDetail";
+    _key: string;
+  }>;
+};
+
+export type WorkHeaderMedia = {
+  _type: "workHeaderMedia";
+  video?: MuxVideo;
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    caption?: string;
+    alt?: string;
+    _type: "image";
+  };
+};
+
+export type ImageCarousel = {
+  _type: "imageCarousel";
+  title?: string;
+  carouselImages?: Array<{
+    Image?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      caption?: string;
+      alt?: string;
+      _type: "image";
+    };
+    _type: "carouselImage";
+    _key: string;
+  }>;
+};
+
+export type CreditsAndAwards = {
+  _type: "creditsAndAwards";
+  credits?: Array<{
+    roleInWork?: string;
+    name?: string;
+    _type: "credit";
+    _key: string;
+  }>;
+  awards?: Array<{
+    awardName?: string;
+    awardedFrom?: string;
+    _type: "award";
+    _key: string;
+  }>;
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    caption?: string;
+    alt?: string;
+    _type: "image";
+  };
+};
+
+export type PressBlock = {
+  _type: "pressBlock";
+  typeOfPress?: string;
+  title?: string;
+  description?: string;
+  linkToPress?: string;
+};
+
+export type SinglePortrait = {
+  _type: "singlePortrait";
+  title?: string;
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    caption?: string;
+    alt?: string;
+    _type: "image";
+  };
+};
+
+export type SingleLandscape = {
+  _type: "singleLandscape";
+  title?: string;
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    caption?: string;
+    alt?: string;
+    _type: "image";
+  };
+};
+
+export type LongImageRight = {
+  _type: "longImageRight";
+  title?: string;
+  leftImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    caption?: string;
+    alt?: string;
+    _type: "image";
+  };
+  rightImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    caption?: string;
+    alt?: string;
+    _type: "image";
+  };
+};
+
+export type LargeImageRight = {
+  _type: "largeImageRight";
+  title?: string;
+  leftImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    caption?: string;
+    alt?: string;
+    _type: "image";
+  };
+  rightImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    caption?: string;
+    alt?: string;
+    _type: "image";
+  };
+};
+
+export type LargeImageLeft = {
+  _type: "largeImageLeft";
+  title?: string;
+  leftImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    caption?: string;
+    alt?: string;
+    _type: "image";
+  };
+  rightImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    caption?: string;
+    alt?: string;
+    _type: "image";
+  };
+};
+
+export type DoublePortrait = {
+  _type: "doublePortrait";
+  title?: string;
+  leftImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    caption?: string;
+    alt?: string;
+    _type: "image";
+  };
+  rightImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    caption?: string;
+    alt?: string;
+    _type: "image";
+  };
+};
+
+export type DoubleLandscape = {
+  _type: "doubleLandscape";
+  title?: string;
+  leftImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    caption?: string;
+    alt?: string;
+    _type: "image";
+  };
+  rightImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    caption?: string;
+    alt?: string;
+    _type: "image";
+  };
+};
+
+export type HeaderMedia = {
+  _type: "headerMedia";
+  title?: string;
+  video?: MuxVideo;
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    caption?: string;
+    alt?: string;
+    _type: "image";
+  };
+};
+
+export type FeaturedContent = {
+  _type: "featuredContent";
+  selectedWorks?: Array<{
+    workTitle?: string;
+    workRoute?: string;
+    selectedWorkImage?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      caption?: string;
+      alt?: string;
+      _type: "image";
+    };
+    _type: "selectedWork";
+    _key: string;
+  }>;
+  categories?: Array<{
+    categoryName?: string;
+    workRoute?: string;
+    categoryImage?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      caption?: string;
+      alt?: string;
+      _type: "image";
+    };
+    _type: "category";
+    _key: string;
+  }>;
+};
+
+export type AboutBlock = {
+  _type: "aboutBlock";
+  description?: string;
+  aboutBlockImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    caption?: string;
+    alt?: string;
+    _type: "image";
+  };
+};
+
+export type EventBlock = {
+  _type: "eventBlock";
+  title?: string;
+  locationTitle?: string;
+  description?: string;
+  timeAndDate?: {
+    date?: string;
+    time?: string;
+  };
+  location?: string;
+  details?: string;
+  infoAndTickets?: string;
+};
+
+export type FooterSettings = {
+  _id: string;
+  _type: "footerSettings";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  email?: string;
+  socialLinks?: Array<{
+    platform?: string;
+    url?: string;
+    _type: "socialLink";
+    _key: string;
+  }>;
+  siteDesignAndDevelopment?: string;
+};
+
+export type PageBuilder = Array<{
+  _key: string;
+} & AboutBlock | {
+  _key: string;
+} & FeaturedContent | {
+  _key: string;
+} & HeaderMedia | {
+  _key: string;
+} & DoubleLandscape | {
+  _key: string;
+} & DoublePortrait | {
+  _key: string;
+} & LargeImageLeft | {
+  _key: string;
+} & LargeImageRight | {
+  _key: string;
+} & SingleLandscape | {
+  _key: string;
+} & SinglePortrait | {
+  _key: string;
+} & LongImageRight | {
+  _key: string;
+} & CreditsAndAwards | {
+  _key: string;
+} & ImageCarousel | {
+  _key: string;
+} & WorkInformation | {
+  _key: string;
+} & WorkHeaderMedia | {
+  _key: string;
+} & WorkLandscapeMedia | {
+  _key: string;
+} & EventBlock | {
+  _key: string;
+} & PressBlock>;
+
+export type Page = {
+  _id: string;
+  _type: "page";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  slug?: Slug;
+  content?: PageBuilder;
+  seo?: {
+    title?: string;
+    description?: string;
+  };
+};
+
+export type MuxVideo = {
+  _type: "mux.video";
+  asset?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "mux.videoAsset";
+  };
+};
+
+export type MuxVideoAsset = {
+  _id: string;
+  _type: "mux.videoAsset";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  status?: string;
+  assetId?: string;
+  playbackId?: string;
+  filename?: string;
+  thumbTime?: number;
+  data?: MuxAssetData;
+};
+
+export type MuxAssetData = {
+  _type: "mux.assetData";
+  resolution_tier?: string;
+  upload_id?: string;
+  created_at?: string;
+  id?: string;
+  status?: string;
+  max_stored_resolution?: string;
+  passthrough?: string;
+  encoding_tier?: string;
+  master_access?: string;
+  aspect_ratio?: string;
+  duration?: number;
+  max_stored_frame_rate?: number;
+  mp4_support?: string;
+  max_resolution_tier?: string;
+  tracks?: Array<{
+    _key: string;
+  } & MuxTrack>;
+  playback_ids?: Array<{
+    _key: string;
+  } & MuxPlaybackId>;
+  static_renditions?: MuxStaticRenditions;
+};
+
+export type MuxStaticRenditions = {
+  _type: "mux.staticRenditions";
+  status?: string;
+  files?: Array<{
+    _key: string;
+  } & MuxStaticRenditionFile>;
+};
+
+export type MuxStaticRenditionFile = {
+  _type: "mux.staticRenditionFile";
+  ext?: string;
+  name?: string;
+  width?: number;
+  bitrate?: number;
+  filesize?: number;
+  height?: number;
+};
+
+export type MuxPlaybackId = {
+  _type: "mux.playbackId";
+  id?: string;
+  policy?: string;
+};
+
+export type MuxTrack = {
+  _type: "mux.track";
+  id?: string;
+  type?: string;
+  max_width?: number;
+  max_frame_rate?: number;
+  duration?: number;
+  max_height?: number;
+};
+
 export type SanityImagePaletteSwatch = {
   _type: "sanity.imagePaletteSwatch";
   background?: string;
@@ -131,5 +695,5 @@ export type SanityAssetSourceData = {
   url?: string;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData;
+export type AllSanitySchemaTypes = WorkLandscapeMedia | WorkInformation | WorkHeaderMedia | ImageCarousel | CreditsAndAwards | PressBlock | SinglePortrait | SingleLandscape | LongImageRight | LargeImageRight | LargeImageLeft | DoublePortrait | DoubleLandscape | HeaderMedia | FeaturedContent | AboutBlock | EventBlock | FooterSettings | PageBuilder | Page | MuxVideo | MuxVideoAsset | MuxAssetData | MuxStaticRenditions | MuxStaticRenditionFile | MuxPlaybackId | MuxTrack | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData;
 export declare const internalGroqTypeReferenceTo: unique symbol;

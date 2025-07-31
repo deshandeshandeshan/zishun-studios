@@ -11,7 +11,7 @@ export const aboutBlockType = defineType({
       type: "text",
     }),
     defineField({
-      name: "aboutImage",
+      name: "aboutBlockImage",
       type: "image",
       title: "About Image",
       options: { hotspot: true },

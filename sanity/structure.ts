@@ -5,8 +5,15 @@ export const structure: StructureResolver = (S) =>
     .title("Zishun Studios")
     .items([
       S.listItem()
-        .title("Pages")
-        .child(S.documentTypeList("page").title("Pages")),
+        .title("Home Page")
+        .id("home")
+        .child(
+          S.editor()
+            .title("Home Page")
+            .id("home")
+            .schemaType("home")
+            .documentId("home")
+        ),
       S.documentTypeListItem("selectedWork").title("Selected Work"),
       S.documentTypeListItem("painting").title("Painting"),
       S.listItem()
@@ -26,6 +33,7 @@ export const structure: StructureResolver = (S) =>
         .title("Footer Settings")
         .child(
           S.editor()
+            .title("Footer Settings")
             .id("footerSettings")
             .schemaType("footerSettings")
             .documentId("footerSettings")
