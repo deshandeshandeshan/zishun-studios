@@ -21,7 +21,7 @@ export const imageCarouselType = defineType({
           type: "object",
           fields: [
             defineField({
-              name: "Image",
+              name: "image",
               type: "image",
               title: "Image",
               options: { hotspot: true },

@@ -18,31 +18,24 @@ export const workInformationType = defineType({
     defineField({
       name: "workDetails",
       title: "Work Details",
-      type: "array",
-      of: [
+      type: "object",
+      fields: [
         defineField({
-          name: "workDetail",
-          title: "Work Detail",
-          type: "object",
-          fields: [
-            defineField({
-              name: "role",
-              title: "Role",
-              description: "Role in the project",
-              type: "string",
-            }),
-            defineField({
-              name: "location",
-              title: "Location",
-              description: "Location of the project",
-              type: "string",
-            }),
-            defineField({
-              name: "year",
-              title: "Year Created",
-              type: "string",
-            }),
-          ],
+          name: "role",
+          title: "Role",
+          description: "Role in the project",
+          type: "string",
+        }),
+        defineField({
+          name: "location",
+          title: "Location",
+          description: "Location of the project",
+          type: "string",
+        }),
+        defineField({
+          name: "year",
+          title: "Year Created",
+          type: "string",
         }),
       ],
     }),

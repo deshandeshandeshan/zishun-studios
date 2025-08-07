@@ -27,7 +27,7 @@ export const paintingType = defineType({
       options: { source: "title" },
     }),
     defineField({
-      name: "selectedWorkImage",
+      name: "paintingImage",
       type: "image",
       title: "About Image",
       options: { hotspot: true },
