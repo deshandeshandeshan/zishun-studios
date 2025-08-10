@@ -97,8 +97,8 @@ export const HOME_QUERY = defineQuery(`
         title,
         carouselImages[] {
           carouselImage {
-            "imageUrl": Image.asset->url,
-            Image {
+            "imageUrl": image.asset->url,
+            image {
               caption,
               alt
             }
@@ -138,8 +138,6 @@ export const HOME_QUERY = defineQuery(`
           alt
         }
       }
-
-      // Add additional block projections here as needed
     }
   }
 `);
@@ -213,11 +211,11 @@ export const SINGLE_SELECTED_WORK_QUERY = defineQuery(`
         title,
         description,
         workDetails {
-            role,
-            location,
-            year
+          role,
+          location,
+          year
         }
-      }
+      },
 
       _type == "creditsAndAwards" => {
         credits[] {
@@ -233,106 +231,40 @@ export const SINGLE_SELECTED_WORK_QUERY = defineQuery(`
           caption,
           alt
         }
-      }
+      },
+
       _type == "imageCarousel" => {
         title,
         carouselImages[] {
           carouselImage {
-            "imageUrl": Image.asset->url,
-            Image {
+            "imageUrl": image.asset->url,
+            image {
               caption,
               alt
             }
           }
         }
-      }
+      },
+
       _type == "workHeaderMedia" => {
-        "imageUrl": Image.asset->url,
-            image {
-              caption,
-              alt
-            }
+        "imageUrl": image.asset->url,
+        image {
+          caption,
+          alt
+        },
         video
-      }
+      },
+
       _type == "workLandscapeMedia" => {
         title,
         description,
         video,
-        "imageUrl": Image.asset->url,
-            image {
-              caption,
-              alt
-            }
-      }
-    }
-  }
-`);
-
-export const PAINTINGS_QUERY = defineQuery(`
-  *[_type == "painting"] {
-    _id,
-    _createdAt,
-    title,
-    "slug": slug.current,
-    paintingImage {
-      alt,
-      asset->{
-        _id,
-        url
-      }
-    }
-  }
-`);
-
-export const SINGLE_PAINTING_QUERY = defineQuery(`
-  *[_type == "painting" && slug.current == $slug][0] {
-    _id,
-    _createdAt,
-    title,
-    yearCreated,
-    description,
-    galleryImages[] {
+        "imageUrl": image.asset->url,
         image {
-            alt,
-            caption,
-            asset->{
-            _id,
-            url
-            }
+          caption,
+          alt
         }
-    }
-  }
-`);
-
-export const ABOUT_QUERY = defineQuery(`
-  *[_type == "about"][0] {
-    _id,
-    _createdAt,
-    description,
-    aboutImage {
-      alt,
-      caption,
-      asset->{
-        _id,
-        url
       }
-    },
-    aboutSocialLinks[] {
-        aboutSocialLink {
-            platform,
-            url
-        }
     }
-  }
-`);
-
-export const FOOTER_SETTINGS = defineQuery(`
-  *[_type == "footerSettings"][0]{
-    email,
-    socialLinks[] {
-        platform,
-        url
-    }
-    siteDesignAndDevelopment
   }
 `);
