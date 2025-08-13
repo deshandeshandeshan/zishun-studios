@@ -13,10 +13,10 @@ export const HOME_QUERY = defineQuery(`
       // ABOUT BLOCK
       _type == "aboutBlock" => {
         description,
-        "imageUrl": aboutBlockImage.asset->url,
         aboutBlockImage {
           caption,
-          alt
+          alt,
+          asset->{ _id, url }
         }
       },
 
