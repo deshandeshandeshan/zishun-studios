@@ -1,9 +1,9 @@
 import { defineQuery } from "next-sanity";
 
 export const HOME_QUERY = defineQuery(`
-  *[_type == "home" && slug.current == "home"][0] {
+  *[_type == "home"][0] {
     title,
-    slug,
+    "slug": slug.current,
 
     content[] {
       _key,
@@ -26,7 +26,8 @@ export const HOME_QUERY = defineQuery(`
         locationTitle,
         eventImage {
           caption,
-          alt
+          alt,
+          asset->{ _id, url }
         },
         description,
         timeAndDate {

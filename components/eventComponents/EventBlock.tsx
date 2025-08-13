@@ -37,7 +37,8 @@ export function EventBlock({
         <ul>
           <li>
             <h3>Event Title</h3>
-            <p>{timeAndDate}</p>
+            <p>{timeAndDate?.date}</p>
+            <p>{timeAndDate?.time}</p>
           </li>
           <li>
             <h3>Location</h3>
@@ -49,7 +50,9 @@ export function EventBlock({
           </li>
           <li>
             <h3>Info & Tickets</h3>
-            <a href={infoAndTickets}>Info and tickets here →</a>
+            <a href={infoAndTickets || "https://zishunstudios.com"}>
+              Info and tickets here →
+            </a>
           </li>
         </ul>
       </div>
