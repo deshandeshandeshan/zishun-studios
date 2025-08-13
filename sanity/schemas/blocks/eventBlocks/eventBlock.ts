@@ -15,6 +15,25 @@ export const eventBlockType = defineType({
       type: "string",
     }),
     defineField({
+      name: "eventImage",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        defineField({
+          name: "caption",
+          type: "string",
+        }),
+        defineField({
+          name: "alt",
+          type: "string",
+          title: "Alternative text",
+          description: "Important for SEO and accessibility.",
+        }),
+      ],
+    }),
+    defineField({
       name: "description",
       title: "Event Description",
       type: "text",

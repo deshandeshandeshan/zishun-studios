@@ -11,6 +11,12 @@ export const paintingType = defineType({
       type: "string",
     }),
     defineField({
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      options: { source: "title" },
+    }),
+    defineField({
       name: "yearCreated",
       title: "Year Created",
       type: "string",
@@ -19,12 +25,6 @@ export const paintingType = defineType({
       name: "description",
       title: "Description",
       type: "string",
-    }),
-    defineField({
-      name: "slug",
-      title: "Slug",
-      type: "slug",
-      options: { source: "title" },
     }),
     defineField({
       name: "paintingImage",

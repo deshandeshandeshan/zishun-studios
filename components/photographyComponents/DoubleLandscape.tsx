@@ -32,11 +32,11 @@ export function DoubleLandscape({
               onClick={() =>
                 setActiveImage({
                   src: urlFor(leftImage).url(),
-                  alt: leftImage.alt || "",
+                  alt: leftImage?.alt || "",
                 })
               }
               src={urlFor(leftImage).auto("format").quality(90).url()}
-              alt={leftImage?.alt ?? ""}
+              alt={leftImage?.alt || ""}
               width={2160}
               height={3840}
               className="double-landscape-left-img"
@@ -49,11 +49,11 @@ export function DoubleLandscape({
               onClick={() =>
                 setActiveImage({
                   src: urlFor(rightImage).url(),
-                  alt: rightImage.alt || "",
+                  alt: rightImage?.alt || "",
                 })
               }
               src={urlFor(rightImage).auto("format").quality(90).url()}
-              alt={rightImage?.alt ?? ""}
+              alt={rightImage?.alt || ""}
               width={2160}
               height={3840}
               className="double-landscape-right-img"

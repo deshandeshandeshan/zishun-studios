@@ -24,6 +24,10 @@ export const HOME_QUERY = defineQuery(`
       _type == "eventBlock" => {
         title,
         locationTitle,
+        eventImage {
+          caption,
+          alt
+        },
         description,
         timeAndDate {
           date,
@@ -70,6 +74,10 @@ export const HOME_QUERY = defineQuery(`
       // PRESS BLOCK
       _type == "pressBlock" => {
         typeOfPress,
+        pressImage {
+          caption,
+          alt
+        },
         title,
         description,
         linkToPress
@@ -137,6 +145,46 @@ export const HOME_QUERY = defineQuery(`
           caption,
           alt
         }
+      },
+
+      _type == "doubleLandscape" => {
+        title,
+        leftImage { alt, caption, asset->{ _id, url } },
+        rightImage { alt, caption, asset->{ _id, url } }
+      },
+
+      _type == "doublePortrait" => {
+        title,
+        leftImage { alt, caption, asset->{ _id, url } },
+        rightImage { alt, caption, asset->{ _id, url } }
+      },
+
+      _type == "largeImageLeft" => {
+        title,
+        leftImage { alt, caption, asset->{ _id, url } },
+        rightImage { alt, caption, asset->{ _id, url } }
+      },
+
+      _type == "largeImageRight" => {
+        title,
+        leftImage { alt, caption, asset->{ _id, url } },
+        rightImage { alt, caption, asset->{ _id, url } }
+      },
+
+      _type == "longImageRight" => {
+        title,
+        leftImage { alt, caption, asset->{ _id, url } },
+        rightImage { alt, caption, asset->{ _id, url } }
+      },
+
+      _type == "singleLandscape" => {
+        title,
+        image { alt, caption, asset->{ _id, url } }
+      },
+
+      _type == "singlePortrait" => {
+        title,
+        image { alt, caption, asset->{ _id, url } }
       }
     }
   }
@@ -265,6 +313,78 @@ export const SINGLE_SELECTED_WORK_QUERY = defineQuery(`
           alt
         }
       }
+    }
+  }
+`);
+
+export const PAINTINGS_QUERY = defineQuery(`
+  *[_type == "painting"] {
+    _id,
+    _createdAt,
+    title,
+    "slug": slug.current,
+    paintingImage {
+      alt,
+      asset->{
+        _id,
+        url
+      }
+    }
+  }
+`);
+
+export const SINGLE_PAINTING_QUERY = defineQuery(`
+  *[_type == "painting" && slug.current == $slug][0] {
+    _id,
+    _createdAt,
+    title,
+    yearCreated,
+    description,
+    galleryImages[] {
+      image {
+        alt,
+        caption,
+        asset->{
+          _id,
+          url
+        }
+      }
+    }
+  }
+`);
+
+export const ABOUT_QUERY = defineQuery(`
+  *[_type == "painting"] {
+    _id,
+    _createdAt,
+    title,
+    "slug": slug.current,
+    paintingImage {
+      alt,
+      asset->{
+        _id,
+        url
+      }
+    }
+  }
+`);
+
+export const FOOTER_SETTINGS = defineQuery(`
+  *[_type == "painting"] {
+    _id,
+    _createdAt,
+    description,
+    aboutImage {
+      alt,
+      asset->{
+        _id,
+        url
+      }
+    },
+    email,
+    aboutSocialLinks[] {
+      platform,
+      url
     }
   }
 `);

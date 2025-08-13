@@ -10,6 +10,25 @@ export const pressBlockType = defineType({
       type: "string",
     }),
     defineField({
+      name: "pressImage",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        defineField({
+          name: "caption",
+          type: "string",
+        }),
+        defineField({
+          name: "alt",
+          type: "string",
+          title: "Alternative text",
+          description: "Important for SEO and accessibility.",
+        }),
+      ],
+    }),
+    defineField({
       name: "title",
       title: "Title",
       type: "string",
