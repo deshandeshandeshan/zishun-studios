@@ -12,7 +12,7 @@ import {
 export const client = createClient({
   projectId: "5wl8so4j",
   dataset: "production",
-  apiVersion: "23-07-2025",
+  apiVersion: "2025-07-23",
   useCdn: true,
 });
 

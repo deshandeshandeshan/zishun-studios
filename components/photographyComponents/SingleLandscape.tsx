@@ -4,8 +4,8 @@ import { urlFor } from "@/sanity/lib/image";
 import { SINGLE_SELECTED_WORK_QUERYResult } from "@/sanity/types";
 import Image from "next/image";
 import { Lightbox } from "../Lightbox";
-import "./Landscape.css";
-import "../grid.css";
+import "./SingleLandscape.css";
+import "@/components/Grid.css";
 import { useState } from "react";
 
 type singleLandscapeProps = Extract<

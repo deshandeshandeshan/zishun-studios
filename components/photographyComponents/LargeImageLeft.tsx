@@ -4,8 +4,8 @@ import { urlFor } from "@/sanity/lib/image";
 import { SINGLE_SELECTED_WORK_QUERYResult } from "@/sanity/types";
 import Image from "next/image";
 import { Lightbox } from "../Lightbox";
-import "./ImageLargeLeft.css";
-import "../grid.css";
+import "./LargeImageLeft.css";
+import "@/components/Grid.css";
 import { useState } from "react";
 
 type largeImageLeftProps = Extract<

@@ -5,7 +5,7 @@ import { SINGLE_SELECTED_WORK_QUERYResult } from "@/sanity/types";
 import Image from "next/image";
 
 import "./DoubleLandscape.css";
-import "@/app/grid.css";
+import "@/components/Grid.css";
 import { useState } from "react";
 import { Lightbox } from "../Lightbox";
 
