@@ -24,7 +24,7 @@ export const selectedWorkType = defineType({
     defineField({
       name: "selectedWorkImage",
       type: "image",
-      title: "About Image",
+      title: "Selected Work Image",
       options: { hotspot: true },
       fields: [
         defineField({
