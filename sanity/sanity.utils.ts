@@ -20,7 +20,7 @@ export async function getHome() {
   const client = createClient({
     projectId: "5wl8so4j",
     dataset: "production",
-    apiVersion: "23-07-2025",
+    apiVersion: "2025-07-23",
     useCdn: true,
   });
 
@@ -31,7 +31,7 @@ export async function getSelectedWorks() {
   const client = createClient({
     projectId: "5wl8so4j",
     dataset: "production",
-    apiVersion: "23-07-2025",
+    apiVersion: "2025-07-23",
     useCdn: true,
   });
 
@@ -42,7 +42,7 @@ export async function getSelectedWork(slug: string) {
   const client = createClient({
     projectId: "5wl8so4j",
     dataset: "production",
-    apiVersion: "23-07-2025",
+    apiVersion: "2025-07-23",
     useCdn: true,
   });
 
@@ -53,7 +53,7 @@ export async function getPaintings() {
   const client = createClient({
     projectId: "5wl8so4j",
     dataset: "production",
-    apiVersion: "23-07-2025",
+    apiVersion: "2025-07-23",
     useCdn: true,
   });
 
@@ -64,7 +64,7 @@ export async function getPainting(slug: string) {
   const client = createClient({
     projectId: "5wl8so4j",
     dataset: "production",
-    apiVersion: "23-07-2025",
+    apiVersion: "2025-07-23",
     useCdn: true,
   });
 
@@ -75,7 +75,7 @@ export async function getAbout() {
   const client = createClient({
     projectId: "5wl8so4j",
     dataset: "production",
-    apiVersion: "23-07-2025",
+    apiVersion: "2025-07-23",
     useCdn: true,
   });
 
@@ -86,7 +86,7 @@ export async function getFooterSettings() {
   const client = createClient({
     projectId: "5wl8so4j",
     dataset: "production",
-    apiVersion: "23-07-2025",
+    apiVersion: "2025-07-23",
     useCdn: true,
   });
 
