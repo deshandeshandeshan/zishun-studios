@@ -20,7 +20,7 @@ export function ImageSlider({ imageUrls }: ImageSliderProps) {
 
   const showNextImage = () => {
     setImageIndex((index) => {
-      if (index === imageUrls.length - 1) return imageUrls.length - 1;
+      if (index === imageUrls.length - 1) return 0;
       return index + 1;
     });
   };

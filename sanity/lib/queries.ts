@@ -112,14 +112,10 @@ export const HOME_QUERY = defineQuery(`
       // IMAGE CAROUSEL BLOCK
       _type == "imageCarousel" => {
         title,
-        carouselImages[] {
-          carouselImage {
-            image {
-              caption,
-              alt,
-              asset->{ _id, url }
-            }
-          }
+        carouselImages[]{
+          "url": image.asset->url,
+          "alt": image.alt,
+          "caption": image.caption
         }
       },
 
@@ -340,14 +336,10 @@ export const SINGLE_SELECTED_WORK_QUERY = defineQuery(`
       // IMAGE CAROUSEL BLOCK
       _type == "imageCarousel" => {
         title,
-        carouselImages[] {
-          carouselImage {
-            image {
-              caption,
-              alt,
-              asset->{ _id, url }
-            }
-          }
+        carouselImages[]{
+          "url": image.asset->url,
+          "alt": image.alt,
+          "caption": image.caption
         }
       },
 

@@ -12,12 +12,14 @@ export default async function Painting({ params }: Props) {
   const { painting: slug } = await params;
   const painting = await getPainting(slug);
   interface GalleryImage {
-    url: string;
+    url: string | null;
+    alt?: string | null;
+    caption?: string | null;
   }
 
   const imageUrls = (painting?.galleryImages ?? [])
     .map((g: GalleryImage) => g.url)
-    .filter(Boolean);
+    .filter((url): url is string => typeof url === "string");
 
   if (!painting) {
     notFound();
