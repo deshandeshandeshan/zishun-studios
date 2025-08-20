@@ -1,7 +1,7 @@
 import { defineQuery } from "next-sanity";
 
 export const HOME_QUERY = defineQuery(`
-  *[_type == "selectedWork" && slug.current == $slug][0] {
+  *[_type == "home"][0] {
     _id,
     _createdAt,
     content[] {
@@ -40,10 +40,10 @@ export const HOME_QUERY = defineQuery(`
 
       // FEATURED CONTENT
       _type == "featuredContent" => {
-        selectedWorks[] {
-          workTitle,
-          workRoute,
-          selectedWorkImage {
+        selectedProjects[] {
+          projectTitle,
+          projectRoute,
+          selectedProjectImage {
             caption,
             alt,
             asset->{ _id, url }
@@ -264,10 +264,10 @@ export const SINGLE_SELECTED_WORK_QUERY = defineQuery(`
 
       // FEATURED CONTENT
       _type == "featuredContent" => {
-        selectedWorks[] {
-          workTitle,
-          workRoute,
-          selectedWorkImage {
+        selectedProjects[] {
+          projectTitle,
+          projectRoute,
+          selectedProjectImage {
             caption,
             alt,
             asset->{ _id, url }
@@ -463,7 +463,7 @@ export const SINGLE_PAINTING_QUERY = defineQuery(`
 `);
 
 export const ABOUT_QUERY = defineQuery(`
-  *[_type == "painting"] {
+  *[_type == "about"] {
     _id,
     _createdAt,
     title,
@@ -479,7 +479,7 @@ export const ABOUT_QUERY = defineQuery(`
 `);
 
 export const FOOTER_SETTINGS = defineQuery(`
-  *[_type == "painting"] {
+  *[_type == "footerSettings"] {
     _id,
     _createdAt,
     description,
