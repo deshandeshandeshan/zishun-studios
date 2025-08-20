@@ -7,7 +7,7 @@ type featuredContentProps = Extract<
 >;
 
 export function FeaturedContent({
-  selectedWorks,
+  selectedProjects,
   categories,
 }: featuredContentProps) {
   return (
@@ -15,14 +15,14 @@ export function FeaturedContent({
       <div>
         <h2>Selected Works</h2>
         <ul>
-          {selectedWorks?.map((work, index) => (
+          {selectedProjects?.map((work, index) => (
             <li key={index}>
               <small>{index}</small>
-              <h2>{work.workTitle}</h2>
-              {work.selectedWorkImage?.asset?.url && (
+              <h2>{work.projectTitle}</h2>
+              {work.selectedProjectImage?.asset?.url && (
                 <Image
-                  src={work.selectedWorkImage.asset.url}
-                  alt={work.selectedWorkImage.alt || ""}
+                  src={work.selectedProjectImage.asset.url}
+                  alt={work.selectedProjectImage.alt || ""}
                   width={2160}
                   height={3840}
                 />

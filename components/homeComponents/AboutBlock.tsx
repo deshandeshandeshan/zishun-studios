@@ -16,6 +16,8 @@ export function AboutBlock({ description, aboutBlockImage }: aboutBlockProps) {
           <Image
             src={urlFor(aboutBlockImage).auto("format").quality(90).url()}
             alt={aboutBlockImage?.alt || "About Image"}
+            width={2160}
+            height={3840}
             className="event-block__image"
           />
         )}

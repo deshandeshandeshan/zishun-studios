@@ -463,7 +463,7 @@ export const SINGLE_PAINTING_QUERY = defineQuery(`
 `);
 
 export const ABOUT_QUERY = defineQuery(`
-  *[_type == "about"] {
+  *[_type == "about"][0] {
     _id,
     _createdAt,
     title,
@@ -479,21 +479,15 @@ export const ABOUT_QUERY = defineQuery(`
 `);
 
 export const FOOTER_SETTINGS = defineQuery(`
-  *[_type == "footerSettings"] {
+  *[_type == "footerSettings"][0] {
     _id,
     _createdAt,
     description,
-    aboutImage {
-      alt,
-      asset->{
-        _id,
-        url
-      }
-    },
     email,
-    aboutSocialLinks[] {
+    socialLinks[] {
       platform,
       url
-    }
+    },
+    siteDesignAndDevelopment
   }
 `);
