@@ -1,10 +1,9 @@
 import { defineQuery } from "next-sanity";
 
 export const HOME_QUERY = defineQuery(`
-  *[_type == "home"][0] {
-    title,
-    "slug": slug.current,
-
+  *[_type == "selectedWork" && slug.current == $slug][0] {
+    _id,
+    _createdAt,
     content[] {
       _key,
       _type,
@@ -44,19 +43,19 @@ export const HOME_QUERY = defineQuery(`
         selectedWorks[] {
           workTitle,
           workRoute,
-          "imageUrl": selectedWorkImage.asset->url,
           selectedWorkImage {
             caption,
-            alt
+            alt,
+            asset->{ _id, url }
           }
         },
         categories[] {
           categoryName,
           workRoute,
-          "imageUrl": categoryImage.asset->url,
           categoryImage {
             caption,
-            alt
+            alt,
+            asset->{ _id, url }
           }
         }
       },
@@ -64,24 +63,33 @@ export const HOME_QUERY = defineQuery(`
       // HEADER MEDIA BLOCK
       _type == "headerMedia" => {
         title,
-        video,
-        "imageUrl": image.asset->url,
+        video {
+          asset-> {
+            playbackId,
+            assetId,
+            filename
+          }
+        },
         image {
           caption,
-          alt
+          alt,
+          asset->{ _id, url }
         }
       },
 
       // PRESS BLOCK
       _type == "pressBlock" => {
-        typeOfPress,
-        pressImage {
-          caption,
-          alt
-        },
-        title,
-        description,
-        linkToPress
+        pressSections[] {
+          typeOfPress,
+          pressImage {
+            caption,
+            alt,
+            asset->{ _id, url }
+          },
+          title,
+          description,
+          linkToPress
+        }
       },
 
       // CREDITS AND AWARDS BLOCK
@@ -94,34 +102,36 @@ export const HOME_QUERY = defineQuery(`
           awardName,
           awardedFrom
         },
-        "imageUrl": image.asset->url,
         image {
           caption,
-          alt
-        }
+          alt,
+          asset->{ _id, url }
+          }
       },
 
       // IMAGE CAROUSEL BLOCK
       _type == "imageCarousel" => {
         title,
-        carouselImages[] {
-          carouselImage {
-            "imageUrl": image.asset->url,
-            image {
-              caption,
-              alt
-            }
-          }
+        carouselImages[]{
+          "url": image.asset->url,
+          "alt": image.alt,
+          "caption": image.caption
         }
       },
 
       // WORK HEADER MEDIA BLOCK
       _type == "workHeaderMedia" => {
-        video,
-        "imageUrl": image.asset->url,
+        video {
+          asset-> {
+            playbackId,
+            assetId,
+            filename
+          }
+        },
         image {
           caption,
-          alt
+          alt,
+          asset->{ _id, url }
         }
       },
 
@@ -140,11 +150,17 @@ export const HOME_QUERY = defineQuery(`
       _type == "workLandscapeMedia" => {
         title,
         description,
-        video,
-        "imageUrl": image.asset->url,
+        video {
+          asset-> {
+            playbackId,
+            assetId,
+            filename
+          }
+        },
         image {
           caption,
-          alt
+          alt,
+          asset->{ _id, url }
         }
       },
 
@@ -215,6 +231,162 @@ export const SINGLE_SELECTED_WORK_QUERY = defineQuery(`
     content[] {
       _key,
       _type,
+      ...,
+
+      // ABOUT BLOCK
+      _type == "aboutBlock" => {
+        description,
+        aboutBlockImage {
+          caption,
+          alt,
+          asset->{ _id, url }
+        }
+      },
+
+      // EVENT BLOCK
+      _type == "eventBlock" => {
+        title,
+        locationTitle,
+        eventImage {
+          caption,
+          alt,
+          asset->{ _id, url }
+        },
+        description,
+        timeAndDate {
+          date,
+          time
+        },
+        location,
+        details,
+        infoAndTickets
+      },
+
+      // FEATURED CONTENT
+      _type == "featuredContent" => {
+        selectedWorks[] {
+          workTitle,
+          workRoute,
+          selectedWorkImage {
+            caption,
+            alt,
+            asset->{ _id, url }
+          }
+        },
+        categories[] {
+          categoryName,
+          workRoute,
+          categoryImage {
+            caption,
+            alt,
+            asset->{ _id, url }
+          }
+        }
+      },
+
+      // HEADER MEDIA BLOCK
+      _type == "headerMedia" => {
+        title,
+        video {
+          asset-> {
+            playbackId,
+            assetId,
+            filename
+          }
+        },
+        image {
+          caption,
+          alt,
+          asset->{ _id, url }
+        }
+      },
+
+      // PRESS BLOCK
+      _type == "pressBlock" => {
+        pressSections[] {
+          typeOfPress,
+          pressImage {
+            caption,
+            alt,
+            asset->{ _id, url }
+          },
+          title,
+          description,
+          linkToPress
+        }
+      },
+
+      // CREDITS AND AWARDS BLOCK
+      _type == "creditsAndAwards" => {
+        credits[] {
+          roleInWork,
+          name
+        },
+        awards[] {
+          awardName,
+          awardedFrom
+        },
+        image {
+          caption,
+          alt,
+          asset->{ _id, url }
+          }
+      },
+
+      // IMAGE CAROUSEL BLOCK
+      _type == "imageCarousel" => {
+        title,
+        carouselImages[]{
+          "url": image.asset->url,
+          "alt": image.alt,
+          "caption": image.caption
+        }
+      },
+
+      // WORK HEADER MEDIA BLOCK
+      _type == "workHeaderMedia" => {
+        video {
+          asset-> {
+            playbackId,
+            assetId,
+            filename
+          }
+        },
+        image {
+          caption,
+          alt,
+          asset->{ _id, url }
+        }
+      },
+
+      // WORK INFORMATION BLOCK
+      _type == "workInformation" => {
+        title,
+        description,
+        workDetails {
+          role,
+          location,
+          year
+        }
+      },
+
+      // WORK LANDSCAPE MEDIA BLOCK
+      _type == "workLandscapeMedia" => {
+        title,
+        description,
+        video {
+          asset-> {
+            playbackId,
+            assetId,
+            filename
+          }
+        },
+        image {
+          caption,
+          alt,
+          asset->{ _id, url }
+        }
+      },
 
       _type == "doubleLandscape" => {
         title,
@@ -254,65 +426,6 @@ export const SINGLE_SELECTED_WORK_QUERY = defineQuery(`
       _type == "singlePortrait" => {
         title,
         image { alt, caption, asset->{ _id, url } }
-      },
-
-      _type == "workInformation" => {
-        title,
-        description,
-        workDetails {
-          role,
-          location,
-          year
-        }
-      },
-
-      _type == "creditsAndAwards" => {
-        credits[] {
-          roleInWork,
-          name
-        },
-        awards[] {
-          awardName,
-          awardedFrom
-        },
-        "imageUrl": image.asset->url,
-        image {
-          caption,
-          alt
-        }
-      },
-
-      _type == "imageCarousel" => {
-        title,
-        carouselImages[] {
-          carouselImage {
-            "imageUrl": image.asset->url,
-            image {
-              caption,
-              alt
-            }
-          }
-        }
-      },
-
-      _type == "workHeaderMedia" => {
-        "imageUrl": image.asset->url,
-        image {
-          caption,
-          alt
-        },
-        video
-      },
-
-      _type == "workLandscapeMedia" => {
-        title,
-        description,
-        video,
-        "imageUrl": image.asset->url,
-        image {
-          caption,
-          alt
-        }
       }
     }
   }
@@ -341,16 +454,11 @@ export const SINGLE_PAINTING_QUERY = defineQuery(`
     title,
     yearCreated,
     description,
-    galleryImages[] {
-      image {
-        alt,
-        caption,
-        asset->{
-          _id,
-          url
-        }
-      }
-    }
+    galleryImages[]{
+    "url": image.asset->url,
+    "alt": image.alt,
+    "caption": image.caption
+  }
   }
 `);
 

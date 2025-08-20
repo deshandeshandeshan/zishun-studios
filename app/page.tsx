@@ -7,8 +7,6 @@ export const revalidate = 5;
 export default async function Home() {
   const homeContent = await client.fetch(HOME_QUERY);
 
-  console.log(homeContent?.title);
-
   return homeContent?.content ? (
     <div className="home">
       <div>{homeContent.title}</div>
