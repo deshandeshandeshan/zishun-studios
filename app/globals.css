@@ -19,13 +19,6 @@ body {
   background-color: #f9f9f9;
 }
 
-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: rgb(0 0 0 / 0%);
-}
-
 h1,
 h2,
 h3 {
@@ -61,6 +54,10 @@ button {
   cursor: pointer;
 }
 
+.blend {
+  mix-blend-mode: difference;
+}
+
 .link {
   transition: all 0.2s ease-in-out;
 }
@@ -80,6 +77,10 @@ button {
 
 .text-black {
   color: #2d2a26;
+}
+
+.text-white {
+  color: white;
 }
 
 .text-grey {
@@ -164,7 +165,7 @@ button {
 .type-body {
   font-size: 12px;
   line-height: 14px;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .type-body-bold {
