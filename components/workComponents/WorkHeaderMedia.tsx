@@ -1,3 +1,5 @@
+"use client";
+
 import { urlFor } from "@/sanity/lib/image";
 import { HOME_QUERYResult } from "@/sanity/types";
 import MuxPlayerElement from "@mux/mux-player";

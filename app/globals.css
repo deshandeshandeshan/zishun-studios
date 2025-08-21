@@ -45,6 +45,19 @@ a:hover {
   transition: all 0.2s ease-in-out;
 }
 
+button {
+  margin: 0;
+  background-color: transparent;
+  font-family: inherit;
+  border: none;
+  padding: none;
+  cursor: pointer;
+}
+
+.blend {
+  mix-blend-mode: difference;
+}
+
 .link {
   transition: all 0.2s ease-in-out;
 }
@@ -64,6 +77,10 @@ a:hover {
 
 .text-black {
   color: #2d2a26;
+}
+
+.text-white {
+  color: white;
 }
 
 .text-grey {
@@ -135,6 +152,12 @@ a:hover {
 
 .type-sub {
   font-size: 14px;
+  line-height: 14px;
+  font-weight: 500;
+}
+
+.type-sub-bold {
+  font-size: 14px;
   line-height: 16px;
   font-weight: 600;
 }
@@ -142,7 +165,7 @@ a:hover {
 .type-body {
   font-size: 12px;
   line-height: 14px;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .type-body-bold {

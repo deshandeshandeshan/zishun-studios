@@ -6,9 +6,9 @@ export const featuredContentType = defineType({
   type: "object",
   fields: [
     defineField({
-      name: "selectedWorks",
+      name: "selectedProjects",
       type: "array",
-      title: "Selected Works",
+      title: "Selected Projects",
       validation: (rule) =>
         rule
           .min(1)
@@ -17,23 +17,24 @@ export const featuredContentType = defineType({
       of: [
         {
           type: "object",
-          name: "selectedWork",
-          title: "Selected Work",
+          name: "selectedProject",
+          title: "Selected Project",
           fields: [
             defineField({
-              name: "workTitle",
+              name: "projectTitle",
               type: "string",
-              title: "Work Title",
+              title: "Project Title",
             }),
             defineField({
-              name: "workRoute",
+              name: "projectRoute",
               type: "string",
-              title: "Work Route (Internal Link `/selected-work/work-title`)",
+              title:
+                "Project Route (Internal Link `/selected-work/work-title`)",
             }),
             defineField({
-              name: "selectedWorkImage",
+              name: "selectedProjectImage",
               type: "image",
-              title: "Selected Work Image",
+              title: "Selected Project Image",
               options: { hotspot: true },
               fields: [
                 defineField({
