@@ -6,3 +6,30 @@
   display: flex;
   gap: 4px;
 }
+
+@media screen and (min-width: 480px) {
+  .footer-details, .footer-socials, .footer-credits {
+  padding-bottom: 0;
+}
+
+  .footer {
+  display: grid;
+  column-gap: 16px;
+  grid-template-columns: repeat(24, 1fr);
+}
+
+.footer-details {
+  grid-column: 1 / 13;
+  grid-row: 1 / 2;
+}
+
+.footer-socials {
+  grid-column: 13 / 19;
+  grid-row: 1 / 2;
+}
+
+.footer-credits {
+  grid-column: 19 / 25;
+  grid-row: 1 / 2;
+}
+}

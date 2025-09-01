@@ -6,13 +6,13 @@ export default async function Footer() {
 
   return (
     <footer className="footer">
-      <div className="spacing-24">
+      <div className="footer-details spacing-24">
         <h3 className="type-body-bold">ZISHUN STUDIOS</h3>
         <a href={`mailto:${footerContent?.email}`} className="type-body">
           ZEDXU@GMAIL.COM
         </a>
       </div>
-      <div className="spacing-24">
+      <div className="footer-socials spacing-24">
         <h3 className="type-body-bold">SOCIALS</h3>
         <ul className="footer-social-links">
           {footerContent?.socialLinks?.map((socialLink, index) => {
@@ -30,7 +30,7 @@ export default async function Footer() {
           })}
         </ul>
       </div>
-      <div className="spacing-24">
+      <div className="footer-credits spacing-24">
         <h3 className="type-body-bold">SITE DESIGN & DEVELOPMENT</h3>
         <p className="type-body">{footerContent?.siteDesignAndDevelopment}</p>
       </div>
