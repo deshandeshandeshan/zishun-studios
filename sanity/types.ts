@@ -368,6 +368,7 @@ export type HeaderMedia = {
 
 export type FeaturedContent = {
   _type: "featuredContent";
+  title?: string;
   selectedProjects?: Array<{
     projectTitle?: string;
     projectRoute?: string;
@@ -412,6 +413,7 @@ export type FeaturedContent = {
 
 export type AboutBlock = {
   _type: "aboutBlock";
+  title?: string;
   description?: string;
   aboutBlockImage?: {
     asset?: {
@@ -562,7 +564,12 @@ export type SelectedWork = {
 };
 
 export type About = {
+  _id: string;
   _type: "about";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
   description?: string;
   aboutImage?: {
     asset?: {
@@ -865,6 +872,7 @@ export type HOME_QUERYResult = {
   content: Array<{
     _key: string;
     _type: "aboutBlock";
+    title?: string;
     description: string | null;
     aboutBlockImage: {
       caption: string | null;
@@ -957,6 +965,7 @@ export type HOME_QUERYResult = {
   } | {
     _key: string;
     _type: "featuredContent";
+    title?: string;
     selectedProjects: Array<{
       projectTitle: string | null;
       projectRoute: string | null;
@@ -1184,6 +1193,7 @@ export type SINGLE_SELECTED_WORK_QUERYResult = {
   content: Array<{
     _key: string;
     _type: "aboutBlock";
+    title?: string;
     description: string | null;
     aboutBlockImage: {
       caption: string | null;
@@ -1276,6 +1286,7 @@ export type SINGLE_SELECTED_WORK_QUERYResult = {
   } | {
     _key: string;
     _type: "featuredContent";
+    title?: string;
     selectedProjects: Array<{
       projectTitle: string | null;
       projectRoute: string | null;
@@ -1509,8 +1520,25 @@ export type SINGLE_PAINTING_QUERYResult = {
   }> | null;
 } | null;
 // Variable: ABOUT_QUERY
-// Query: *[_type == "about"][0] {    _id,    _createdAt,    title,    "slug": slug.current,    paintingImage {      alt,      asset->{        _id,        url      }    }  }
-export type ABOUT_QUERYResult = null;
+// Query: *[_type == "about"][0] {    _id,    _createdAt,    title,    description,    aboutImage {      alt,      asset->{        _id,        url      }    },    aboutSocialLinks[]{platform, url},    email  }
+export type ABOUT_QUERYResult = {
+  _id: string;
+  _createdAt: string;
+  title: string | null;
+  description: string | null;
+  aboutImage: {
+    alt: string | null;
+    asset: {
+      _id: string;
+      url: string | null;
+    } | null;
+  } | null;
+  aboutSocialLinks: Array<{
+    platform: string | null;
+    url: string | null;
+  }> | null;
+  email: string | null;
+} | null;
 // Variable: FOOTER_SETTINGS
 // Query: *[_type == "footerSettings"][0] {    _id,    _createdAt,    description,    email,    socialLinks[] {      platform,      url    },    siteDesignAndDevelopment  }
 export type FOOTER_SETTINGSResult = {
@@ -1534,7 +1562,7 @@ declare module "@sanity/client" {
     "\n  *[_type == \"selectedWork\" && slug.current == $slug][0] {\n    _id,\n    _createdAt,\n    content[] {\n      _key,\n      _type,\n      ...,\n\n      // ABOUT BLOCK\n      _type == \"aboutBlock\" => {\n        description,\n        aboutBlockImage {\n          caption,\n          alt,\n          asset->{ _id, url }\n        }\n      },\n\n      // EVENT BLOCK\n      _type == \"eventBlock\" => {\n        title,\n        locationTitle,\n        eventImage {\n          caption,\n          alt,\n          asset->{ _id, url }\n        },\n        description,\n        timeAndDate {\n          date,\n          time\n        },\n        location,\n        details,\n        infoAndTickets\n      },\n\n      // FEATURED CONTENT\n      _type == \"featuredContent\" => {\n        selectedProjects[] {\n          projectTitle,\n          projectRoute,\n          selectedProjectImage {\n            caption,\n            alt,\n            asset->{ _id, url }\n          }\n        },\n        categories[] {\n          categoryName,\n          workRoute,\n          categoryImage {\n            caption,\n            alt,\n            asset->{ _id, url }\n          }\n        }\n      },\n\n      // HEADER MEDIA BLOCK\n      _type == \"headerMedia\" => {\n        title,\n        video {\n          asset-> {\n            playbackId,\n            assetId,\n            filename\n          }\n        },\n        image {\n          caption,\n          alt,\n          asset->{ _id, url }\n        }\n      },\n\n      // PRESS BLOCK\n      _type == \"pressBlock\" => {\n        pressSections[] {\n          typeOfPress,\n          pressImage {\n            caption,\n            alt,\n            asset->{ _id, url }\n          },\n          title,\n          description,\n          linkToPress\n        }\n      },\n\n      // CREDITS AND AWARDS BLOCK\n      _type == \"creditsAndAwards\" => {\n        credits[] {\n          roleInWork,\n          name\n        },\n        awards[] {\n          awardName,\n          awardedFrom\n        },\n        image {\n          caption,\n          alt,\n          asset->{ _id, url }\n          }\n      },\n\n      // IMAGE CAROUSEL BLOCK\n      _type == \"imageCarousel\" => {\n        title,\n        carouselImages[]{\n          \"url\": image.asset->url,\n          \"alt\": image.alt,\n          \"caption\": image.caption\n        }\n      },\n\n      // WORK HEADER MEDIA BLOCK\n      _type == \"workHeaderMedia\" => {\n        video {\n          asset-> {\n            playbackId,\n            assetId,\n            filename\n          }\n        },\n        image {\n          caption,\n          alt,\n          asset->{ _id, url }\n        }\n      },\n\n      // WORK INFORMATION BLOCK\n      _type == \"workInformation\" => {\n        title,\n        description,\n        workDetails {\n          role,\n          location,\n          year\n        }\n      },\n\n      // WORK LANDSCAPE MEDIA BLOCK\n      _type == \"workLandscapeMedia\" => {\n        title,\n        description,\n        video {\n          asset-> {\n            playbackId,\n            assetId,\n            filename\n          }\n        },\n        image {\n          caption,\n          alt,\n          asset->{ _id, url }\n        }\n      },\n\n      _type == \"doubleLandscape\" => {\n        title,\n        leftImage { alt, caption, asset->{ _id, url } },\n        rightImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == \"doublePortrait\" => {\n        title,\n        leftImage { alt, caption, asset->{ _id, url } },\n        rightImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == \"largeImageLeft\" => {\n        title,\n        leftImage { alt, caption, asset->{ _id, url } },\n        rightImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == \"largeImageRight\" => {\n        title,\n        leftImage { alt, caption, asset->{ _id, url } },\n        rightImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == \"longImageRight\" => {\n        title,\n        leftImage { alt, caption, asset->{ _id, url } },\n        rightImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == \"singleLandscape\" => {\n        title,\n        image { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == \"singlePortrait\" => {\n        title,\n        image { alt, caption, asset->{ _id, url } }\n      }\n    }\n  }\n": SINGLE_SELECTED_WORK_QUERYResult;
     "\n  *[_type == \"painting\"] {\n    _id,\n    _createdAt,\n    title,\n    \"slug\": slug.current,\n    paintingImage {\n      alt,\n      asset->{\n        _id,\n        url\n      }\n    }\n  }\n": PAINTINGS_QUERYResult;
     "\n  *[_type == \"painting\" && slug.current == $slug][0] {\n    _id,\n    _createdAt,\n    title,\n    yearCreated,\n    description,\n    galleryImages[]{\n    \"url\": image.asset->url,\n    \"alt\": image.alt,\n    \"caption\": image.caption\n  }\n  }\n": SINGLE_PAINTING_QUERYResult;
-    "\n  *[_type == \"about\"][0] {\n    _id,\n    _createdAt,\n    title,\n    \"slug\": slug.current,\n    paintingImage {\n      alt,\n      asset->{\n        _id,\n        url\n      }\n    }\n  }\n": ABOUT_QUERYResult;
+    "\n  *[_type == \"about\"][0] {\n    _id,\n    _createdAt,\n    title,\n    description,\n    aboutImage {\n      alt,\n      asset->{\n        _id,\n        url\n      }\n    },\n    aboutSocialLinks[]{platform, url},\n    email\n  }\n": ABOUT_QUERYResult;
     "\n  *[_type == \"footerSettings\"][0] {\n    _id,\n    _createdAt,\n    description,\n    email,\n    socialLinks[] {\n      platform,\n      url\n    },\n    siteDesignAndDevelopment\n  }\n": FOOTER_SETTINGSResult;
   }
 }

@@ -19,13 +19,17 @@ export function AboutBlock({ description, aboutBlockImage }: aboutBlockProps) {
             alt={aboutBlockImage?.alt || "About Image"}
             width={2160}
             height={3840}
-            className="about-block-image spacing-12"
+            className="about-block-image"
           />
         )}
-        <p className="about-block-description spacing-16">{description}</p>
-        <Link href="/about" className="about-link text-red">
-          Learn more about Zishun Studios &rarr;
-        </Link>
+        <div className="about-block-text">
+          <p className="about-block-description spacing-16 type-body">
+            {description}
+          </p>
+          <Link href="/about" className="about-link text-red type-body">
+            Learn more about Zishun Studios &rarr;
+          </Link>
+        </div>
       </div>
     </section>
   );

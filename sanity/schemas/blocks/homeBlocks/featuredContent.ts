@@ -6,6 +6,11 @@ export const featuredContentType = defineType({
   type: "object",
   fields: [
     defineField({
+      name: "title",
+      title: "Module Title",
+      type: "string",
+    }),
+    defineField({
       name: "selectedProjects",
       type: "array",
       title: "Selected Projects",

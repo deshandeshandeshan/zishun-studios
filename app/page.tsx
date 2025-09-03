@@ -9,7 +9,6 @@ export default async function Home() {
 
   return homeContent?.content ? (
     <div className="home">
-      <div>{homeContent.title}</div>
       <PageBuilder content={homeContent.content} />
     </div>
   ) : null;

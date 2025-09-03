@@ -17,6 +17,8 @@ import { LongImageRight } from "./photographyComponents/LongImageRight";
 import { SingleLandscape } from "./photographyComponents/SingleLandscape";
 import { SinglePortrait } from "./photographyComponents/SinglePortrait";
 
+import "./PageBuilder.css";
+
 type PageBuilderBlock = NonNullable<
   NonNullable<HOME_QUERYResult>["content"]
 >[number];

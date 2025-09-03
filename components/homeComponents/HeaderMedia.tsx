@@ -35,7 +35,6 @@ export function HeaderMedia({ title, video, image }: headerMediaProps) {
   return (
     <section className="header-media">
       <div>
-        <h2>{title}</h2>
         <div className="header-media-content">
           {image?.asset?.url ? (
             <Image

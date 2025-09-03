@@ -1,11 +1,12 @@
 import { getFooterSettings } from "@/sanity/sanity.utils";
 import "./Footer.css";
+import "@/app/globals.css";
 
 export default async function Footer() {
   const footerContent = await getFooterSettings();
 
   return (
-    <footer className="footer">
+    <footer className="footer spacing-120-top mobile-padding">
       <div className="footer-details spacing-24">
         <h3 className="type-body-bold">ZISHUN STUDIOS</h3>
         <a href={`mailto:${footerContent?.email}`} className="type-body">

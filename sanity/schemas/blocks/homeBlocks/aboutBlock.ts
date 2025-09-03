@@ -6,6 +6,11 @@ export const aboutBlockType = defineType({
   type: "object",
   fields: [
     defineField({
+      name: "title",
+      title: "Module Title",
+      type: "string",
+    }),
+    defineField({
       name: "description",
       title: "Description",
       type: "text",
