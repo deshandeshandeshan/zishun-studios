@@ -1,0 +1,45 @@
+.selected-works-page {
+  padding: 50px 16px 0;
+}
+
+.selected-works-grid {
+  display: grid;
+  column-gap: 16px;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.selected-work-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+.selected-work-item {
+  grid-column: 1 / 7;
+}
+
+.selected-work-title {
+  margin-right: auto;
+}
+
+.selected-work-role {
+  padding-bottom: 6px;
+}
+
+@media screen and (min-width: 480px) {
+  .selected-works-page {
+    padding: 70px 120px 0;
+  }
+
+  .selected-works-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    column-gap: 120px;
+    row-gap: 120px;
+  }
+
+  .selected-work-item {
+    flex: 1 1 40%;
+  }
+}

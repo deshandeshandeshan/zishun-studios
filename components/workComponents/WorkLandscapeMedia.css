@@ -1,0 +1,14 @@
+.work-landscape-media-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.work-landscape-media-container {
+  width: 100%;
+  height: auto;
+}
+
+@media screen and (min-width: 480px) {
+}

@@ -79,12 +79,16 @@ button {
   color: #2d2a26;
 }
 
-.text-white {
-  color: white;
+.text-red {
+  color: #8d0505;
 }
 
 .text-grey {
   color: #9d9d9d;
+}
+
+.text-white {
+  color: white;
 }
 
 /* Background Colour*/
@@ -129,6 +133,10 @@ button {
 
 .spacing-120 {
   padding-bottom: 80px;
+}
+
+.spacing-120-top {
+  padding-top: 80px;
 }
 
 .caption-spacing {
@@ -219,6 +227,10 @@ button {
 
   .spacing-120 {
     padding-bottom: 120px;
+  }
+
+  .spacing-120-top {
+    padding-top: 120px;
   }
 
   /* Desktop Font Sizes */

@@ -24,7 +24,7 @@ export function LargeImageRight({
 
   return (
     <section className="large-image-right grid mobile-padding">
-      <div className="large-image-right-left-image">
+      <div className="lir-left-image spacing-32">
         {leftImage ? (
           <Image
             onClick={() =>
@@ -46,7 +46,7 @@ export function LargeImageRight({
           </div>
         )}
       </div>
-      <div className="large-image-right-right">
+      <div className="lir-right-image">
         {rightImage ? (
           <Image
             onClick={() =>

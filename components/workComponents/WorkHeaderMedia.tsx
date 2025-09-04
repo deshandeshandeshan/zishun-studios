@@ -7,6 +7,7 @@ import MuxPlayer from "@mux/mux-player-react";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
+import "./WorkHeaderMedia.css";
 
 type workHeaderMediaProps = Extract<
   NonNullable<NonNullable<HOME_QUERYResult>["content"]>[number],

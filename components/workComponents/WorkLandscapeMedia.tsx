@@ -7,6 +7,7 @@ import MuxPlayer from "@mux/mux-player-react";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
+import "./WorkLandscapeMedia.css";
 
 type workLandscapeMediaProps = Extract<
   NonNullable<NonNullable<HOME_QUERYResult>["content"]>[number],
@@ -36,9 +37,9 @@ export function WorkLandscapeMedia({
   const playerRef = useRef<MuxPlayerElement | null>(null);
 
   return (
-    <section className="work-landscape-media">
-      <div>
-        <h2 className="work-landscape-title">{title}</h2>
+    <section className="work-landscape-media mobile-padding">
+      <div className="work-landscape-media-container">
+        <h2 className="work-landscape-title type-sub">{title}</h2>
         {image?.asset?.url ? (
           <Image
             src={urlFor(image).url()}
@@ -63,7 +64,9 @@ export function WorkLandscapeMedia({
             />
           </div>
         ) : null}
-        <p className="work-landscape-description">{description}</p>
+        <p className="work-landscape-description type-body-bold">
+          {description}
+        </p>
       </div>
     </section>
   );

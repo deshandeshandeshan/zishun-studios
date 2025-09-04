@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 
 type ImageSliderProps = {
-  imageUrls: string[];
+  imageUrls: any[];
 };
 
 export function ImageSlider({ imageUrls }: ImageSliderProps) {

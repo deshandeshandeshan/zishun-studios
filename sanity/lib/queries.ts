@@ -467,14 +467,16 @@ export const ABOUT_QUERY = defineQuery(`
     _id,
     _createdAt,
     title,
-    "slug": slug.current,
-    paintingImage {
+    description,
+    aboutImage {
       alt,
       asset->{
         _id,
         url
       }
-    }
+    },
+    aboutSocialLinks[]{platform, url},
+    email
   }
 `);
 
