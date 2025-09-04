@@ -1,0 +1,47 @@
+.paintings-page {
+  padding: 50px 16px 0;
+}
+
+.painting-grid {
+  display: grid;
+  column-gap: 16px;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.painting-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.painting-item {
+  grid-column: 1 / 7;
+}
+
+.painting-info {
+  display: flex;
+  flex-direction: row;
+}
+
+.painting-title {
+  margin-right: auto;
+}
+
+@media screen and (min-width: 480px) {
+  .paintings-page {
+    padding: 70px 120px 0;
+  }
+
+  .painting-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    column-gap: 120px;
+    row-gap: 120px;
+  }
+
+  .painting-item {
+    flex: 1 1 40%;
+  }
+}
