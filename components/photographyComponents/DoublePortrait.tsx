@@ -21,7 +21,7 @@ export function DoublePortrait({ leftImage, rightImage }: doublePortraitProps) {
   } | null>(null);
 
   return (
-    <section className="double-portrait">
+    <section className="double-portrait mobile-padding">
       <div className="images grid">
         <div className="double-portrait-left-image">
           {leftImage ? (
