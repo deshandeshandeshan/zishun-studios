@@ -1,0 +1,39 @@
+.long-image-right-left-img,
+.long-image-right-right-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.long-image-right-left-img {
+  aspect-ratio: 1 / 1;
+}
+
+.long-image-right-right-img {
+  aspect-ratio: 1 / 2;
+}
+
+.long-image-right-left-image {
+  grid-column: 1 / 5;
+  grid-row: 2 / 3;
+}
+
+.long-image-right-right-image {
+  grid-column: 5 / 9;
+  grid-row: 1 / 2;
+  margin-bottom: 32px;
+}
+
+@media screen and (min-width: 480px) {
+  .long-image-right-left-image {
+    grid-column: 3 / 13;
+    grid-row: 1 / 2;
+    padding-top: 70%;
+  }
+
+  .long-image-right-right-image {
+    grid-column: 15 / 25;
+    grid-row: 1 / 2;
+    margin-bottom: 0;
+  }
+}
