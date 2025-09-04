@@ -19,7 +19,7 @@ export default async function About() {
               .quality(85)
               .url()}
             width={800}
-            height={1600}
+            height={800}
             alt={aboutInformation?.aboutImage.alt || ""}
             className="about-page-img"
             priority={false}
