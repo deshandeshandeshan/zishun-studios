@@ -6,14 +6,14 @@ export default async function Footer() {
   const footerContent = await getFooterSettings();
 
   return (
-    <footer className="footer spacing-120-top mobile-padding">
-      <div className="footer-details spacing-24">
+    <footer className="footer">
+      <div className="footer-details">
         <h3 className="type-body-bold">ZISHUN STUDIOS</h3>
         <a href={`mailto:${footerContent?.email}`} className="type-body">
           ZEDXU@GMAIL.COM
         </a>
       </div>
-      <div className="footer-socials spacing-24">
+      <div className="footer-socials">
         <h3 className="type-body-bold">SOCIALS</h3>
         <ul className="footer-social-links">
           {footerContent?.socialLinks?.map((socialLink, index) => {
@@ -31,7 +31,7 @@ export default async function Footer() {
           })}
         </ul>
       </div>
-      <div className="footer-credits spacing-24">
+      <div className="footer-credits">
         <h3 className="type-body-bold">SITE DESIGN & DEVELOPMENT</h3>
         <p className="type-body">{footerContent?.siteDesignAndDevelopment}</p>
       </div>

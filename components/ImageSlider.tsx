@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 
 type ImageSliderProps = {
-  imageUrls: any[];
+  imageUrls: string[];
 };
 
 export function ImageSlider({ imageUrls }: ImageSliderProps) {
@@ -26,14 +26,17 @@ export function ImageSlider({ imageUrls }: ImageSliderProps) {
   };
 
   return (
-    <div>
+    <div className="image-slider">
       <Image
         src={urlFor(imageUrls[imageIndex]).auto("format").quality(90).url()}
         alt={""}
         width={2160}
         height={3840}
-        className=""
+        className="slider-img"
       />
+      <div className="image-counter type-body">
+        &#91;{imageIndex + 1}/{imageUrls.length}&#93;
+      </div>
       <button onClick={showPrevImage}>&lt;</button>
       <button onClick={showNextImage}>&gt;</button>
     </div>

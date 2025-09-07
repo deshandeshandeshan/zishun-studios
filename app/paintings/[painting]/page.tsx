@@ -1,6 +1,7 @@
 import { ImageSlider } from "@/components/ImageSlider";
 import { getPainting } from "@/sanity/sanity.utils";
 import { notFound } from "next/navigation";
+import "./Painting.css";
 
 export const revalidate = 5;
 
@@ -27,15 +28,19 @@ export default async function Painting({ params }: Props) {
 
   return (
     <main>
-      <div>
-        <h2>{painting?.title}</h2>
-        <p>{painting?.yearCreated}</p>
-      </div>
-      <div>
-        <h3>DESCRIPTION</h3>
-        <p>{painting?.description}</p>
-      </div>
-      <div>
+      <div className="mobile-padding">
+        <h2 className="painting-page-title type-body-bold">
+          {painting?.title}
+        </h2>
+        <p className="painting-page-year-created type-body">
+          {painting?.yearCreated}
+        </p>
+        <h3 className="painting-page-description-header type-body-bold">
+          DESCRIPTION
+        </h3>
+        <p className="painting-page-description type-body">
+          {painting?.description}
+        </p>
         <ImageSlider imageUrls={imageUrls} />
       </div>
     </main>

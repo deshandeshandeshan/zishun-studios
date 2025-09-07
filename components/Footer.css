@@ -3,10 +3,18 @@
   gap: 4px;
 }
 
+.footer {
+  padding: 120px 16px 16px 16px;
+}
+
+.footer-socials,
+.footer-details {
+  padding-bottom: 16px;
+}
+
 @media screen and (min-width: 480px) {
-  .footer-details,
   .footer-socials,
-  .footer-credits {
+  .footer-details {
     padding-bottom: 0;
   }
 
