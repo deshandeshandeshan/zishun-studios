@@ -7,12 +7,19 @@ import { useState } from "react";
 import "@/components/Grid.css";
 import "@/app/paintings/[painting]/Painting.css";
 
-type ImageSliderProps = {
+type PaintingsImageSliderProps = {
   imageUrls: string[];
-  className?: string;
+  yearCreated?: string;
+  paintingDescription?: string;
+  paintingTitle?: string;
 };
 
-export function ImageSlider({ imageUrls, className }: ImageSliderProps) {
+export function PaintingsImageSlider({
+  imageUrls,
+  yearCreated,
+  paintingDescription,
+  paintingTitle,
+}: PaintingsImageSliderProps) {
   const [imageIndex, setImageIndex] = useState(0);
 
   const showPrevImage = () => {
@@ -30,14 +37,16 @@ export function ImageSlider({ imageUrls, className }: ImageSliderProps) {
   };
 
   return (
-    <div className={`image-slider ${className}`}>
-      <Image
-        src={urlFor(imageUrls[imageIndex]).auto("format").quality(90).url()}
-        alt={""}
-        width={2160}
-        height={3840}
-        className="slider-img"
-      />
+    <div className="image-slider mobile-padding grid">
+      <div className="psi-container">
+        <Image
+          src={urlFor(imageUrls[imageIndex]).auto("format").quality(90).url()}
+          alt={""}
+          width={2160}
+          height={3840}
+          className="slider-img"
+        />
+      </div>
       <div className="image-counter type-body">
         &#91;{imageIndex + 1}/{imageUrls.length}&#93;
       </div>
@@ -49,6 +58,14 @@ export function ImageSlider({ imageUrls, className }: ImageSliderProps) {
           &gt;
         </button>
       </div>
+      <h2 className="painting-page-title type-body-bold">{paintingTitle}</h2>
+      <p className="painting-page-year-created type-body">{yearCreated}</p>
+      <h3 className="painting-page-description-header type-body-bold">
+        DESCRIPTION
+      </h3>
+      <p className="painting-page-description type-body">
+        {paintingDescription}
+      </p>
     </div>
   );
 }

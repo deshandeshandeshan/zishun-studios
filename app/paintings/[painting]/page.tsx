@@ -1,7 +1,7 @@
-import { ImageSlider } from "@/components/ImageSlider";
 import { getPainting } from "@/sanity/sanity.utils";
 import { notFound } from "next/navigation";
 import "./Painting.css";
+import { PaintingsImageSlider } from "@/components/PaintingsImageSlider";
 
 export const revalidate = 5;
 
@@ -9,14 +9,15 @@ type Props = {
   params: Promise<{ painting: string }>;
 };
 
+interface GalleryImage {
+  url: string | null;
+  alt?: string | null;
+  caption?: string | null;
+}
+
 export default async function Painting({ params }: Props) {
   const { painting: slug } = await params;
   const painting = await getPainting(slug);
-  interface GalleryImage {
-    url: string | null;
-    alt?: string | null;
-    caption?: string | null;
-  }
 
   const imageUrls = (painting?.galleryImages ?? [])
     .map((g: GalleryImage) => g.url)
@@ -27,22 +28,13 @@ export default async function Painting({ params }: Props) {
   }
 
   return (
-    <main>
-      <div className="mobile-padding">
-        <h2 className="painting-page-title type-body-bold">
-          {painting?.title}
-        </h2>
-        <p className="painting-page-year-created type-body">
-          {painting?.yearCreated}
-        </p>
-        <h3 className="painting-page-description-header type-body-bold">
-          DESCRIPTION
-        </h3>
-        <p className="painting-page-description type-body">
-          {painting?.description}
-        </p>
-        <ImageSlider imageUrls={imageUrls} />
-      </div>
+    <main className="painting-page-container">
+      <PaintingsImageSlider
+        imageUrls={imageUrls}
+        yearCreated={painting.yearCreated ?? ""}
+        paintingTitle={painting.title ?? ""}
+        paintingDescription={painting.description ?? ""}
+      />
     </main>
   );
 }
