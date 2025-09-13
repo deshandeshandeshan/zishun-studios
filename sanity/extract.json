@@ -630,6 +630,13 @@
             "value": "pressBlock"
           }
         },
+        "title": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
         "pressSections": {
           "type": "objectAttribute",
           "value": {

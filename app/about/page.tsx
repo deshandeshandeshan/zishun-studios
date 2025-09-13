@@ -51,7 +51,7 @@ export default async function About() {
           </div>
         ))}
         {Array.isArray(aboutInformation.content) && (
-          <div>
+          <div className="about-page-builder spacing-120-top">
             <PageBuilder content={aboutInformation.content} />
           </div>
         )}

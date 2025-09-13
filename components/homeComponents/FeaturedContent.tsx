@@ -14,11 +14,13 @@ type featuredContentProps = Extract<
   { _type: "featuredContent" }
 >;
 
+type ProjectImage = { asset?: { url?: string | null } | null } | null;
+
 export function FeaturedContent({
   selectedProjects,
   categories,
 }: featuredContentProps) {
-  const getImageUrl = (img: any) => img?.asset?.url ?? "";
+  const getImageUrl = (img?: ProjectImage) => img?.asset?.url ?? "";
 
   const defaultProjectImage = selectedProjects?.[0]?.selectedProjectImage;
   const defaultCategoryImage = categories?.[0]?.categoryImage;
@@ -48,14 +50,14 @@ export function FeaturedContent({
       }
       return prev;
     });
-  }, [defaultImageSrc]);
+  }, [defaultImageSrc, selectedProjects, categories]);
 
   return (
     <section className="featured-content grid mobile-padding">
       <div className="fc-selections">
         <h3 className="type-body spacing-4">Selected Works</h3>
         <ul className="spacing-40">
-          {selectedProjects?.map((work: any, index: number) => {
+          {selectedProjects?.map((work, index) => {
             const url = getImageUrl(work.selectedProjectImage);
             const id = `project-${index}`;
             const key = work._key ?? id;
@@ -85,7 +87,7 @@ export function FeaturedContent({
 
         <h3 className="type-body spacing-4">Categories</h3>
         <ul>
-          {categories?.map((category: any, index: number) => {
+          {categories?.map((category, index: number) => {
             const url = getImageUrl(category.categoryImage);
             const id = `category-${index}`;
             const key = category._key ?? id;

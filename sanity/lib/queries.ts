@@ -41,6 +41,7 @@ export const HOME_QUERY = defineQuery(`
       // FEATURED CONTENT
       _type == "featuredContent" => {
         selectedProjects[] {
+          _key,
           projectTitle,
           projectRoute,
           selectedProjectImage {
@@ -50,6 +51,7 @@ export const HOME_QUERY = defineQuery(`
           }
         },
         categories[] {
+          _key,
           categoryName,
           workRoute,
           categoryImage {
@@ -259,6 +261,7 @@ export const SINGLE_PERFORMANCE_QUERY = defineQuery(`
       // FEATURED CONTENT
       _type == "featuredContent" => {
         selectedProjects[] {
+          _key,
           projectTitle,
           projectRoute,
           selectedProjectImage {
@@ -268,6 +271,7 @@ export const SINGLE_PERFORMANCE_QUERY = defineQuery(`
           }
         },
         categories[] {
+          _key,
           categoryName,
           workRoute,
           categoryImage {
@@ -477,6 +481,7 @@ export const SINGLE_FILM_QUERY = defineQuery(`
       // FEATURED CONTENT
       _type == "featuredContent" => {
         selectedProjects[] {
+          _key,
           projectTitle,
           projectRoute,
           selectedProjectImage {
@@ -486,6 +491,7 @@ export const SINGLE_FILM_QUERY = defineQuery(`
           }
         },
         categories[] {
+          _key,
           categoryName,
           workRoute,
           categoryImage {
@@ -681,7 +687,10 @@ export const ABOUT_QUERY = defineQuery(`
         url
       }
     },
-    aboutSocialLinks[]{platform, url},
+    aboutSocialLinks[] {
+      platform,
+      url
+    },
     email,
     content[] {
       _key,
@@ -720,6 +729,7 @@ export const ABOUT_QUERY = defineQuery(`
       // FEATURED CONTENT
       _type == "featuredContent" => {
         selectedProjects[] {
+          _key,
           projectTitle,
           projectRoute,
           selectedProjectImage {
@@ -729,6 +739,7 @@ export const ABOUT_QUERY = defineQuery(`
           }
         },
         categories[] {
+          _key,
           categoryName,
           workRoute,
           categoryImage {
