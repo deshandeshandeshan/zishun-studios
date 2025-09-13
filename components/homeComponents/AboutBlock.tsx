@@ -23,10 +23,10 @@ export function AboutBlock({ description, aboutBlockImage }: aboutBlockProps) {
           />
         )}
         <div className="about-block-text">
-          <p className="about-block-description spacing-16 type-body">
+          <p className="about-block-description spacing-16 type-sub">
             {description}
           </p>
-          <Link href="/about" className="about-link text-red type-body">
+          <Link href="/about" className="about-link text-red type-sub">
             Learn more about Zishun Studios &rarr;
           </Link>
         </div>

@@ -13,7 +13,6 @@ export const pageBuilderType = defineType({
     defineArrayMember({ type: "largeImageRight" }),
     defineArrayMember({ type: "singleLandscape" }),
     defineArrayMember({ type: "singlePortrait" }),
-    defineArrayMember({ type: "longImageRight" }),
     defineArrayMember({ type: "creditsAndAwards" }),
     defineArrayMember({ type: "imageCarousel" }),
     defineArrayMember({ type: "workInformation" }),

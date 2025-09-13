@@ -188,12 +188,6 @@ export const HOME_QUERY = defineQuery(`
         rightImage { alt, caption, asset->{ _id, url } }
       },
 
-      _type == "longImageRight" => {
-        title,
-        leftImage { alt, caption, asset->{ _id, url } },
-        rightImage { alt, caption, asset->{ _id, url } }
-      },
-
       _type == "singleLandscape" => {
         title,
         image { alt, caption, asset->{ _id, url } }
@@ -407,12 +401,6 @@ export const SINGLE_SELECTED_WORK_QUERY = defineQuery(`
       },
 
       _type == "largeImageRight" => {
-        title,
-        leftImage { alt, caption, asset->{ _id, url } },
-        rightImage { alt, caption, asset->{ _id, url } }
-      },
-
-      _type == "longImageRight" => {
         title,
         leftImage { alt, caption, asset->{ _id, url } },
         rightImage { alt, caption, asset->{ _id, url } }

@@ -10,22 +10,18 @@ export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="blend">
-      <nav className="nav mobile-padding ">
+    <header className="nav-container">
+      <nav className="nav mobile-padding nav-fade">
         <div className="nav-content">
-          <div className="nav-header">
-            <h1 className="nav-title text-white type-body-bold">
-              ZISHUN STUDIOS
-            </h1>
-            <p className="nav-sub-heading text-white type-body">
+          <div className="nav-header text-black">
+            <h1 className="nav-title type-body-bold">ZISHUN STUDIOS</h1>
+            <p className="nav-sub-heading type-body">
               BY MIGRANT MULTIDISCIPLINARY ARTIST ZED 榛子瞬 XU
             </p>
           </div>
-          <div className="nav-links-container">
-            <h2 className="nav-links-heading type-body-bold text-white">
-              NAVIGATION
-            </h2>
-            <ul className="nav-links type-body text-white">
+          <div className="nav-links-container text-black">
+            <h2 className="nav-links-heading type-body-bold">NAVIGATION</h2>
+            <ul className="nav-links type-body">
               <li className="nav-link">
                 <Link href="/">HOME,</Link>
               </li>

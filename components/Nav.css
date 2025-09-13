@@ -6,14 +6,22 @@
 
 .nav {
   position: fixed;
-  top: 16px;
+  top: 0;
   left: 0;
   right: 0;
-  background: transparent;
+  padding-block: 16px;
+  z-index: 50;
+}
+
+.nav-fade {
+  background-image: linear-gradient(#efede9, transparent);
+  background-position: top;
+  background-repeat: no-repeat;
 }
 
 .nav-content {
   display: flex;
+  padding: 16px 0;
 }
 
 .menu-button {
