@@ -13,7 +13,6 @@ import { DoubleLandscape } from "./photographyComponents/DoubleLandscape";
 import { DoublePortrait } from "./photographyComponents/DoublePortrait";
 import { LargeImageLeft } from "./photographyComponents/LargeImageLeft";
 import { LargeImageRight } from "./photographyComponents/LargeImageRight";
-import { LongImageRight } from "./photographyComponents/LongImageRight";
 import { SingleLandscape } from "./photographyComponents/SingleLandscape";
 import { SinglePortrait } from "./photographyComponents/SinglePortrait";
 
@@ -66,8 +65,6 @@ export function PageBuilder({
             return <LargeImageLeft key={block._key} {...block} />;
           case "largeImageRight":
             return <LargeImageRight key={block._key} {...block} />;
-          case "longImageRight":
-            return <LongImageRight key={block._key} {...block} />;
           case "singleLandscape":
             return <SingleLandscape key={block._key} {...block} />;
           case "singlePortrait":

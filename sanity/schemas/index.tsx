@@ -9,7 +9,6 @@ import { doubleLandscapeType } from "./blocks/photographyBlocks/doubleLandscape"
 import { doublePortraitType } from "./blocks/photographyBlocks/doublePortrait";
 import { largeImageLeftType } from "./blocks/photographyBlocks/largeImageLeft";
 import { largeImageRightType } from "./blocks/photographyBlocks/largeImageRight";
-import { longImageRightType } from "./blocks/photographyBlocks/longImageRight";
 import { singleLandscapeType } from "./blocks/photographyBlocks/singleLandscape";
 import { singlePortraitType } from "./blocks/photographyBlocks/singlePortrait";
 import { pressBlockType } from "./blocks/pressBlocks/pressBlock";
@@ -19,9 +18,10 @@ import { workHeaderMediaType } from "./blocks/workBlocks/workHeaderMedia";
 import { workInformationType } from "./blocks/workBlocks/workInformation";
 import { workLandscapeMediaType } from "./blocks/workBlocks/workLandscapeMedia";
 import { aboutType } from "./about";
-import { selectedWorkType } from "./selectedWork";
+import { filmType } from "./film";
 import { paintingType } from "./painting";
 import { homeType } from "./home";
+import { performanceType } from "./performance";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -29,8 +29,9 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     pageBuilderType,
     footerSettingsType,
     aboutType,
-    selectedWorkType,
+    filmType,
     paintingType,
+    performanceType,
 
     eventBlockType,
     aboutBlockType,
@@ -40,7 +41,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     doublePortraitType,
     largeImageLeftType,
     largeImageRightType,
-    longImageRightType,
     singleLandscapeType,
     singlePortraitType,
     pressBlockType,

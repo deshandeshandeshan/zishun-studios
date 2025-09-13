@@ -54,6 +54,13 @@ button {
   cursor: pointer;
 }
 
+.site {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: minmax(0, 1fr);
+}
+
 .blend {
   mix-blend-mode: difference;
 }
@@ -88,7 +95,7 @@ button {
 }
 
 .text-white {
-  color: white;
+  color: #efede9;
 }
 
 /* Background Colour*/

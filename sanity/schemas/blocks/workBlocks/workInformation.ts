@@ -1,4 +1,5 @@
 import { defineField, defineType } from "sanity";
+import { BlockContentIcon } from "@sanity/icons";
 
 export const workInformationType = defineType({
   name: "workInformation",
@@ -40,4 +41,18 @@ export const workInformationType = defineType({
       ],
     }),
   ],
+  icon: BlockContentIcon,
+  preview: {
+    select: {
+      title: "title",
+      media: "image",
+    },
+    prepare({ title, media }) {
+      return {
+        title: title,
+        subtitle: "Work Information",
+        media: media ?? BlockContentIcon,
+      };
+    },
+  },
 });
