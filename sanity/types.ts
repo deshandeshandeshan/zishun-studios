@@ -120,6 +120,7 @@ export type CreditsAndAwards = {
 
 export type PressBlock = {
   _type: "pressBlock";
+  title?: string;
   pressSections?: Array<{
     typeOfPress?: string;
     pressImage?: {
@@ -616,6 +617,39 @@ export type About = {
     _type: "socialLink";
     _key: string;
   }>;
+  content?: Array<{
+    _key: string;
+  } & AboutBlock | {
+    _key: string;
+  } & FeaturedContent | {
+    _key: string;
+  } & HeaderMedia | {
+    _key: string;
+  } & DoubleLandscape | {
+    _key: string;
+  } & DoublePortrait | {
+    _key: string;
+  } & LargeImageLeft | {
+    _key: string;
+  } & LargeImageRight | {
+    _key: string;
+  } & SingleLandscape | {
+    _key: string;
+  } & SinglePortrait | {
+    _key: string;
+  } & CreditsAndAwards | {
+    _key: string;
+  } & ImageCarousel | {
+    _key: string;
+  } & WorkInformation | {
+    _key: string;
+  } & WorkHeaderMedia | {
+    _key: string;
+  } & WorkLandscapeMedia | {
+    _key: string;
+  } & EventBlock | {
+    _key: string;
+  } & PressBlock>;
 };
 
 export type FooterSettings = {
@@ -887,7 +921,7 @@ export type AllSanitySchemaTypes = WorkLandscapeMedia | WorkInformation | WorkHe
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: sanity/lib/queries.ts
 // Variable: HOME_QUERY
-// Query: *[_type == "home"][0] {    _id,    _createdAt,    content[] {      _key,      _type,      ...,      // ABOUT BLOCK      _type == "aboutBlock" => {        description,        aboutBlockImage {          caption,          alt,          asset->{ _id, url }        }      },      // EVENT BLOCK      _type == "eventBlock" => {        title,        locationTitle,        eventImage {          caption,          alt,          asset->{ _id, url }        },        description,        timeAndDate {          date,          time        },        location,        details,        infoAndTickets      },      // FEATURED CONTENT      _type == "featuredContent" => {        selectedProjects[] {          projectTitle,          projectRoute,          selectedProjectImage {            caption,            alt,            asset->{ _id, url }          }        },        categories[] {          categoryName,          workRoute,          categoryImage {            caption,            alt,            asset->{ _id, url }          }        }      },      // HEADER MEDIA BLOCK      _type == "headerMedia" => {        title,        video {          asset-> {            playbackId,            assetId,            filename          }        },        image {          caption,          alt,          asset->{ _id, url }        }      },      // PRESS BLOCK      _type == "pressBlock" => {        pressSections[] {          typeOfPress,          pressImage {            caption,            alt,            asset->{ _id, url }          },          title,          description,          linkToPress        }      },      // CREDITS AND AWARDS BLOCK      _type == "creditsAndAwards" => {        credits[] {          roleInWork,          name        },        awards[] {          awardName,          awardedFrom        },        image {          caption,          alt,          asset->{ _id, url }          }      },      // IMAGE CAROUSEL BLOCK      _type == "imageCarousel" => {        title,        carouselImages[]{          "url": image.asset->url,          "alt": image.alt,          "caption": image.caption        }      },      // WORK HEADER MEDIA BLOCK      _type == "workHeaderMedia" => {        video {          asset-> {            playbackId,            assetId,            filename          }        },        image {          caption,          alt,          asset->{ _id, url }        }      },      // WORK INFORMATION BLOCK      _type == "workInformation" => {        title,        description,        workDetails {          role,          location,          year        }      },      // WORK LANDSCAPE MEDIA BLOCK      _type == "workLandscapeMedia" => {        title,        description,        video {          asset-> {            playbackId,            assetId,            filename          }        },        image {          caption,          alt,          asset->{ _id, url }        }      },      _type == "doubleLandscape" => {        title,        leftImage { alt, caption, asset->{ _id, url } },        rightImage { alt, caption, asset->{ _id, url } }      },      _type == "doublePortrait" => {        title,        leftImage { alt, caption, asset->{ _id, url } },        rightImage { alt, caption, asset->{ _id, url } }      },      _type == "largeImageLeft" => {        title,        leftImage { alt, caption, asset->{ _id, url } },        rightImage { alt, caption, asset->{ _id, url } }      },      _type == "largeImageRight" => {        title,        leftImage { alt, caption, asset->{ _id, url } },        rightImage { alt, caption, asset->{ _id, url } }      },      _type == "singleLandscape" => {        title,        image { alt, caption, asset->{ _id, url } }      },      _type == "singlePortrait" => {        title,        image { alt, caption, asset->{ _id, url } }      }    }  }
+// Query: *[_type == "home"][0] {    _id,    _createdAt,    content[] {      _key,      _type,      ...,      // ABOUT BLOCK      _type == "aboutBlock" => {        description,        aboutBlockImage {          caption,          alt,          asset->{ _id, url }        }      },      // EVENT BLOCK      _type == "eventBlock" => {        title,        locationTitle,        eventImage {          caption,          alt,          asset->{ _id, url }        },        description,        timeAndDate {          date,          time        },        location,        details,        infoAndTickets      },      // FEATURED CONTENT      _type == "featuredContent" => {        selectedProjects[] {          _key,          projectTitle,          projectRoute,          selectedProjectImage {            caption,            alt,            asset->{ _id, url }          }        },        categories[] {          _key,          categoryName,          workRoute,          categoryImage {            caption,            alt,            asset->{ _id, url }          }        }      },      // HEADER MEDIA BLOCK      _type == "headerMedia" => {        title,        video {          asset-> {            playbackId,            assetId,            filename          }        },        image {          caption,          alt,          asset->{ _id, url }        }      },      // PRESS BLOCK      _type == "pressBlock" => {        pressSections[] {          typeOfPress,          pressImage {            caption,            alt,            asset->{ _id, url }          },          title,          description,          linkToPress        }      },      // CREDITS AND AWARDS BLOCK      _type == "creditsAndAwards" => {        credits[] {          roleInWork,          name        },        awards[] {          awardName,          awardedFrom        },        image {          caption,          alt,          asset->{ _id, url }          }      },      // IMAGE CAROUSEL BLOCK      _type == "imageCarousel" => {        title,        carouselImages[]{          "url": image.asset->url,          "alt": image.alt,          "caption": image.caption        }      },      // WORK HEADER MEDIA BLOCK      _type == "workHeaderMedia" => {        video {          asset-> {            playbackId,            assetId,            filename          }        },        image {          caption,          alt,          asset->{ _id, url }        }      },      // WORK INFORMATION BLOCK      _type == "workInformation" => {        title,        description,        workDetails {          role,          location,          year        }      },      // WORK LANDSCAPE MEDIA BLOCK      _type == "workLandscapeMedia" => {        title,        description,        video {          asset-> {            playbackId,            assetId,            filename          }        },        image {          caption,          alt,          asset->{ _id, url }        }      },      _type == "doubleLandscape" => {        title,        leftImage { alt, caption, asset->{ _id, url } },        rightImage { alt, caption, asset->{ _id, url } }      },      _type == "doublePortrait" => {        title,        leftImage { alt, caption, asset->{ _id, url } },        rightImage { alt, caption, asset->{ _id, url } }      },      _type == "largeImageLeft" => {        title,        leftImage { alt, caption, asset->{ _id, url } },        rightImage { alt, caption, asset->{ _id, url } }      },      _type == "largeImageRight" => {        title,        leftImage { alt, caption, asset->{ _id, url } },        rightImage { alt, caption, asset->{ _id, url } }      },      _type == "singleLandscape" => {        title,        image { alt, caption, asset->{ _id, url } }      },      _type == "singlePortrait" => {        title,        image { alt, caption, asset->{ _id, url } }      }    }  }
 export type HOME_QUERYResult = {
   _id: string;
   _createdAt: string;
@@ -989,6 +1023,7 @@ export type HOME_QUERYResult = {
     _type: "featuredContent";
     title?: string;
     selectedProjects: Array<{
+      _key: string;
       projectTitle: string | null;
       projectRoute: string | null;
       selectedProjectImage: {
@@ -1001,6 +1036,7 @@ export type HOME_QUERYResult = {
       } | null;
     }> | null;
     categories: Array<{
+      _key: string;
       categoryName: string | null;
       workRoute: string | null;
       categoryImage: {
@@ -1083,6 +1119,7 @@ export type HOME_QUERYResult = {
   } | {
     _key: string;
     _type: "pressBlock";
+    title?: string;
     pressSections: Array<{
       typeOfPress: string | null;
       pressImage: {
@@ -1188,7 +1225,7 @@ export type PERFORMANCE_QUERYResult = Array<{
   } | null;
 }>;
 // Variable: SINGLE_PERFORMANCE_QUERY
-// Query: *[_type == "performance" && slug.current == $slug][0] {    _id,    _createdAt,    content[] {      _key,      _type,      ...,      // ABOUT BLOCK      _type == "aboutBlock" => {        description,        aboutBlockImage {          caption,          alt,          asset->{ _id, url }        }      },      // EVENT BLOCK      _type == "eventBlock" => {        title,        locationTitle,        eventImage {          caption,          alt,          asset->{ _id, url }        },        description,        timeAndDate {          date,          time        },        location,        details,        infoAndTickets      },      // FEATURED CONTENT      _type == "featuredContent" => {        selectedProjects[] {          projectTitle,          projectRoute,          selectedProjectImage {            caption,            alt,            asset->{ _id, url }          }        },        categories[] {          categoryName,          workRoute,          categoryImage {            caption,            alt,            asset->{ _id, url }          }        }      },      // HEADER MEDIA BLOCK      _type == "headerMedia" => {        title,        video {          asset-> {            playbackId,            assetId,            filename          }        },        image {          caption,          alt,          asset->{ _id, url }        }      },      // PRESS BLOCK      _type == "pressBlock" => {        pressSections[] {          typeOfPress,          pressImage {            caption,            alt,            asset->{ _id, url }          },          title,          description,          linkToPress        }      },      // CREDITS AND AWARDS BLOCK      _type == "creditsAndAwards" => {        credits[] {          roleInWork,          name        },        awards[] {          awardName,          awardedFrom        },        image {          caption,          alt,          asset->{ _id, url }          }      },      // IMAGE CAROUSEL BLOCK      _type == "imageCarousel" => {        title,        carouselImages[]{          "url": image.asset->url,          "alt": image.alt,          "caption": image.caption        }      },      // WORK HEADER MEDIA BLOCK      _type == "workHeaderMedia" => {        video {          asset-> {            playbackId,            assetId,            filename          }        },        image {          caption,          alt,          asset->{ _id, url }        }      },      // WORK INFORMATION BLOCK      _type == "workInformation" => {        title,        description,        workDetails {          role,          location,          year        }      },      // WORK LANDSCAPE MEDIA BLOCK      _type == "workLandscapeMedia" => {        title,        description,        video {          asset-> {            playbackId,            assetId,            filename          }        },        image {          caption,          alt,          asset->{ _id, url }        }      },      _type == "doubleLandscape" => {        title,        leftImage { alt, caption, asset->{ _id, url } },        rightImage { alt, caption, asset->{ _id, url } }      },      _type == "doublePortrait" => {        title,        leftImage { alt, caption, asset->{ _id, url } },        rightImage { alt, caption, asset->{ _id, url } }      },      _type == "largeImageLeft" => {        title,        leftImage { alt, caption, asset->{ _id, url } },        rightImage { alt, caption, asset->{ _id, url } }      },      _type == "largeImageRight" => {        title,        leftImage { alt, caption, asset->{ _id, url } },        rightImage { alt, caption, asset->{ _id, url } }      },      _type == "singleLandscape" => {        title,        image { alt, caption, asset->{ _id, url } }      },      _type == "singlePortrait" => {        title,        image { alt, caption, asset->{ _id, url } }      }    }  }
+// Query: *[_type == "performance" && slug.current == $slug][0] {    _id,    _createdAt,    content[] {      _key,      _type,      ...,      // ABOUT BLOCK      _type == "aboutBlock" => {        description,        aboutBlockImage {          caption,          alt,          asset->{ _id, url }        }      },      // EVENT BLOCK      _type == "eventBlock" => {        title,        locationTitle,        eventImage {          caption,          alt,          asset->{ _id, url }        },        description,        timeAndDate {          date,          time        },        location,        details,        infoAndTickets      },      // FEATURED CONTENT      _type == "featuredContent" => {        selectedProjects[] {          _key,          projectTitle,          projectRoute,          selectedProjectImage {            caption,            alt,            asset->{ _id, url }          }        },        categories[] {          _key,          categoryName,          workRoute,          categoryImage {            caption,            alt,            asset->{ _id, url }          }        }      },      // HEADER MEDIA BLOCK      _type == "headerMedia" => {        title,        video {          asset-> {            playbackId,            assetId,            filename          }        },        image {          caption,          alt,          asset->{ _id, url }        }      },      // PRESS BLOCK      _type == "pressBlock" => {        pressSections[] {          typeOfPress,          pressImage {            caption,            alt,            asset->{ _id, url }          },          title,          description,          linkToPress        }      },      // CREDITS AND AWARDS BLOCK      _type == "creditsAndAwards" => {        credits[] {          roleInWork,          name        },        awards[] {          awardName,          awardedFrom        },        image {          caption,          alt,          asset->{ _id, url }          }      },      // IMAGE CAROUSEL BLOCK      _type == "imageCarousel" => {        title,        carouselImages[]{          "url": image.asset->url,          "alt": image.alt,          "caption": image.caption        }      },      // WORK HEADER MEDIA BLOCK      _type == "workHeaderMedia" => {        video {          asset-> {            playbackId,            assetId,            filename          }        },        image {          caption,          alt,          asset->{ _id, url }        }      },      // WORK INFORMATION BLOCK      _type == "workInformation" => {        title,        description,        workDetails {          role,          location,          year        }      },      // WORK LANDSCAPE MEDIA BLOCK      _type == "workLandscapeMedia" => {        title,        description,        video {          asset-> {            playbackId,            assetId,            filename          }        },        image {          caption,          alt,          asset->{ _id, url }        }      },      _type == "doubleLandscape" => {        title,        leftImage { alt, caption, asset->{ _id, url } },        rightImage { alt, caption, asset->{ _id, url } }      },      _type == "doublePortrait" => {        title,        leftImage { alt, caption, asset->{ _id, url } },        rightImage { alt, caption, asset->{ _id, url } }      },      _type == "largeImageLeft" => {        title,        leftImage { alt, caption, asset->{ _id, url } },        rightImage { alt, caption, asset->{ _id, url } }      },      _type == "largeImageRight" => {        title,        leftImage { alt, caption, asset->{ _id, url } },        rightImage { alt, caption, asset->{ _id, url } }      },      _type == "singleLandscape" => {        title,        image { alt, caption, asset->{ _id, url } }      },      _type == "singlePortrait" => {        title,        image { alt, caption, asset->{ _id, url } }      }    }  }
 export type SINGLE_PERFORMANCE_QUERYResult = {
   _id: string;
   _createdAt: string;
@@ -1290,6 +1327,7 @@ export type SINGLE_PERFORMANCE_QUERYResult = {
     _type: "featuredContent";
     title?: string;
     selectedProjects: Array<{
+      _key: string;
       projectTitle: string | null;
       projectRoute: string | null;
       selectedProjectImage: {
@@ -1302,6 +1340,7 @@ export type SINGLE_PERFORMANCE_QUERYResult = {
       } | null;
     }> | null;
     categories: Array<{
+      _key: string;
       categoryName: string | null;
       workRoute: string | null;
       categoryImage: {
@@ -1384,6 +1423,7 @@ export type SINGLE_PERFORMANCE_QUERYResult = {
   } | {
     _key: string;
     _type: "pressBlock";
+    title?: string;
     pressSections: Array<{
       typeOfPress: string | null;
       pressImage: {
@@ -1489,7 +1529,7 @@ export type FILM_QUERYResult = Array<{
   } | null;
 }>;
 // Variable: SINGLE_FILM_QUERY
-// Query: *[_type == "film" && slug.current == $slug][0] {    _id,    _createdAt,    content[] {      _key,      _type,      ...,      // ABOUT BLOCK      _type == "aboutBlock" => {        description,        aboutBlockImage {          caption,          alt,          asset->{ _id, url }        }      },      // EVENT BLOCK      _type == "eventBlock" => {        title,        locationTitle,        eventImage {          caption,          alt,          asset->{ _id, url }        },        description,        timeAndDate {          date,          time        },        location,        details,        infoAndTickets      },      // FEATURED CONTENT      _type == "featuredContent" => {        selectedProjects[] {          projectTitle,          projectRoute,          selectedProjectImage {            caption,            alt,            asset->{ _id, url }          }        },        categories[] {          categoryName,          workRoute,          categoryImage {            caption,            alt,            asset->{ _id, url }          }        }      },      // HEADER MEDIA BLOCK      _type == "headerMedia" => {        title,        video {          asset-> {            playbackId,            assetId,            filename          }        },        image {          caption,          alt,          asset->{ _id, url }        }      },      // PRESS BLOCK      _type == "pressBlock" => {        pressSections[] {          typeOfPress,          pressImage {            caption,            alt,            asset->{ _id, url }          },          title,          description,          linkToPress        }      },      // CREDITS AND AWARDS BLOCK      _type == "creditsAndAwards" => {        credits[] {          roleInWork,          name        },        awards[] {          awardName,          awardedFrom        },        image {          caption,          alt,          asset->{ _id, url }          }      },      // IMAGE CAROUSEL BLOCK      _type == "imageCarousel" => {        title,        carouselImages[]{          "url": image.asset->url,          "alt": image.alt,          "caption": image.caption        }      },      // WORK HEADER MEDIA BLOCK      _type == "workHeaderMedia" => {        video {          asset-> {            playbackId,            assetId,            filename          }        },        image {          caption,          alt,          asset->{ _id, url }        }      },      // WORK INFORMATION BLOCK      _type == "workInformation" => {        title,        description,        workDetails {          role,          location,          year        }      },      // WORK LANDSCAPE MEDIA BLOCK      _type == "workLandscapeMedia" => {        title,        description,        video {          asset-> {            playbackId,            assetId,            filename          }        },        image {          caption,          alt,          asset->{ _id, url }        }      },      _type == "doubleLandscape" => {        title,        leftImage { alt, caption, asset->{ _id, url } },        rightImage { alt, caption, asset->{ _id, url } }      },      _type == "doublePortrait" => {        title,        leftImage { alt, caption, asset->{ _id, url } },        rightImage { alt, caption, asset->{ _id, url } }      },      _type == "largeImageLeft" => {        title,        leftImage { alt, caption, asset->{ _id, url } },        rightImage { alt, caption, asset->{ _id, url } }      },      _type == "largeImageRight" => {        title,        leftImage { alt, caption, asset->{ _id, url } },        rightImage { alt, caption, asset->{ _id, url } }      },      _type == "singleLandscape" => {        title,        image { alt, caption, asset->{ _id, url } }      },      _type == "singlePortrait" => {        title,        image { alt, caption, asset->{ _id, url } }      }    }  }
+// Query: *[_type == "film" && slug.current == $slug][0] {    _id,    _createdAt,    content[] {      _key,      _type,      ...,      // ABOUT BLOCK      _type == "aboutBlock" => {        description,        aboutBlockImage {          caption,          alt,          asset->{ _id, url }        }      },      // EVENT BLOCK      _type == "eventBlock" => {        title,        locationTitle,        eventImage {          caption,          alt,          asset->{ _id, url }        },        description,        timeAndDate {          date,          time        },        location,        details,        infoAndTickets      },      // FEATURED CONTENT      _type == "featuredContent" => {        selectedProjects[] {          _key,          projectTitle,          projectRoute,          selectedProjectImage {            caption,            alt,            asset->{ _id, url }          }        },        categories[] {          _key,          categoryName,          workRoute,          categoryImage {            caption,            alt,            asset->{ _id, url }          }        }      },      // HEADER MEDIA BLOCK      _type == "headerMedia" => {        title,        video {          asset-> {            playbackId,            assetId,            filename          }        },        image {          caption,          alt,          asset->{ _id, url }        }      },      // PRESS BLOCK      _type == "pressBlock" => {        pressSections[] {          typeOfPress,          pressImage {            caption,            alt,            asset->{ _id, url }          },          title,          description,          linkToPress        }      },      // CREDITS AND AWARDS BLOCK      _type == "creditsAndAwards" => {        credits[] {          roleInWork,          name        },        awards[] {          awardName,          awardedFrom        },        image {          caption,          alt,          asset->{ _id, url }          }      },      // IMAGE CAROUSEL BLOCK      _type == "imageCarousel" => {        title,        carouselImages[]{          "url": image.asset->url,          "alt": image.alt,          "caption": image.caption        }      },      // WORK HEADER MEDIA BLOCK      _type == "workHeaderMedia" => {        video {          asset-> {            playbackId,            assetId,            filename          }        },        image {          caption,          alt,          asset->{ _id, url }        }      },      // WORK INFORMATION BLOCK      _type == "workInformation" => {        title,        description,        workDetails {          role,          location,          year        }      },      // WORK LANDSCAPE MEDIA BLOCK      _type == "workLandscapeMedia" => {        title,        description,        video {          asset-> {            playbackId,            assetId,            filename          }        },        image {          caption,          alt,          asset->{ _id, url }        }      },      _type == "doubleLandscape" => {        title,        leftImage { alt, caption, asset->{ _id, url } },        rightImage { alt, caption, asset->{ _id, url } }      },      _type == "doublePortrait" => {        title,        leftImage { alt, caption, asset->{ _id, url } },        rightImage { alt, caption, asset->{ _id, url } }      },      _type == "largeImageLeft" => {        title,        leftImage { alt, caption, asset->{ _id, url } },        rightImage { alt, caption, asset->{ _id, url } }      },      _type == "largeImageRight" => {        title,        leftImage { alt, caption, asset->{ _id, url } },        rightImage { alt, caption, asset->{ _id, url } }      },      _type == "singleLandscape" => {        title,        image { alt, caption, asset->{ _id, url } }      },      _type == "singlePortrait" => {        title,        image { alt, caption, asset->{ _id, url } }      }    }  }
 export type SINGLE_FILM_QUERYResult = {
   _id: string;
   _createdAt: string;
@@ -1591,6 +1631,7 @@ export type SINGLE_FILM_QUERYResult = {
     _type: "featuredContent";
     title?: string;
     selectedProjects: Array<{
+      _key: string;
       projectTitle: string | null;
       projectRoute: string | null;
       selectedProjectImage: {
@@ -1603,6 +1644,7 @@ export type SINGLE_FILM_QUERYResult = {
       } | null;
     }> | null;
     categories: Array<{
+      _key: string;
       categoryName: string | null;
       workRoute: string | null;
       categoryImage: {
@@ -1685,6 +1727,7 @@ export type SINGLE_FILM_QUERYResult = {
   } | {
     _key: string;
     _type: "pressBlock";
+    title?: string;
     pressSections: Array<{
       typeOfPress: string | null;
       pressImage: {
@@ -1803,7 +1846,7 @@ export type SINGLE_PAINTING_QUERYResult = {
   }> | null;
 } | null;
 // Variable: ABOUT_QUERY
-// Query: *[_type == "about"][0] {    _id,    _createdAt,    title,    description,    aboutImage {      alt,      asset->{        _id,        url      }    },    aboutSocialLinks[]{platform, url},    email  }
+// Query: *[_type == "about"][0] {    _id,    _createdAt,    title,    description,    aboutImage {      alt,      asset->{        _id,        url      }    },    aboutSocialLinks[] {      platform,      url    },    email,    content[] {      _key,      _type,      ...,      // ABOUT BLOCK      _type == "aboutBlock" => {        description,        aboutBlockImage {          caption,          alt,          asset->{ _id, url }        }      },      // EVENT BLOCK      _type == "eventBlock" => {        title,        locationTitle,        eventImage {          caption,          alt,          asset->{ _id, url }        },        description,        timeAndDate {          date,          time        },        location,        details,        infoAndTickets      },      // FEATURED CONTENT      _type == "featuredContent" => {        selectedProjects[] {          _key,          projectTitle,          projectRoute,          selectedProjectImage {            caption,            alt,            asset->{ _id, url }          }        },        categories[] {          _key,          categoryName,          workRoute,          categoryImage {            caption,            alt,            asset->{ _id, url }          }        }      },      // HEADER MEDIA BLOCK      _type == "headerMedia" => {        title,        video {          asset-> {            playbackId,            assetId,            filename          }        },        image {          caption,          alt,          asset->{ _id, url }        }      },      // PRESS BLOCK      _type == "pressBlock" => {        pressSections[] {          typeOfPress,          pressImage {            caption,            alt,            asset->{ _id, url }          },          title,          description,          linkToPress        }      },      // CREDITS AND AWARDS BLOCK      _type == "creditsAndAwards" => {        credits[] {          roleInWork,          name        },        awards[] {          awardName,          awardedFrom        },        image {          caption,          alt,          asset->{ _id, url }          }      },      // IMAGE CAROUSEL BLOCK      _type == "imageCarousel" => {        title,        carouselImages[]{          "url": image.asset->url,          "alt": image.alt,          "caption": image.caption        }      },      // WORK HEADER MEDIA BLOCK      _type == "workHeaderMedia" => {        video {          asset-> {            playbackId,            assetId,            filename          }        },        image {          caption,          alt,          asset->{ _id, url }        }      },      // WORK INFORMATION BLOCK      _type == "workInformation" => {        title,        description,        workDetails {          role,          location,          year        }      },      // WORK LANDSCAPE MEDIA BLOCK      _type == "workLandscapeMedia" => {        title,        description,        video {          asset-> {            playbackId,            assetId,            filename          }        },        image {          caption,          alt,          asset->{ _id, url }        }      },      _type == "doubleLandscape" => {        title,        leftImage { alt, caption, asset->{ _id, url } },        rightImage { alt, caption, asset->{ _id, url } }      },      _type == "doublePortrait" => {        title,        leftImage { alt, caption, asset->{ _id, url } },        rightImage { alt, caption, asset->{ _id, url } }      },      _type == "largeImageLeft" => {        title,        leftImage { alt, caption, asset->{ _id, url } },        rightImage { alt, caption, asset->{ _id, url } }      },      _type == "largeImageRight" => {        title,        leftImage { alt, caption, asset->{ _id, url } },        rightImage { alt, caption, asset->{ _id, url } }      },      _type == "singleLandscape" => {        title,        image { alt, caption, asset->{ _id, url } }      },      _type == "singlePortrait" => {        title,        image { alt, caption, asset->{ _id, url } }      }    }  }
 export type ABOUT_QUERYResult = {
   _id: string;
   _createdAt: string;
@@ -1821,6 +1864,288 @@ export type ABOUT_QUERYResult = {
     url: string | null;
   }> | null;
   email: string | null;
+  content: Array<{
+    _key: string;
+    _type: "aboutBlock";
+    title?: string;
+    description: string | null;
+    aboutBlockImage: {
+      caption: string | null;
+      alt: string | null;
+      asset: {
+        _id: string;
+        url: string | null;
+      } | null;
+    } | null;
+  } | {
+    _key: string;
+    _type: "creditsAndAwards";
+    credits: Array<{
+      roleInWork: string | null;
+      name: string | null;
+    }> | null;
+    awards: Array<{
+      awardName: string | null;
+      awardedFrom: string | null;
+    }> | null;
+    image: {
+      caption: string | null;
+      alt: string | null;
+      asset: {
+        _id: string;
+        url: string | null;
+      } | null;
+    } | null;
+  } | {
+    _key: string;
+    _type: "doubleLandscape";
+    title: string | null;
+    leftImage: {
+      alt: string | null;
+      caption: string | null;
+      asset: {
+        _id: string;
+        url: string | null;
+      } | null;
+    } | null;
+    rightImage: {
+      alt: string | null;
+      caption: string | null;
+      asset: {
+        _id: string;
+        url: string | null;
+      } | null;
+    } | null;
+  } | {
+    _key: string;
+    _type: "doublePortrait";
+    title: string | null;
+    leftImage: {
+      alt: string | null;
+      caption: string | null;
+      asset: {
+        _id: string;
+        url: string | null;
+      } | null;
+    } | null;
+    rightImage: {
+      alt: string | null;
+      caption: string | null;
+      asset: {
+        _id: string;
+        url: string | null;
+      } | null;
+    } | null;
+  } | {
+    _key: string;
+    _type: "eventBlock";
+    title: string | null;
+    locationTitle: string | null;
+    eventImage: {
+      caption: string | null;
+      alt: string | null;
+      asset: {
+        _id: string;
+        url: string | null;
+      } | null;
+    } | null;
+    description: string | null;
+    timeAndDate: {
+      date: string | null;
+      time: string | null;
+    } | null;
+    location: string | null;
+    details: string | null;
+    infoAndTickets: string | null;
+  } | {
+    _key: string;
+    _type: "featuredContent";
+    title?: string;
+    selectedProjects: Array<{
+      _key: string;
+      projectTitle: string | null;
+      projectRoute: string | null;
+      selectedProjectImage: {
+        caption: string | null;
+        alt: string | null;
+        asset: {
+          _id: string;
+          url: string | null;
+        } | null;
+      } | null;
+    }> | null;
+    categories: Array<{
+      _key: string;
+      categoryName: string | null;
+      workRoute: string | null;
+      categoryImage: {
+        caption: string | null;
+        alt: string | null;
+        asset: {
+          _id: string;
+          url: string | null;
+        } | null;
+      } | null;
+    }> | null;
+  } | {
+    _key: string;
+    _type: "headerMedia";
+    title: string | null;
+    video: {
+      asset: {
+        playbackId: string | null;
+        assetId: string | null;
+        filename: string | null;
+      } | null;
+    } | null;
+    image: {
+      caption: string | null;
+      alt: string | null;
+      asset: {
+        _id: string;
+        url: string | null;
+      } | null;
+    } | null;
+  } | {
+    _key: string;
+    _type: "imageCarousel";
+    title: string | null;
+    carouselImages: Array<{
+      url: string | null;
+      alt: string | null;
+      caption: string | null;
+    }> | null;
+  } | {
+    _key: string;
+    _type: "largeImageLeft";
+    title: string | null;
+    leftImage: {
+      alt: string | null;
+      caption: string | null;
+      asset: {
+        _id: string;
+        url: string | null;
+      } | null;
+    } | null;
+    rightImage: {
+      alt: string | null;
+      caption: string | null;
+      asset: {
+        _id: string;
+        url: string | null;
+      } | null;
+    } | null;
+  } | {
+    _key: string;
+    _type: "largeImageRight";
+    title: string | null;
+    leftImage: {
+      alt: string | null;
+      caption: string | null;
+      asset: {
+        _id: string;
+        url: string | null;
+      } | null;
+    } | null;
+    rightImage: {
+      alt: string | null;
+      caption: string | null;
+      asset: {
+        _id: string;
+        url: string | null;
+      } | null;
+    } | null;
+  } | {
+    _key: string;
+    _type: "pressBlock";
+    title?: string;
+    pressSections: Array<{
+      typeOfPress: string | null;
+      pressImage: {
+        caption: string | null;
+        alt: string | null;
+        asset: {
+          _id: string;
+          url: string | null;
+        } | null;
+      } | null;
+      title: string | null;
+      description: string | null;
+      linkToPress: string | null;
+    }> | null;
+  } | {
+    _key: string;
+    _type: "singleLandscape";
+    title: string | null;
+    image: {
+      alt: string | null;
+      caption: string | null;
+      asset: {
+        _id: string;
+        url: string | null;
+      } | null;
+    } | null;
+  } | {
+    _key: string;
+    _type: "singlePortrait";
+    title: string | null;
+    image: {
+      alt: string | null;
+      caption: string | null;
+      asset: {
+        _id: string;
+        url: string | null;
+      } | null;
+    } | null;
+  } | {
+    _key: string;
+    _type: "workHeaderMedia";
+    video: {
+      asset: {
+        playbackId: string | null;
+        assetId: string | null;
+        filename: string | null;
+      } | null;
+    } | null;
+    image: {
+      caption: string | null;
+      alt: string | null;
+      asset: {
+        _id: string;
+        url: string | null;
+      } | null;
+    } | null;
+  } | {
+    _key: string;
+    _type: "workInformation";
+    title: string | null;
+    description: string | null;
+    workDetails: {
+      role: string | null;
+      location: string | null;
+      year: string | null;
+    } | null;
+  } | {
+    _key: string;
+    _type: "workLandscapeMedia";
+    title: string | null;
+    description: string | null;
+    video: {
+      asset: {
+        playbackId: string | null;
+        assetId: string | null;
+        filename: string | null;
+      } | null;
+    } | null;
+    image: {
+      caption: string | null;
+      alt: string | null;
+      asset: {
+        _id: string;
+        url: string | null;
+      } | null;
+    } | null;
+  }> | null;
 } | null;
 // Variable: FOOTER_SETTINGS
 // Query: *[_type == "footerSettings"][0] {    _id,    _createdAt,    description,    email,    socialLinks[] {      platform,      url    },    siteDesignAndDevelopment  }
@@ -1840,14 +2165,14 @@ export type FOOTER_SETTINGSResult = {
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "\n  *[_type == \"home\"][0] {\n    _id,\n    _createdAt,\n    content[] {\n      _key,\n      _type,\n      ...,\n\n      // ABOUT BLOCK\n      _type == \"aboutBlock\" => {\n        description,\n        aboutBlockImage {\n          caption,\n          alt,\n          asset->{ _id, url }\n        }\n      },\n\n      // EVENT BLOCK\n      _type == \"eventBlock\" => {\n        title,\n        locationTitle,\n        eventImage {\n          caption,\n          alt,\n          asset->{ _id, url }\n        },\n        description,\n        timeAndDate {\n          date,\n          time\n        },\n        location,\n        details,\n        infoAndTickets\n      },\n\n      // FEATURED CONTENT\n      _type == \"featuredContent\" => {\n        selectedProjects[] {\n          projectTitle,\n          projectRoute,\n          selectedProjectImage {\n            caption,\n            alt,\n            asset->{ _id, url }\n          }\n        },\n        categories[] {\n          categoryName,\n          workRoute,\n          categoryImage {\n            caption,\n            alt,\n            asset->{ _id, url }\n          }\n        }\n      },\n\n      // HEADER MEDIA BLOCK\n      _type == \"headerMedia\" => {\n        title,\n        video {\n          asset-> {\n            playbackId,\n            assetId,\n            filename\n          }\n        },\n        image {\n          caption,\n          alt,\n          asset->{ _id, url }\n        }\n      },\n\n      // PRESS BLOCK\n      _type == \"pressBlock\" => {\n        pressSections[] {\n          typeOfPress,\n          pressImage {\n            caption,\n            alt,\n            asset->{ _id, url }\n          },\n          title,\n          description,\n          linkToPress\n        }\n      },\n\n      // CREDITS AND AWARDS BLOCK\n      _type == \"creditsAndAwards\" => {\n        credits[] {\n          roleInWork,\n          name\n        },\n        awards[] {\n          awardName,\n          awardedFrom\n        },\n        image {\n          caption,\n          alt,\n          asset->{ _id, url }\n          }\n      },\n\n      // IMAGE CAROUSEL BLOCK\n      _type == \"imageCarousel\" => {\n        title,\n        carouselImages[]{\n          \"url\": image.asset->url,\n          \"alt\": image.alt,\n          \"caption\": image.caption\n        }\n      },\n\n      // WORK HEADER MEDIA BLOCK\n      _type == \"workHeaderMedia\" => {\n        video {\n          asset-> {\n            playbackId,\n            assetId,\n            filename\n          }\n        },\n        image {\n          caption,\n          alt,\n          asset->{ _id, url }\n        }\n      },\n\n      // WORK INFORMATION BLOCK\n      _type == \"workInformation\" => {\n        title,\n        description,\n        workDetails {\n          role,\n          location,\n          year\n        }\n      },\n\n      // WORK LANDSCAPE MEDIA BLOCK\n      _type == \"workLandscapeMedia\" => {\n        title,\n        description,\n        video {\n          asset-> {\n            playbackId,\n            assetId,\n            filename\n          }\n        },\n        image {\n          caption,\n          alt,\n          asset->{ _id, url }\n        }\n      },\n\n      _type == \"doubleLandscape\" => {\n        title,\n        leftImage { alt, caption, asset->{ _id, url } },\n        rightImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == \"doublePortrait\" => {\n        title,\n        leftImage { alt, caption, asset->{ _id, url } },\n        rightImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == \"largeImageLeft\" => {\n        title,\n        leftImage { alt, caption, asset->{ _id, url } },\n        rightImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == \"largeImageRight\" => {\n        title,\n        leftImage { alt, caption, asset->{ _id, url } },\n        rightImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == \"singleLandscape\" => {\n        title,\n        image { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == \"singlePortrait\" => {\n        title,\n        image { alt, caption, asset->{ _id, url } }\n      }\n    }\n  }\n": HOME_QUERYResult;
+    "\n  *[_type == \"home\"][0] {\n    _id,\n    _createdAt,\n    content[] {\n      _key,\n      _type,\n      ...,\n\n      // ABOUT BLOCK\n      _type == \"aboutBlock\" => {\n        description,\n        aboutBlockImage {\n          caption,\n          alt,\n          asset->{ _id, url }\n        }\n      },\n\n      // EVENT BLOCK\n      _type == \"eventBlock\" => {\n        title,\n        locationTitle,\n        eventImage {\n          caption,\n          alt,\n          asset->{ _id, url }\n        },\n        description,\n        timeAndDate {\n          date,\n          time\n        },\n        location,\n        details,\n        infoAndTickets\n      },\n\n      // FEATURED CONTENT\n      _type == \"featuredContent\" => {\n        selectedProjects[] {\n          _key,\n          projectTitle,\n          projectRoute,\n          selectedProjectImage {\n            caption,\n            alt,\n            asset->{ _id, url }\n          }\n        },\n        categories[] {\n          _key,\n          categoryName,\n          workRoute,\n          categoryImage {\n            caption,\n            alt,\n            asset->{ _id, url }\n          }\n        }\n      },\n\n      // HEADER MEDIA BLOCK\n      _type == \"headerMedia\" => {\n        title,\n        video {\n          asset-> {\n            playbackId,\n            assetId,\n            filename\n          }\n        },\n        image {\n          caption,\n          alt,\n          asset->{ _id, url }\n        }\n      },\n\n      // PRESS BLOCK\n      _type == \"pressBlock\" => {\n        pressSections[] {\n          typeOfPress,\n          pressImage {\n            caption,\n            alt,\n            asset->{ _id, url }\n          },\n          title,\n          description,\n          linkToPress\n        }\n      },\n\n      // CREDITS AND AWARDS BLOCK\n      _type == \"creditsAndAwards\" => {\n        credits[] {\n          roleInWork,\n          name\n        },\n        awards[] {\n          awardName,\n          awardedFrom\n        },\n        image {\n          caption,\n          alt,\n          asset->{ _id, url }\n          }\n      },\n\n      // IMAGE CAROUSEL BLOCK\n      _type == \"imageCarousel\" => {\n        title,\n        carouselImages[]{\n          \"url\": image.asset->url,\n          \"alt\": image.alt,\n          \"caption\": image.caption\n        }\n      },\n\n      // WORK HEADER MEDIA BLOCK\n      _type == \"workHeaderMedia\" => {\n        video {\n          asset-> {\n            playbackId,\n            assetId,\n            filename\n          }\n        },\n        image {\n          caption,\n          alt,\n          asset->{ _id, url }\n        }\n      },\n\n      // WORK INFORMATION BLOCK\n      _type == \"workInformation\" => {\n        title,\n        description,\n        workDetails {\n          role,\n          location,\n          year\n        }\n      },\n\n      // WORK LANDSCAPE MEDIA BLOCK\n      _type == \"workLandscapeMedia\" => {\n        title,\n        description,\n        video {\n          asset-> {\n            playbackId,\n            assetId,\n            filename\n          }\n        },\n        image {\n          caption,\n          alt,\n          asset->{ _id, url }\n        }\n      },\n\n      _type == \"doubleLandscape\" => {\n        title,\n        leftImage { alt, caption, asset->{ _id, url } },\n        rightImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == \"doublePortrait\" => {\n        title,\n        leftImage { alt, caption, asset->{ _id, url } },\n        rightImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == \"largeImageLeft\" => {\n        title,\n        leftImage { alt, caption, asset->{ _id, url } },\n        rightImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == \"largeImageRight\" => {\n        title,\n        leftImage { alt, caption, asset->{ _id, url } },\n        rightImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == \"singleLandscape\" => {\n        title,\n        image { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == \"singlePortrait\" => {\n        title,\n        image { alt, caption, asset->{ _id, url } }\n      }\n    }\n  }\n": HOME_QUERYResult;
     "\n  *[_type == \"performance\"] {\n    _id,\n    _createdAt,\n    title,\n    role,\n    \"slug\": slug.current,\n    performanceImage {\n      alt,\n      asset->{\n        _id,\n        url\n      }\n    }\n  }\n": PERFORMANCE_QUERYResult;
-    "\n  *[_type == \"performance\" && slug.current == $slug][0] {\n    _id,\n    _createdAt,\n    content[] {\n      _key,\n      _type,\n      ...,\n\n      // ABOUT BLOCK\n      _type == \"aboutBlock\" => {\n        description,\n        aboutBlockImage {\n          caption,\n          alt,\n          asset->{ _id, url }\n        }\n      },\n\n      // EVENT BLOCK\n      _type == \"eventBlock\" => {\n        title,\n        locationTitle,\n        eventImage {\n          caption,\n          alt,\n          asset->{ _id, url }\n        },\n        description,\n        timeAndDate {\n          date,\n          time\n        },\n        location,\n        details,\n        infoAndTickets\n      },\n\n      // FEATURED CONTENT\n      _type == \"featuredContent\" => {\n        selectedProjects[] {\n          projectTitle,\n          projectRoute,\n          selectedProjectImage {\n            caption,\n            alt,\n            asset->{ _id, url }\n          }\n        },\n        categories[] {\n          categoryName,\n          workRoute,\n          categoryImage {\n            caption,\n            alt,\n            asset->{ _id, url }\n          }\n        }\n      },\n\n      // HEADER MEDIA BLOCK\n      _type == \"headerMedia\" => {\n        title,\n        video {\n          asset-> {\n            playbackId,\n            assetId,\n            filename\n          }\n        },\n        image {\n          caption,\n          alt,\n          asset->{ _id, url }\n        }\n      },\n\n      // PRESS BLOCK\n      _type == \"pressBlock\" => {\n        pressSections[] {\n          typeOfPress,\n          pressImage {\n            caption,\n            alt,\n            asset->{ _id, url }\n          },\n          title,\n          description,\n          linkToPress\n        }\n      },\n\n      // CREDITS AND AWARDS BLOCK\n      _type == \"creditsAndAwards\" => {\n        credits[] {\n          roleInWork,\n          name\n        },\n        awards[] {\n          awardName,\n          awardedFrom\n        },\n        image {\n          caption,\n          alt,\n          asset->{ _id, url }\n          }\n      },\n\n      // IMAGE CAROUSEL BLOCK\n      _type == \"imageCarousel\" => {\n        title,\n        carouselImages[]{\n          \"url\": image.asset->url,\n          \"alt\": image.alt,\n          \"caption\": image.caption\n        }\n      },\n\n      // WORK HEADER MEDIA BLOCK\n      _type == \"workHeaderMedia\" => {\n        video {\n          asset-> {\n            playbackId,\n            assetId,\n            filename\n          }\n        },\n        image {\n          caption,\n          alt,\n          asset->{ _id, url }\n        }\n      },\n\n      // WORK INFORMATION BLOCK\n      _type == \"workInformation\" => {\n        title,\n        description,\n        workDetails {\n          role,\n          location,\n          year\n        }\n      },\n\n      // WORK LANDSCAPE MEDIA BLOCK\n      _type == \"workLandscapeMedia\" => {\n        title,\n        description,\n        video {\n          asset-> {\n            playbackId,\n            assetId,\n            filename\n          }\n        },\n        image {\n          caption,\n          alt,\n          asset->{ _id, url }\n        }\n      },\n\n      _type == \"doubleLandscape\" => {\n        title,\n        leftImage { alt, caption, asset->{ _id, url } },\n        rightImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == \"doublePortrait\" => {\n        title,\n        leftImage { alt, caption, asset->{ _id, url } },\n        rightImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == \"largeImageLeft\" => {\n        title,\n        leftImage { alt, caption, asset->{ _id, url } },\n        rightImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == \"largeImageRight\" => {\n        title,\n        leftImage { alt, caption, asset->{ _id, url } },\n        rightImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == \"singleLandscape\" => {\n        title,\n        image { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == \"singlePortrait\" => {\n        title,\n        image { alt, caption, asset->{ _id, url } }\n      }\n    }\n  }\n": SINGLE_PERFORMANCE_QUERYResult;
+    "\n  *[_type == \"performance\" && slug.current == $slug][0] {\n    _id,\n    _createdAt,\n    content[] {\n      _key,\n      _type,\n      ...,\n\n      // ABOUT BLOCK\n      _type == \"aboutBlock\" => {\n        description,\n        aboutBlockImage {\n          caption,\n          alt,\n          asset->{ _id, url }\n        }\n      },\n\n      // EVENT BLOCK\n      _type == \"eventBlock\" => {\n        title,\n        locationTitle,\n        eventImage {\n          caption,\n          alt,\n          asset->{ _id, url }\n        },\n        description,\n        timeAndDate {\n          date,\n          time\n        },\n        location,\n        details,\n        infoAndTickets\n      },\n\n      // FEATURED CONTENT\n      _type == \"featuredContent\" => {\n        selectedProjects[] {\n          _key,\n          projectTitle,\n          projectRoute,\n          selectedProjectImage {\n            caption,\n            alt,\n            asset->{ _id, url }\n          }\n        },\n        categories[] {\n          _key,\n          categoryName,\n          workRoute,\n          categoryImage {\n            caption,\n            alt,\n            asset->{ _id, url }\n          }\n        }\n      },\n\n      // HEADER MEDIA BLOCK\n      _type == \"headerMedia\" => {\n        title,\n        video {\n          asset-> {\n            playbackId,\n            assetId,\n            filename\n          }\n        },\n        image {\n          caption,\n          alt,\n          asset->{ _id, url }\n        }\n      },\n\n      // PRESS BLOCK\n      _type == \"pressBlock\" => {\n        pressSections[] {\n          typeOfPress,\n          pressImage {\n            caption,\n            alt,\n            asset->{ _id, url }\n          },\n          title,\n          description,\n          linkToPress\n        }\n      },\n\n      // CREDITS AND AWARDS BLOCK\n      _type == \"creditsAndAwards\" => {\n        credits[] {\n          roleInWork,\n          name\n        },\n        awards[] {\n          awardName,\n          awardedFrom\n        },\n        image {\n          caption,\n          alt,\n          asset->{ _id, url }\n          }\n      },\n\n      // IMAGE CAROUSEL BLOCK\n      _type == \"imageCarousel\" => {\n        title,\n        carouselImages[]{\n          \"url\": image.asset->url,\n          \"alt\": image.alt,\n          \"caption\": image.caption\n        }\n      },\n\n      // WORK HEADER MEDIA BLOCK\n      _type == \"workHeaderMedia\" => {\n        video {\n          asset-> {\n            playbackId,\n            assetId,\n            filename\n          }\n        },\n        image {\n          caption,\n          alt,\n          asset->{ _id, url }\n        }\n      },\n\n      // WORK INFORMATION BLOCK\n      _type == \"workInformation\" => {\n        title,\n        description,\n        workDetails {\n          role,\n          location,\n          year\n        }\n      },\n\n      // WORK LANDSCAPE MEDIA BLOCK\n      _type == \"workLandscapeMedia\" => {\n        title,\n        description,\n        video {\n          asset-> {\n            playbackId,\n            assetId,\n            filename\n          }\n        },\n        image {\n          caption,\n          alt,\n          asset->{ _id, url }\n        }\n      },\n\n      _type == \"doubleLandscape\" => {\n        title,\n        leftImage { alt, caption, asset->{ _id, url } },\n        rightImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == \"doublePortrait\" => {\n        title,\n        leftImage { alt, caption, asset->{ _id, url } },\n        rightImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == \"largeImageLeft\" => {\n        title,\n        leftImage { alt, caption, asset->{ _id, url } },\n        rightImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == \"largeImageRight\" => {\n        title,\n        leftImage { alt, caption, asset->{ _id, url } },\n        rightImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == \"singleLandscape\" => {\n        title,\n        image { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == \"singlePortrait\" => {\n        title,\n        image { alt, caption, asset->{ _id, url } }\n      }\n    }\n  }\n": SINGLE_PERFORMANCE_QUERYResult;
     "\n  *[_type == \"film\"] {\n    _id,\n    _createdAt,\n    title,\n    role,\n    \"slug\": slug.current,\n    filmImage {\n      alt,\n      asset->{\n        _id,\n        url\n      }\n    }\n  }\n": FILM_QUERYResult;
-    "\n  *[_type == \"film\" && slug.current == $slug][0] {\n    _id,\n    _createdAt,\n    content[] {\n      _key,\n      _type,\n      ...,\n\n      // ABOUT BLOCK\n      _type == \"aboutBlock\" => {\n        description,\n        aboutBlockImage {\n          caption,\n          alt,\n          asset->{ _id, url }\n        }\n      },\n\n      // EVENT BLOCK\n      _type == \"eventBlock\" => {\n        title,\n        locationTitle,\n        eventImage {\n          caption,\n          alt,\n          asset->{ _id, url }\n        },\n        description,\n        timeAndDate {\n          date,\n          time\n        },\n        location,\n        details,\n        infoAndTickets\n      },\n\n      // FEATURED CONTENT\n      _type == \"featuredContent\" => {\n        selectedProjects[] {\n          projectTitle,\n          projectRoute,\n          selectedProjectImage {\n            caption,\n            alt,\n            asset->{ _id, url }\n          }\n        },\n        categories[] {\n          categoryName,\n          workRoute,\n          categoryImage {\n            caption,\n            alt,\n            asset->{ _id, url }\n          }\n        }\n      },\n\n      // HEADER MEDIA BLOCK\n      _type == \"headerMedia\" => {\n        title,\n        video {\n          asset-> {\n            playbackId,\n            assetId,\n            filename\n          }\n        },\n        image {\n          caption,\n          alt,\n          asset->{ _id, url }\n        }\n      },\n\n      // PRESS BLOCK\n      _type == \"pressBlock\" => {\n        pressSections[] {\n          typeOfPress,\n          pressImage {\n            caption,\n            alt,\n            asset->{ _id, url }\n          },\n          title,\n          description,\n          linkToPress\n        }\n      },\n\n      // CREDITS AND AWARDS BLOCK\n      _type == \"creditsAndAwards\" => {\n        credits[] {\n          roleInWork,\n          name\n        },\n        awards[] {\n          awardName,\n          awardedFrom\n        },\n        image {\n          caption,\n          alt,\n          asset->{ _id, url }\n          }\n      },\n\n      // IMAGE CAROUSEL BLOCK\n      _type == \"imageCarousel\" => {\n        title,\n        carouselImages[]{\n          \"url\": image.asset->url,\n          \"alt\": image.alt,\n          \"caption\": image.caption\n        }\n      },\n\n      // WORK HEADER MEDIA BLOCK\n      _type == \"workHeaderMedia\" => {\n        video {\n          asset-> {\n            playbackId,\n            assetId,\n            filename\n          }\n        },\n        image {\n          caption,\n          alt,\n          asset->{ _id, url }\n        }\n      },\n\n      // WORK INFORMATION BLOCK\n      _type == \"workInformation\" => {\n        title,\n        description,\n        workDetails {\n          role,\n          location,\n          year\n        }\n      },\n\n      // WORK LANDSCAPE MEDIA BLOCK\n      _type == \"workLandscapeMedia\" => {\n        title,\n        description,\n        video {\n          asset-> {\n            playbackId,\n            assetId,\n            filename\n          }\n        },\n        image {\n          caption,\n          alt,\n          asset->{ _id, url }\n        }\n      },\n\n      _type == \"doubleLandscape\" => {\n        title,\n        leftImage { alt, caption, asset->{ _id, url } },\n        rightImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == \"doublePortrait\" => {\n        title,\n        leftImage { alt, caption, asset->{ _id, url } },\n        rightImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == \"largeImageLeft\" => {\n        title,\n        leftImage { alt, caption, asset->{ _id, url } },\n        rightImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == \"largeImageRight\" => {\n        title,\n        leftImage { alt, caption, asset->{ _id, url } },\n        rightImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == \"singleLandscape\" => {\n        title,\n        image { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == \"singlePortrait\" => {\n        title,\n        image { alt, caption, asset->{ _id, url } }\n      }\n    }\n  }\n": SINGLE_FILM_QUERYResult;
+    "\n  *[_type == \"film\" && slug.current == $slug][0] {\n    _id,\n    _createdAt,\n    content[] {\n      _key,\n      _type,\n      ...,\n\n      // ABOUT BLOCK\n      _type == \"aboutBlock\" => {\n        description,\n        aboutBlockImage {\n          caption,\n          alt,\n          asset->{ _id, url }\n        }\n      },\n\n      // EVENT BLOCK\n      _type == \"eventBlock\" => {\n        title,\n        locationTitle,\n        eventImage {\n          caption,\n          alt,\n          asset->{ _id, url }\n        },\n        description,\n        timeAndDate {\n          date,\n          time\n        },\n        location,\n        details,\n        infoAndTickets\n      },\n\n      // FEATURED CONTENT\n      _type == \"featuredContent\" => {\n        selectedProjects[] {\n          _key,\n          projectTitle,\n          projectRoute,\n          selectedProjectImage {\n            caption,\n            alt,\n            asset->{ _id, url }\n          }\n        },\n        categories[] {\n          _key,\n          categoryName,\n          workRoute,\n          categoryImage {\n            caption,\n            alt,\n            asset->{ _id, url }\n          }\n        }\n      },\n\n      // HEADER MEDIA BLOCK\n      _type == \"headerMedia\" => {\n        title,\n        video {\n          asset-> {\n            playbackId,\n            assetId,\n            filename\n          }\n        },\n        image {\n          caption,\n          alt,\n          asset->{ _id, url }\n        }\n      },\n\n      // PRESS BLOCK\n      _type == \"pressBlock\" => {\n        pressSections[] {\n          typeOfPress,\n          pressImage {\n            caption,\n            alt,\n            asset->{ _id, url }\n          },\n          title,\n          description,\n          linkToPress\n        }\n      },\n\n      // CREDITS AND AWARDS BLOCK\n      _type == \"creditsAndAwards\" => {\n        credits[] {\n          roleInWork,\n          name\n        },\n        awards[] {\n          awardName,\n          awardedFrom\n        },\n        image {\n          caption,\n          alt,\n          asset->{ _id, url }\n          }\n      },\n\n      // IMAGE CAROUSEL BLOCK\n      _type == \"imageCarousel\" => {\n        title,\n        carouselImages[]{\n          \"url\": image.asset->url,\n          \"alt\": image.alt,\n          \"caption\": image.caption\n        }\n      },\n\n      // WORK HEADER MEDIA BLOCK\n      _type == \"workHeaderMedia\" => {\n        video {\n          asset-> {\n            playbackId,\n            assetId,\n            filename\n          }\n        },\n        image {\n          caption,\n          alt,\n          asset->{ _id, url }\n        }\n      },\n\n      // WORK INFORMATION BLOCK\n      _type == \"workInformation\" => {\n        title,\n        description,\n        workDetails {\n          role,\n          location,\n          year\n        }\n      },\n\n      // WORK LANDSCAPE MEDIA BLOCK\n      _type == \"workLandscapeMedia\" => {\n        title,\n        description,\n        video {\n          asset-> {\n            playbackId,\n            assetId,\n            filename\n          }\n        },\n        image {\n          caption,\n          alt,\n          asset->{ _id, url }\n        }\n      },\n\n      _type == \"doubleLandscape\" => {\n        title,\n        leftImage { alt, caption, asset->{ _id, url } },\n        rightImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == \"doublePortrait\" => {\n        title,\n        leftImage { alt, caption, asset->{ _id, url } },\n        rightImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == \"largeImageLeft\" => {\n        title,\n        leftImage { alt, caption, asset->{ _id, url } },\n        rightImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == \"largeImageRight\" => {\n        title,\n        leftImage { alt, caption, asset->{ _id, url } },\n        rightImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == \"singleLandscape\" => {\n        title,\n        image { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == \"singlePortrait\" => {\n        title,\n        image { alt, caption, asset->{ _id, url } }\n      }\n    }\n  }\n": SINGLE_FILM_QUERYResult;
     "\n  *[_type == \"painting\"] {\n    _id,\n    _createdAt,\n    title,\n    \"slug\": slug.current,\n    paintingImage {\n      alt,\n      asset->{\n        _id,\n        url\n      }\n    }\n  }\n": PAINTINGS_QUERYResult;
     "\n  *[_type == \"painting\" && slug.current == $slug][0] {\n    _id,\n    _createdAt,\n    title,\n    yearCreated,\n    description,\n    galleryImages[]{\n    \"url\": image.asset->url,\n    \"alt\": image.alt,\n    \"caption\": image.caption\n  }\n  }\n": SINGLE_PAINTING_QUERYResult;
-    "\n  *[_type == \"about\"][0] {\n    _id,\n    _createdAt,\n    title,\n    description,\n    aboutImage {\n      alt,\n      asset->{\n        _id,\n        url\n      }\n    },\n    aboutSocialLinks[]{platform, url},\n    email\n  }\n": ABOUT_QUERYResult;
+    "\n  *[_type == \"about\"][0] {\n    _id,\n    _createdAt,\n    title,\n    description,\n    aboutImage {\n      alt,\n      asset->{\n        _id,\n        url\n      }\n    },\n    aboutSocialLinks[] {\n      platform,\n      url\n    },\n    email,\n    content[] {\n      _key,\n      _type,\n      ...,\n\n      // ABOUT BLOCK\n      _type == \"aboutBlock\" => {\n        description,\n        aboutBlockImage {\n          caption,\n          alt,\n          asset->{ _id, url }\n        }\n      },\n\n      // EVENT BLOCK\n      _type == \"eventBlock\" => {\n        title,\n        locationTitle,\n        eventImage {\n          caption,\n          alt,\n          asset->{ _id, url }\n        },\n        description,\n        timeAndDate {\n          date,\n          time\n        },\n        location,\n        details,\n        infoAndTickets\n      },\n\n      // FEATURED CONTENT\n      _type == \"featuredContent\" => {\n        selectedProjects[] {\n          _key,\n          projectTitle,\n          projectRoute,\n          selectedProjectImage {\n            caption,\n            alt,\n            asset->{ _id, url }\n          }\n        },\n        categories[] {\n          _key,\n          categoryName,\n          workRoute,\n          categoryImage {\n            caption,\n            alt,\n            asset->{ _id, url }\n          }\n        }\n      },\n\n      // HEADER MEDIA BLOCK\n      _type == \"headerMedia\" => {\n        title,\n        video {\n          asset-> {\n            playbackId,\n            assetId,\n            filename\n          }\n        },\n        image {\n          caption,\n          alt,\n          asset->{ _id, url }\n        }\n      },\n\n      // PRESS BLOCK\n      _type == \"pressBlock\" => {\n        pressSections[] {\n          typeOfPress,\n          pressImage {\n            caption,\n            alt,\n            asset->{ _id, url }\n          },\n          title,\n          description,\n          linkToPress\n        }\n      },\n\n      // CREDITS AND AWARDS BLOCK\n      _type == \"creditsAndAwards\" => {\n        credits[] {\n          roleInWork,\n          name\n        },\n        awards[] {\n          awardName,\n          awardedFrom\n        },\n        image {\n          caption,\n          alt,\n          asset->{ _id, url }\n          }\n      },\n\n      // IMAGE CAROUSEL BLOCK\n      _type == \"imageCarousel\" => {\n        title,\n        carouselImages[]{\n          \"url\": image.asset->url,\n          \"alt\": image.alt,\n          \"caption\": image.caption\n        }\n      },\n\n      // WORK HEADER MEDIA BLOCK\n      _type == \"workHeaderMedia\" => {\n        video {\n          asset-> {\n            playbackId,\n            assetId,\n            filename\n          }\n        },\n        image {\n          caption,\n          alt,\n          asset->{ _id, url }\n        }\n      },\n\n      // WORK INFORMATION BLOCK\n      _type == \"workInformation\" => {\n        title,\n        description,\n        workDetails {\n          role,\n          location,\n          year\n        }\n      },\n\n      // WORK LANDSCAPE MEDIA BLOCK\n      _type == \"workLandscapeMedia\" => {\n        title,\n        description,\n        video {\n          asset-> {\n            playbackId,\n            assetId,\n            filename\n          }\n        },\n        image {\n          caption,\n          alt,\n          asset->{ _id, url }\n        }\n      },\n\n      _type == \"doubleLandscape\" => {\n        title,\n        leftImage { alt, caption, asset->{ _id, url } },\n        rightImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == \"doublePortrait\" => {\n        title,\n        leftImage { alt, caption, asset->{ _id, url } },\n        rightImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == \"largeImageLeft\" => {\n        title,\n        leftImage { alt, caption, asset->{ _id, url } },\n        rightImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == \"largeImageRight\" => {\n        title,\n        leftImage { alt, caption, asset->{ _id, url } },\n        rightImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == \"singleLandscape\" => {\n        title,\n        image { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == \"singlePortrait\" => {\n        title,\n        image { alt, caption, asset->{ _id, url } }\n      }\n    }\n  }\n": ABOUT_QUERYResult;
     "\n  *[_type == \"footerSettings\"][0] {\n    _id,\n    _createdAt,\n    description,\n    email,\n    socialLinks[] {\n      platform,\n      url\n    },\n    siteDesignAndDevelopment\n  }\n": FOOTER_SETTINGSResult;
   }
 }

@@ -1,9 +1,15 @@
 import { defineField, defineType } from "sanity";
+import { BlockContentIcon } from "@sanity/icons";
 
 export const pressBlockType = defineType({
   name: "pressBlock",
   type: "object",
   fields: [
+    defineField({
+      name: "title",
+      title: "Title",
+      type: "string",
+    }),
     defineField({
       name: "pressSections",
       title: "Press Sections",
@@ -58,4 +64,18 @@ export const pressBlockType = defineType({
       ],
     }),
   ],
+  icon: BlockContentIcon,
+  preview: {
+    select: {
+      title: "title",
+      media: "image",
+    },
+    prepare({ title, media }) {
+      return {
+        title: title,
+        subtitle: "Press Block",
+        media: media ?? BlockContentIcon,
+      };
+    },
+  },
 });

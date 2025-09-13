@@ -23,8 +23,8 @@
   .about-block-text {
     display: flex;
     flex-direction: column;
-    align-self: flex-end;
-    grid-column: 13 / 20;
+    align-self: flex-start;
+    grid-column: 13 / 25;
     grid-row: 1 / 2;
   }
 }

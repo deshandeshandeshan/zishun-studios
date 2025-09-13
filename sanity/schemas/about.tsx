@@ -62,5 +62,55 @@ export const aboutType = defineType({
         }),
       ],
     }),
+    {
+      name: "content",
+      type: "pageBuilder",
+      options: {
+        insertMenu: {
+          filter: true,
+          groups: [
+            {
+              name: "home",
+              title: "Home",
+              of: ["aboutBlock", "featuredContent", "headerMedia"],
+            },
+            {
+              name: "photography",
+              title: "Photography",
+              of: [
+                "doubleLandscape",
+                "doublePortrait",
+                "largeImageLeft",
+                "largeImageRight",
+                "singleLandscape",
+                "singlePortrait",
+                "longImageRight",
+              ],
+            },
+            {
+              name: "work",
+              title: "Selected Work",
+              of: [
+                "creditsAndAwards",
+                "imageCarousel",
+                "workInformation",
+                "workHeaderMedia",
+                "workLandscapeMedia",
+              ],
+            },
+            {
+              name: "event",
+              title: "Event",
+              of: ["eventBlock"],
+            },
+            {
+              name: "press",
+              title: "Press",
+              of: ["pressBlock"],
+            },
+          ],
+        },
+      },
+    },
   ],
 });

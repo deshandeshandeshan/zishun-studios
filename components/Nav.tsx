@@ -40,7 +40,7 @@ export default function Nav() {
             </ul>
           </div>
           <button
-            className="menu-button type-body text-white"
+            className="menu-button type-body-bold text-black"
             onClick={() => setMenuOpen(!menuOpen)}
           >
             {menuOpen ? "Close" : "Menu"}

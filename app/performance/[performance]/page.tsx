@@ -12,8 +12,6 @@ export default async function Performance({ params }: Props) {
   const { performance: slug } = await params;
   const performance = await getPerformanceWork(slug);
 
-  console.log(performance);
-
   if (!performance) {
     notFound();
   }

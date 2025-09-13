@@ -3,14 +3,17 @@ import { getAbout } from "@/sanity/sanity.utils";
 import Image from "next/image";
 import "./About.css";
 import "@/components/Grid.css";
+import { PageBuilder } from "@/components/PageBuilder";
 
 export const revalidate = 5;
 
 export default async function About() {
   const aboutInformation = await getAbout();
 
+  if (!aboutInformation) return null;
+
   return (
-    <main className="about-page mobile-padding">
+    <main className="about-page">
       <div className="grid">
         <div className="about-page-image spacing-24">
           {aboutInformation?.aboutImage?.asset?.url && (
@@ -47,6 +50,11 @@ export default async function About() {
             </a>
           </div>
         ))}
+        {Array.isArray(aboutInformation.content) && (
+          <div className="about-page-builder spacing-120-top">
+            <PageBuilder content={aboutInformation.content} />
+          </div>
+        )}
       </div>
     </main>
   );

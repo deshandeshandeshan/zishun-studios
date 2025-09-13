@@ -7,7 +7,7 @@
 }
 
 .about-page {
-  padding-top: 50px;
+  padding: 50px 16px 0px 16px;
 }
 
 .about-page-image {
@@ -40,9 +40,14 @@
   grid-row: 4;
 }
 
+.about-page-builder {
+  grid-column: 1 / 7;
+  grid-row: 5;
+}
+
 @media screen and (min-width: 480px) {
   .about-page {
-    padding-top: 70px;
+    padding: 100px 16px 0px 16px;
   }
 
   .about-page-image {
@@ -74,5 +79,10 @@
   .about-page-social-links {
     grid-column: 6 / 12;
     grid-row: 3;
+  }
+
+  .about-page-builder {
+    grid-column: 1 / 25;
+    grid-row: 4;
   }
 }
