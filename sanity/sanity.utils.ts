@@ -1,12 +1,14 @@
 import { createClient } from "next-sanity";
 import {
   HOME_QUERY,
-  SELECTED_WORKS_QUERY,
-  SINGLE_SELECTED_WORK_QUERY,
   PAINTINGS_QUERY,
   SINGLE_PAINTING_QUERY,
   ABOUT_QUERY,
   FOOTER_SETTINGS,
+  PERFORMANCE_QUERY,
+  SINGLE_PERFORMANCE_QUERY,
+  FILM_QUERY,
+  SINGLE_FILM_QUERY,
 } from "./lib/queries";
 
 export const client = createClient({
@@ -27,7 +29,7 @@ export async function getHome() {
   return client.fetch(HOME_QUERY);
 }
 
-export async function getSelectedWorks() {
+export async function getPerformanceWorks() {
   const client = createClient({
     projectId: "5wl8so4j",
     dataset: "production",
@@ -35,10 +37,10 @@ export async function getSelectedWorks() {
     useCdn: true,
   });
 
-  return client.fetch(SELECTED_WORKS_QUERY);
+  return client.fetch(PERFORMANCE_QUERY);
 }
 
-export async function getSelectedWork(slug: string) {
+export async function getPerformanceWork(slug: string) {
   const client = createClient({
     projectId: "5wl8so4j",
     dataset: "production",
@@ -46,7 +48,29 @@ export async function getSelectedWork(slug: string) {
     useCdn: true,
   });
 
-  return client.fetch(SINGLE_SELECTED_WORK_QUERY, { slug });
+  return client.fetch(SINGLE_PERFORMANCE_QUERY, { slug });
+}
+
+export async function getFilmWorks() {
+  const client = createClient({
+    projectId: "5wl8so4j",
+    dataset: "production",
+    apiVersion: "2025-07-23",
+    useCdn: true,
+  });
+
+  return client.fetch(FILM_QUERY);
+}
+
+export async function getFilmWork(slug: string) {
+  const client = createClient({
+    projectId: "5wl8so4j",
+    dataset: "production",
+    apiVersion: "2025-07-23",
+    useCdn: true,
+  });
+
+  return client.fetch(SINGLE_FILM_QUERY, { slug });
 }
 
 export async function getPaintings() {

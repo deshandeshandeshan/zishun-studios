@@ -18,9 +18,10 @@ import { workHeaderMediaType } from "./blocks/workBlocks/workHeaderMedia";
 import { workInformationType } from "./blocks/workBlocks/workInformation";
 import { workLandscapeMediaType } from "./blocks/workBlocks/workLandscapeMedia";
 import { aboutType } from "./about";
-import { selectedWorkType } from "./selectedWork";
+import { filmType } from "./film";
 import { paintingType } from "./painting";
 import { homeType } from "./home";
+import { performanceType } from "./performance";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -28,8 +29,9 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     pageBuilderType,
     footerSettingsType,
     aboutType,
-    selectedWorkType,
+    filmType,
     paintingType,
+    performanceType,
 
     eventBlockType,
     aboutBlockType,

@@ -1,4 +1,5 @@
 import { defineField, defineType } from "sanity";
+import { BlockContentIcon } from "@sanity/icons";
 
 export const imageCarouselType = defineType({
   name: "imageCarousel",
@@ -8,7 +9,7 @@ export const imageCarouselType = defineType({
     defineField({
       name: "title",
       title: "Title",
-      type: "text",
+      type: "string",
     }),
     defineField({
       name: "carouselImages",
@@ -20,6 +21,11 @@ export const imageCarouselType = defineType({
           title: "Carousel Image",
           type: "object",
           fields: [
+            defineField({
+              name: "title",
+              title: "Title",
+              type: "string",
+            }),
             defineField({
               name: "image",
               type: "image",
@@ -43,4 +49,18 @@ export const imageCarouselType = defineType({
       ],
     }),
   ],
+  icon: BlockContentIcon,
+  preview: {
+    select: {
+      title: "title",
+      media: "image",
+    },
+    prepare({ title, media }) {
+      return {
+        title: title,
+        subtitle: "Image Carousel",
+        media: media ?? BlockContentIcon,
+      };
+    },
+  },
 });

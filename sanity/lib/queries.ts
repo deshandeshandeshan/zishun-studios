@@ -201,14 +201,14 @@ export const HOME_QUERY = defineQuery(`
   }
 `);
 
-export const SELECTED_WORKS_QUERY = defineQuery(`
-  *[_type == "selectedWork"] {
+export const PERFORMANCE_QUERY = defineQuery(`
+  *[_type == "performance"] {
     _id,
     _createdAt,
     title,
     role,
     "slug": slug.current,
-    selectedWorkImage {
+    performanceImage {
       alt,
       asset->{
         _id,
@@ -218,8 +218,226 @@ export const SELECTED_WORKS_QUERY = defineQuery(`
   }
 `);
 
-export const SINGLE_SELECTED_WORK_QUERY = defineQuery(`
-  *[_type == "selectedWork" && slug.current == $slug][0] {
+export const SINGLE_PERFORMANCE_QUERY = defineQuery(`
+  *[_type == "performance" && slug.current == $slug][0] {
+    _id,
+    _createdAt,
+    content[] {
+      _key,
+      _type,
+      ...,
+
+      // ABOUT BLOCK
+      _type == "aboutBlock" => {
+        description,
+        aboutBlockImage {
+          caption,
+          alt,
+          asset->{ _id, url }
+        }
+      },
+
+      // EVENT BLOCK
+      _type == "eventBlock" => {
+        title,
+        locationTitle,
+        eventImage {
+          caption,
+          alt,
+          asset->{ _id, url }
+        },
+        description,
+        timeAndDate {
+          date,
+          time
+        },
+        location,
+        details,
+        infoAndTickets
+      },
+
+      // FEATURED CONTENT
+      _type == "featuredContent" => {
+        selectedProjects[] {
+          projectTitle,
+          projectRoute,
+          selectedProjectImage {
+            caption,
+            alt,
+            asset->{ _id, url }
+          }
+        },
+        categories[] {
+          categoryName,
+          workRoute,
+          categoryImage {
+            caption,
+            alt,
+            asset->{ _id, url }
+          }
+        }
+      },
+
+      // HEADER MEDIA BLOCK
+      _type == "headerMedia" => {
+        title,
+        video {
+          asset-> {
+            playbackId,
+            assetId,
+            filename
+          }
+        },
+        image {
+          caption,
+          alt,
+          asset->{ _id, url }
+        }
+      },
+
+      // PRESS BLOCK
+      _type == "pressBlock" => {
+        pressSections[] {
+          typeOfPress,
+          pressImage {
+            caption,
+            alt,
+            asset->{ _id, url }
+          },
+          title,
+          description,
+          linkToPress
+        }
+      },
+
+      // CREDITS AND AWARDS BLOCK
+      _type == "creditsAndAwards" => {
+        credits[] {
+          roleInWork,
+          name
+        },
+        awards[] {
+          awardName,
+          awardedFrom
+        },
+        image {
+          caption,
+          alt,
+          asset->{ _id, url }
+          }
+      },
+
+      // IMAGE CAROUSEL BLOCK
+      _type == "imageCarousel" => {
+        title,
+        carouselImages[]{
+          "url": image.asset->url,
+          "alt": image.alt,
+          "caption": image.caption
+        }
+      },
+
+      // WORK HEADER MEDIA BLOCK
+      _type == "workHeaderMedia" => {
+        video {
+          asset-> {
+            playbackId,
+            assetId,
+            filename
+          }
+        },
+        image {
+          caption,
+          alt,
+          asset->{ _id, url }
+        }
+      },
+
+      // WORK INFORMATION BLOCK
+      _type == "workInformation" => {
+        title,
+        description,
+        workDetails {
+          role,
+          location,
+          year
+        }
+      },
+
+      // WORK LANDSCAPE MEDIA BLOCK
+      _type == "workLandscapeMedia" => {
+        title,
+        description,
+        video {
+          asset-> {
+            playbackId,
+            assetId,
+            filename
+          }
+        },
+        image {
+          caption,
+          alt,
+          asset->{ _id, url }
+        }
+      },
+
+      _type == "doubleLandscape" => {
+        title,
+        leftImage { alt, caption, asset->{ _id, url } },
+        rightImage { alt, caption, asset->{ _id, url } }
+      },
+
+      _type == "doublePortrait" => {
+        title,
+        leftImage { alt, caption, asset->{ _id, url } },
+        rightImage { alt, caption, asset->{ _id, url } }
+      },
+
+      _type == "largeImageLeft" => {
+        title,
+        leftImage { alt, caption, asset->{ _id, url } },
+        rightImage { alt, caption, asset->{ _id, url } }
+      },
+
+      _type == "largeImageRight" => {
+        title,
+        leftImage { alt, caption, asset->{ _id, url } },
+        rightImage { alt, caption, asset->{ _id, url } }
+      },
+
+      _type == "singleLandscape" => {
+        title,
+        image { alt, caption, asset->{ _id, url } }
+      },
+
+      _type == "singlePortrait" => {
+        title,
+        image { alt, caption, asset->{ _id, url } }
+      }
+    }
+  }
+`);
+
+export const FILM_QUERY = defineQuery(`
+  *[_type == "film"] {
+    _id,
+    _createdAt,
+    title,
+    role,
+    "slug": slug.current,
+    filmImage {
+      alt,
+      asset->{
+        _id,
+        url
+      }
+    }
+  }
+`);
+
+export const SINGLE_FILM_QUERY = defineQuery(`
+  *[_type == "film" && slug.current == $slug][0] {
     _id,
     _createdAt,
     content[] {

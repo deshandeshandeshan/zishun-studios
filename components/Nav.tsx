@@ -26,10 +26,13 @@ export default function Nav() {
                 <Link href="/">HOME,</Link>
               </li>
               <li className="nav-link">
+                <Link href="/film">FILM,</Link>
+              </li>
+              <li className="nav-link">
                 <Link href="/paintings">PAINTING,</Link>
               </li>
               <li className="nav-link">
-                <Link href="/selected-works">SELECTED WORKS,</Link>
+                <Link href="/performance">PERFORMANCE,</Link>
               </li>
               <li className="nav-link">
                 <Link href="/about">ABOUT</Link>

@@ -1,8 +1,8 @@
 import { defineField, defineType } from "sanity";
 
-export const selectedWorkType = defineType({
-  name: "selectedWork",
-  title: "Selected Work",
+export const filmType = defineType({
+  name: "film",
+  title: "Film Work",
   type: "document",
   fields: [
     defineField({
@@ -22,7 +22,7 @@ export const selectedWorkType = defineType({
       title: "Role in Project",
     }),
     defineField({
-      name: "selectedWorkImage",
+      name: "filmImage",
       type: "image",
       title: "Selected Work Image",
       options: { hotspot: true },
