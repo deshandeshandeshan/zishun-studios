@@ -51,16 +51,29 @@ export default function Nav() {
           <div className="nav-overlay">
             <ul className="nav-overlay-links">
               <li>
-                <Link href="/">HOME</Link>
+                <Link href="/" onClick={() => setMenuOpen(false)}>
+                  HOME
+                </Link>
               </li>
               <li>
-                <Link href="/painting">PAINTING</Link>
+                <Link href="/film" onClick={() => setMenuOpen(false)}>
+                  FILM
+                </Link>
               </li>
               <li>
-                <Link href="/selected-works">SELECTED WORKS</Link>
+                <Link href="/paintings" onClick={() => setMenuOpen(false)}>
+                  PAINTING
+                </Link>
               </li>
               <li>
-                <Link href="/about">ABOUT</Link>
+                <Link href="/performance" onClick={() => setMenuOpen(false)}>
+                  PERFORMANCE
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" onClick={() => setMenuOpen(false)}>
+                  ABOUT
+                </Link>
               </li>
             </ul>
           </div>

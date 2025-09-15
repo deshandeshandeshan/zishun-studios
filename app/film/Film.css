@@ -1,5 +1,5 @@
 .film-works-page {
-  padding: 50px 16px 0;
+  padding: 80px 16px 0;
 }
 
 .film-works-grid {
@@ -28,7 +28,7 @@
 
 @media screen and (min-width: 480px) {
   .film-works-page {
-    padding: 70px 120px 0;
+    padding: 100px 120px 0;
   }
 
   .film-works-grid {
