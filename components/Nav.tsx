@@ -48,7 +48,7 @@ export default function Nav() {
 
       {menuOpen && (
         <div className="nav-overlay">
-          <ul className="nav-overlay-links">
+          <ul className="nav-overlay-links type-heading">
             <li>
               <Link href="/" onClick={() => setMenuOpen(false)}>
                 HOME

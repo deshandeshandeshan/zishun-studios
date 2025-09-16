@@ -9,7 +9,6 @@
   top: 0;
   left: 0;
   right: 0;
-  padding-block: 16px;
   z-index: 50;
 }
 
@@ -25,7 +24,7 @@
 
 .nav-content {
   display: flex;
-  padding: 16px 0 32px;
+  padding: 16px 0 0;
 }
 
 .menu-button {
@@ -47,11 +46,11 @@
   display: grid;
   column-gap: 16px;
   grid-template-columns: repeat(6, 1fr);
-  padding: 80px 16px 16px;
+  align-items: center;
 }
 
 .nav-overlay-links {
-  grid-column: 1 / 9;
+  grid-column: 1 / 7;
   grid-row: 1 / 2;
   display: flex;
   text-align: center;
