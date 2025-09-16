@@ -9,11 +9,6 @@
   object-fit: cover;
 }
 
-.painting-info {
-  display: flex;
-  flex-direction: row;
-}
-
 .painting-title {
   margin-right: auto;
 }

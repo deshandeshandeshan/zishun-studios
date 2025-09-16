@@ -46,7 +46,18 @@
   grid-row: 3;
 }
 
+.prev-button {
+  margin-right: 8px;
+}
+
 @media screen and (min-width: 480px) {
+  .slider-img {
+    width: 60vh;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+  }
+
   .psi-container {
     grid-column: 13 / 25;
     grid-row: 1 / 4;

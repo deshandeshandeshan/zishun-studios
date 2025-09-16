@@ -21,8 +21,8 @@
   .grid {
     grid-template-columns: repeat(24, 1fr);
   }
-}
 
-.selected-works-grid {
-  grid-template-columns: repeat(3, 1fr);
+  .selected-works-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

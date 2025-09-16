@@ -33,7 +33,7 @@ export default async function Paintings() {
               </h2>
               <Link
                 href={`/paintings/${painting.slug}`}
-                className="painting-link type-body"
+                className="painting-link type-body text-red"
               >
                 See more &rarr;
               </Link>
