@@ -2,20 +2,11 @@
   padding: 50px 16px 0;
 }
 
-.performances-grid {
-  display: grid;
-  column-gap: 16px;
-  grid-template-columns: repeat(6, 1fr);
-}
-
 .performance-image {
   width: 100%;
   height: auto;
   aspect-ratio: 4 / 5;
   object-fit: cover;
-}
-.performance-item {
-  grid-column: 1 / 7;
 }
 
 .performance-title {
@@ -28,18 +19,6 @@
 
 @media screen and (min-width: 480px) {
   .performances-page {
-    padding: 70px 120px 0;
-  }
-
-  .performances-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    column-gap: 120px;
-    row-gap: 120px;
-  }
-
-  .performance-item {
-    flex: 1 1 40%;
+    padding: 100px 16px 0;
   }
 }

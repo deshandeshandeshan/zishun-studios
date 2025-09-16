@@ -12,9 +12,9 @@ export default async function Paintings() {
 
   return (
     <main className="paintings-page">
-      <ul className="paintings-list painting-grid">
+      <ul className="paintings-list selected-works-grid">
         {paintings.map((painting) => (
-          <li key={painting._id} className="painting-item">
+          <li key={painting._id} className="selected-works-item">
             {painting.paintingImage?.asset?.url && (
               <Image
                 src={urlFor(painting.paintingImage?.asset?.url)

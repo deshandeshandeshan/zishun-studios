@@ -3,15 +3,16 @@ import { getPerformanceWorks } from "@/sanity/sanity.utils";
 import Image from "next/image";
 import Link from "next/link";
 import "./Performance.css";
+import "@/components/Grid.css";
 
 export default async function PerformanceWorks() {
   const performances = await getPerformanceWorks();
 
   return (
     <main className="performances-page">
-      <ul className="performances-list performances-grid">
+      <ul className="performances-list selected-works-grid">
         {performances.map((performance) => (
-          <li key={performance._id} className="performance-item">
+          <li key={performance._id} className="selected-works-item">
             {performance.performanceImage?.asset?.url && (
               <Image
                 src={urlFor(performance.performanceImage?.asset?.url)

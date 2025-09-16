@@ -2,20 +2,11 @@
   padding: 80px 16px 0;
 }
 
-.film-works-grid {
-  display: grid;
-  column-gap: 16px;
-  grid-template-columns: repeat(6, 1fr);
-}
-
 .film-works-image {
   width: 100%;
   height: auto;
   aspect-ratio: 4 / 5;
   object-fit: cover;
-}
-.film-works-item {
-  grid-column: 1 / 7;
 }
 
 .film-works-title {
@@ -28,18 +19,6 @@
 
 @media screen and (min-width: 480px) {
   .film-works-page {
-    padding: 100px 120px 0;
-  }
-
-  .film-works-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    column-gap: 120px;
-    row-gap: 120px;
-  }
-
-  .film-works-item {
-    flex: 1 1 40%;
+    padding: 100px 16px 0;
   }
 }

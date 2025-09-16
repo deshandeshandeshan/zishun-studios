@@ -3,15 +3,16 @@ import { getFilmWorks } from "@/sanity/sanity.utils";
 import Image from "next/image";
 import Link from "next/link";
 import "./Film.css";
+import "@/components/Grid.css";
 
 export default async function FilmWorks() {
   const filmWorks = await getFilmWorks();
 
   return (
     <main className="film-works-page">
-      <ul className="film-works-list film-works-grid">
+      <ul className="film-works-list selected-works-grid">
         {filmWorks.map((film) => (
-          <li key={film._id} className="film-works-item">
+          <li key={film._id} className="selected-works-item">
             {film.filmImage?.asset?.url && (
               <Image
                 src={urlFor(film.filmImage?.asset?.url)
@@ -24,15 +25,21 @@ export default async function FilmWorks() {
                 className="film-works-image"
               />
             )}
-            <div className="film-works-info">
-              <h2 className="film-works-title type-body-bold">{film.title}</h2>
-              <p className="type-body film-works-role">{film.role}</p>
-              <Link
-                href={`/film/${film.slug}`}
-                className="type-body film-works-link"
-              >
-                See more &rarr;
-              </Link>
+            <div className="film-works-info ">
+              <div>
+                <h2 className="film-works-title type-body-bold">
+                  {film.title}
+                </h2>
+                <p className="type-body film-works-role">{film.role}</p>
+              </div>
+              <div>
+                <Link
+                  href={`/film/${film.slug}`}
+                  className="type-body film-works-link text-red"
+                >
+                  See more &rarr;
+                </Link>
+              </div>
             </div>
           </li>
         ))}
