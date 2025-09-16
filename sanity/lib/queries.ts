@@ -138,7 +138,19 @@ export const HOME_QUERY = defineQuery(`
       },
 
       // WORK INFORMATION BLOCK
-      _type == "workInformation" => {
+      _type == "headerInformationBlock" => {
+        video {
+          asset-> {
+            playbackId,
+            assetId,
+            filename
+          }
+        },
+        image {
+          caption,
+          alt,
+          asset->{ _id, url }
+        },
         title,
         description,
         workDetails {
@@ -358,7 +370,19 @@ export const SINGLE_PERFORMANCE_QUERY = defineQuery(`
       },
 
       // WORK INFORMATION BLOCK
-      _type == "workInformation" => {
+      _type == "headerInformationBlock" => {
+        video {
+          asset-> {
+            playbackId,
+            assetId,
+            filename
+          }
+        },
+        image {
+          caption,
+          alt,
+          asset->{ _id, url }
+        },
         title,
         description,
         workDetails {
@@ -578,7 +602,19 @@ export const SINGLE_FILM_QUERY = defineQuery(`
       },
 
       // WORK INFORMATION BLOCK
-      _type == "workInformation" => {
+      _type == "headerInformationBlock" => {
+        video {
+          asset-> {
+            playbackId,
+            assetId,
+            filename
+          }
+        },
+        image {
+          caption,
+          alt,
+          asset->{ _id, url }
+        },
         title,
         description,
         workDetails {
@@ -826,7 +862,19 @@ export const ABOUT_QUERY = defineQuery(`
       },
 
       // WORK INFORMATION BLOCK
-      _type == "workInformation" => {
+      _type == "headerInformationBlock" => {
+        video {
+          asset-> {
+            playbackId,
+            assetId,
+            filename
+          }
+        },
+        image {
+          caption,
+          alt,
+          asset->{ _id, url }
+        },
         title,
         description,
         workDetails {

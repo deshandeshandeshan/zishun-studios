@@ -7,7 +7,7 @@ import { PressBlock } from "./pressComponents/PressBlock";
 import { CreditsAndAwards } from "./workComponents/CreditsAndAwards";
 import { ImageCarousel } from "./workComponents/ImageCarousel";
 import { WorkHeaderMedia } from "./workComponents/WorkHeaderMedia";
-import { WorkInformation } from "./workComponents/WorkInformation";
+import { HeaderInformationBlock } from "./workComponents/HeaderInformationBlock";
 import { WorkLandscapeMedia } from "./workComponents/WorkLandscapeMedia";
 import { DoubleLandscape } from "./photographyComponents/DoubleLandscape";
 import { DoublePortrait } from "./photographyComponents/DoublePortrait";
@@ -53,8 +53,8 @@ export function PageBuilder({
             return <ImageCarousel key={block._key} {...block} />;
           case "workHeaderMedia":
             return <WorkHeaderMedia key={block._key} {...block} />;
-          case "workInformation":
-            return <WorkInformation key={block._key} {...block} />;
+          case "headerInformationBlock":
+            return <HeaderInformationBlock key={block._key} {...block} />;
           case "workLandscapeMedia":
             return <WorkLandscapeMedia key={block._key} {...block} />;
           case "doubleLandscape":

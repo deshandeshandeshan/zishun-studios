@@ -42,7 +42,7 @@ export const homeType = defineType({
               of: [
                 "creditsAndAwards",
                 "imageCarousel",
-                "workInformation",
+                "headerInformationBlock",
                 "workHeaderMedia",
                 "workLandscapeMedia",
               ],
