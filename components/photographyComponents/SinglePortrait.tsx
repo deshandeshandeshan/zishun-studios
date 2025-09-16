@@ -32,8 +32,8 @@ export function SinglePortrait({ image }: singlePortraitProps) {
           />
         ) : null}
         {image?.caption && (
-          <div className="single-potrait-caption">
-            <p className="type-detail-regular">{image.caption}</p>
+          <div className="caption">
+            <p className="type-details-regular">{image.caption}</p>
           </div>
         )}
       </div>

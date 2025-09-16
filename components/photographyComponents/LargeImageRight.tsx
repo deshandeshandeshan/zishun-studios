@@ -41,8 +41,8 @@ export function LargeImageRight({
           />
         ) : null}
         {leftImage?.caption && (
-          <div className="large-image-right-left-caption">
-            <p className="type-detail-regular">{leftImage.caption}</p>
+          <div className="caption">
+            <p className="type-details-regular">{leftImage.caption}</p>
           </div>
         )}
       </div>
@@ -63,8 +63,8 @@ export function LargeImageRight({
           />
         ) : null}
         {rightImage?.caption && (
-          <div className="large-image-right-right-caption">
-            <p className="type-detail-regular">{rightImage.caption}</p>
+          <div className="caption">
+            <p className="type-details-regular">{rightImage.caption}</p>
           </div>
         )}
       </div>

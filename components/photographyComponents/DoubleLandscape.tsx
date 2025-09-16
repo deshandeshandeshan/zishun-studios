@@ -42,6 +42,11 @@ export function DoubleLandscape({
               className="double-landscape-left-img"
             />
           ) : null}
+          {leftImage?.caption && (
+            <div className="caption">
+              <p className="type-details-regular">{leftImage.caption}</p>
+            </div>
+          )}
         </div>
         <div className="double-landscape-right-image">
           {rightImage ? (
@@ -59,6 +64,11 @@ export function DoubleLandscape({
               className="double-landscape-right-img"
             />
           ) : null}
+          {rightImage?.caption && (
+            <div className="caption">
+              <p className="type-details-regular">{rightImage.caption}</p>
+            </div>
+          )}
         </div>
       </div>
       {activeImage && (

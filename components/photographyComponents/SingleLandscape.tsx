@@ -32,8 +32,8 @@ export function SingleLandscape({ image }: singleLandscapeProps) {
           />
         ) : null}
         {image?.caption && (
-          <div className="single-landscape-caption">
-            <p className="type-detail-regular">{image.caption}</p>
+          <div className="caption">
+            <p className="type-details-regular">{image.caption}</p>
           </div>
         )}
       </div>

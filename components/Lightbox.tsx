@@ -32,9 +32,9 @@ export function Lightbox({ src, alt, onClose }: LightboxProps) {
       <div className="close-button-wrapper">
         <button
           onClick={onClose}
-          className="lightbox-close-button type-heading"
+          className="lightbox-close-button type-body-bold"
         >
-          CLOSE
+          Close
         </button>
       </div>
     </div>
