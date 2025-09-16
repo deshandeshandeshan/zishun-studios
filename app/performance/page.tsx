@@ -32,7 +32,7 @@ export default async function PerformanceWorks() {
               <p className="type-body performance-role">{performance.role}</p>
               <Link
                 href={`/performance/${performance.slug}`}
-                className="type-body performance-link"
+                className="type-body performance-link text-red"
               >
                 See more &rarr;
               </Link>

@@ -17,6 +17,10 @@ body {
   font-family: var(--font-inter);
   color: #414242;
   background-color: #ecebeb;
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 h1,
@@ -61,14 +65,12 @@ button {
   grid-template-columns: minmax(0, 1fr);
 }
 
-.blend {
-  mix-blend-mode: difference;
-}
-
+.menu-button,
 .link {
   transition: all 0.2s ease-in-out;
 }
 
+.menu-button:hover,
 .link:hover {
   color: #9d9d9d;
   transition: all 0.2s ease-in-out;
