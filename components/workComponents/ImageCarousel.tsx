@@ -18,10 +18,13 @@ export function ImageCarousel({ title, carouselImages }: imageCarouselProps) {
     .filter((url): url is string => typeof url === "string");
 
   return (
-    <section className="image-carousel">
-      <div>
-        <h2>{title}</h2>
-        <ImageSlider imageUrls={imageUrls} />
+    <section className="image-carousel mobile-padding">
+      <div className="carousel-container">
+        <ImageSlider
+          title={title}
+          className="image-slider"
+          imageUrls={imageUrls}
+        />
       </div>
     </section>
   );

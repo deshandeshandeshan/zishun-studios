@@ -67,7 +67,7 @@
   }
 
   .event-details-list {
-    grid-column: 17 / 25;
+    grid-column: 17 / 24;
     grid-row: 2 / 3;
   }
 }
