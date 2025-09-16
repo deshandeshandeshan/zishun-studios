@@ -1,5 +1,5 @@
 .paintings-page {
-  padding: 50px 16px 0;
+  padding: 70px 16px 0;
 }
 
 .painting-grid {
@@ -30,7 +30,7 @@
 
 @media screen and (min-width: 480px) {
   .paintings-page {
-    padding: 70px 120px 0;
+    padding: 100px 120px 0;
   }
 
   .painting-grid {

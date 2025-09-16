@@ -1,6 +1,8 @@
 import { urlFor } from "@/sanity/lib/image";
 import { HOME_QUERYResult } from "@/sanity/types";
 import Image from "next/image";
+import "./EventBlock.css";
+import "../Grid.css";
 
 type eventBlockProps = Extract<
   NonNullable<NonNullable<HOME_QUERYResult>["content"]>[number],
@@ -18,10 +20,14 @@ export function EventBlock({
   infoAndTickets,
 }: eventBlockProps) {
   return (
-    <section className="event-block">
-      <h2 className="event-block-title">{title}</h2>
-      <h3 className="event-block-location-title">{locationTitle}</h3>
-      <div>
+    <section className="event-block grid">
+      <div className="event-block-titles">
+        <h2 className="event-block-title type-sub spacing-4">{title}</h2>
+        <h3 className="event-block-location-title type-sub text-grey">
+          {locationTitle}
+        </h3>
+      </div>
+      <div className="event-img-container">
         {eventImage ? (
           <Image
             src={urlFor(eventImage).auto("format").quality(90).url()}
@@ -32,30 +38,39 @@ export function EventBlock({
           />
         ) : null}
       </div>
-      <div>{description}</div>
-      <div>
-        <ul>
-          <li>
-            <h3>Event Title</h3>
-            <p>{timeAndDate?.date}</p>
-            <p>{timeAndDate?.time}</p>
-          </li>
-          <li>
-            <h3>Location</h3>
-            <p>{location}</p>
-          </li>
-          <li>
-            <h3>Details</h3>
-            <p>{details}</p>
-          </li>
-          <li>
-            <h3>Info & Tickets</h3>
-            <a href={infoAndTickets || "https://zishunstudios.com"}>
-              Info and tickets here →
-            </a>
-          </li>
-        </ul>
-      </div>
+      <p className="event-description type-body">{description}</p>
+      <ul className="event-details-list">
+        <li className="event-list-item event-date-time event-details-grid spacing-16">
+          <h3 className="type-body-bold text-grey event-detail-header">
+            Event Time
+          </h3>
+          <p className="type-body event-detail">{timeAndDate?.date}</p>
+          <p className="type-body event-detail">{timeAndDate?.time}</p>
+        </li>
+        <li className="event-list-item event-location event-details-grid spacing-16">
+          <h3 className="type-body-bold text-grey event-detail-header">
+            Location
+          </h3>
+          <p className="type-body event-detail">{location}</p>
+        </li>
+        <li className="event-list-item event-details event-details-grid spacing-16">
+          <h3 className="type-body-bold text-grey event-detail-header">
+            Details
+          </h3>
+          <p className="type-body event-detail">{details}</p>
+        </li>
+        <li className="event-list-item event-info-tickets event-details-grid spacing-16">
+          <h3 className="type-body-bold text-grey event-detail-header">
+            Info & Tickets
+          </h3>
+          <a
+            href={infoAndTickets || "https://zishunstudios.com"}
+            className="type-body event-detail text-red"
+          >
+            Info and tickets here →
+          </a>
+        </li>
+      </ul>
     </section>
   );
 }

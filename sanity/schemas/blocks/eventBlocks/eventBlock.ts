@@ -46,7 +46,7 @@ export const eventBlockType = defineType({
         defineField({
           name: "date",
           title: "Date",
-          type: "datetime",
+          type: "date",
         }),
         defineField({
           name: "time",
@@ -67,7 +67,7 @@ export const eventBlockType = defineType({
     }),
     defineField({
       name: "infoAndTickets",
-      title: "Info and Tickets",
+      title: "Info and Tickets (URL to event page)",
       type: "url",
     }),
   ],

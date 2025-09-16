@@ -1,11 +1,35 @@
 import { defineField, defineType } from "sanity";
 import { BlockContentIcon } from "@sanity/icons";
 
-export const workInformationType = defineType({
-  name: "workInformation",
-  title: "Work Information",
+export const headerInformationBlockType = defineType({
+  name: "headerInformationBlock",
+  title: "Header Information Block",
   type: "object",
   fields: [
+    defineField({
+      title: "Video file",
+      name: "video",
+      type: "mux.video",
+    }),
+    defineField({
+      name: "image",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        defineField({
+          name: "caption",
+          type: "string",
+        }),
+        defineField({
+          name: "alt",
+          type: "string",
+          title: "Alternative text",
+          description: "Important for SEO and accessibility.",
+        }),
+      ],
+    }),
     defineField({
       name: "title",
       title: "Title of Work",

@@ -15,7 +15,7 @@ type headerMediaProps = Extract<
   { _type: "headerMedia" }
 >;
 
-export function HeaderMedia({ title, video, image }: headerMediaProps) {
+export function HeaderMedia({ video, image }: headerMediaProps) {
   const { ref: inViewRef, inView } = useInView({
     threshold: 0.1,
   });

@@ -15,7 +15,7 @@ import { pressBlockType } from "./blocks/pressBlocks/pressBlock";
 import { creditsAndAwardsType } from "./blocks/workBlocks/creditsAndAwards";
 import { imageCarouselType } from "./blocks/workBlocks/imageCarousel";
 import { workHeaderMediaType } from "./blocks/workBlocks/workHeaderMedia";
-import { workInformationType } from "./blocks/workBlocks/workInformation";
+import { headerInformationBlockType } from "./blocks/workBlocks/headerInformationBlock";
 import { workLandscapeMediaType } from "./blocks/workBlocks/workLandscapeMedia";
 import { aboutType } from "./about";
 import { filmType } from "./film";
@@ -47,7 +47,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     creditsAndAwardsType,
     imageCarouselType,
     workHeaderMediaType,
-    workInformationType,
+    headerInformationBlockType,
     workLandscapeMediaType,
   ],
 };
