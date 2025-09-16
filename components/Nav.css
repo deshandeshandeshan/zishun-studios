@@ -9,7 +9,6 @@
   top: 0;
   left: 0;
   right: 0;
-  padding-block: 16px;
   z-index: 50;
 }
 
@@ -25,7 +24,7 @@
 
 .nav-content {
   display: flex;
-  padding: 16px 0 32px;
+  padding: 16px 0 0;
 }
 
 .menu-button {
