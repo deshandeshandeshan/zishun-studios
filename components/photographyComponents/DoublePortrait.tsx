@@ -39,6 +39,11 @@ export function DoublePortrait({ leftImage, rightImage }: doublePortraitProps) {
               className="double-portrait-left-img"
             />
           ) : null}
+          {leftImage?.caption && (
+            <div className="caption">
+              <p className="type-details-regular">{leftImage.caption}</p>
+            </div>
+          )}
         </div>
         <div className="double-portrait-right-image">
           {rightImage ? (
@@ -56,6 +61,11 @@ export function DoublePortrait({ leftImage, rightImage }: doublePortraitProps) {
               className="double-portrait-right-img"
             />
           ) : null}
+          {rightImage?.caption && (
+            <div className="caption">
+              <p className="type-details-regular">{rightImage.caption}</p>
+            </div>
+          )}
         </div>
       </div>
       {activeImage && (
