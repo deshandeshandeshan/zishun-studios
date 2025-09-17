@@ -148,6 +148,10 @@ button {
   padding-top: 80px;
 }
 
+.spacing-240 {
+  padding-bottom: 120px;
+}
+
 .caption-spacing {
   padding-bottom: 4px;
 }
@@ -240,6 +244,10 @@ button {
 
   .spacing-120-top {
     padding-top: 120px;
+  }
+
+  .spacing-240 {
+    padding-bottom: 240px;
   }
 
   /* Desktop Font Sizes */
