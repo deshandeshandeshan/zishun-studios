@@ -38,6 +38,8 @@
 .about-page-social-links {
   grid-column: 3 / 7;
   grid-row: 4;
+  display: flex;
+  flex-direction: column;
 }
 
 .about-page-builder {

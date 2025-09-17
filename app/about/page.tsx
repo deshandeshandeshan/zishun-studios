@@ -38,20 +38,21 @@ export default async function About() {
         <p className="about-contact-body-text spacing-24 type-body">
           {aboutInformation?.email}
         </p>
-        {aboutInformation?.aboutSocialLinks?.map((link, index) => (
-          <div key={index} className="about-page-social-links">
+        <div className="about-page-social-links spacing-240">
+          {aboutInformation?.aboutSocialLinks?.map((link, index) => (
             <a
               href={link?.url || ""}
               target="_blank"
+              key={index}
               rel="noopener noreferrer"
-              className="about-page-social-links spacing-32 type-body"
+              className="about-page-social-link type-body spacing-4"
             >
               {link?.platform}
             </a>
-          </div>
-        ))}
+          ))}
+        </div>
         {Array.isArray(aboutInformation.content) && (
-          <div className="about-page-builder spacing-120-top">
+          <div className="about-page-builder">
             <PageBuilder content={aboutInformation.content} />
           </div>
         )}
