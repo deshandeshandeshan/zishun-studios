@@ -41,19 +41,24 @@ export default async function About() {
         </p>
         <h2 className="about-socials-heading type-body-bold">SOCIALS</h2>
         <div className="about-page-social-links spacing-240">
-          {aboutInformation?.aboutSocialLinks?.map(
-            (link: { url?: string; platform?: string }, index: number) => (
+          {(aboutInformation?.aboutSocialLinks ?? []).map((link, index) => {
+            const url = link?.url ?? "";
+            const platform = link?.platform ?? "";
+
+            if (!url && !platform) return null;
+
+            return (
               <a
-                href={link?.url || ""}
+                href={url}
                 target="_blank"
                 key={index}
                 rel="noopener noreferrer"
                 className="about-page-social-link type-body spacing-4"
               >
-                {link?.platform}
+                {platform || url}
               </a>
-            )
-          )}
+            );
+          })}
         </div>
         {Array.isArray(aboutInformation.content) && (
           <div className="about-page-builder">
