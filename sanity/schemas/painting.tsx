@@ -24,12 +24,13 @@ export const paintingType = defineType({
     defineField({
       name: "description",
       title: "Description",
-      type: "text",
+      type: "array",
+      of: [{ type: "block" }],
     }),
     defineField({
       name: "paintingImage",
       type: "image",
-      title: "About Image",
+      title: "Painting Image",
       options: { hotspot: true },
       fields: [
         defineField({

@@ -4,6 +4,7 @@ import Image from "next/image";
 import "./About.css";
 import "@/components/Grid.css";
 import { PageBuilder } from "@/components/PageBuilder";
+import { PortableText } from "next-sanity";
 
 export const revalidate = 5;
 
@@ -30,26 +31,29 @@ export default async function About() {
             />
           )}
         </div>
-        <h2 className="about-heading type-body-bold">ABOUT</h2>
-        <p className="about-body-text spacing-32 type-body">
-          {aboutInformation?.description}
-        </p>
+        <h2 className="about-heading type-body-bold">ARTIST BIO</h2>
+        <div className="about-body-text spacing-32 type-body">
+          <PortableText value={aboutInformation?.description ?? []} />
+        </div>
         <h2 className="about-contact-heading type-body-bold">CONTACT</h2>
         <p className="about-contact-body-text spacing-24 type-body">
           {aboutInformation?.email}
         </p>
+        <h2 className="about-socials-heading type-body-bold">SOCIALS</h2>
         <div className="about-page-social-links spacing-240">
-          {aboutInformation?.aboutSocialLinks?.map((link, index) => (
-            <a
-              href={link?.url || ""}
-              target="_blank"
-              key={index}
-              rel="noopener noreferrer"
-              className="about-page-social-link type-body spacing-4"
-            >
-              {link?.platform}
-            </a>
-          ))}
+          {aboutInformation?.aboutSocialLinks?.map(
+            (link: { url?: string; platform?: string }, index: number) => (
+              <a
+                href={link?.url || ""}
+                target="_blank"
+                key={index}
+                rel="noopener noreferrer"
+                className="about-page-social-link type-body spacing-4"
+              >
+                {link?.platform}
+              </a>
+            )
+          )}
         </div>
         {Array.isArray(aboutInformation.content) && (
           <div className="about-page-builder">

@@ -123,8 +123,9 @@ export function FeaturedContent({
               alt="Selected work preview"
               priority={true}
               className="fc-image"
-              width={1600}
-              height={1600}
+              width={800}
+              height={800}
+              quality={80}
             />
           ) : (
             <div className="fc-image-placeholder">No preview available</div>

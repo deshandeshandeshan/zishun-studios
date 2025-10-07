@@ -17,8 +17,8 @@ export const featuredContentType = defineType({
       validation: (rule) =>
         rule
           .min(1)
-          .max(3)
-          .error("You must add at least 1 selected work and no more than 3."),
+          .max(5)
+          .error("You must add at least 1 selected work and no more than 5."),
       of: [
         {
           type: "object",
@@ -65,8 +65,8 @@ export const featuredContentType = defineType({
       validation: (rule) =>
         rule
           .min(1)
-          .max(3)
-          .error("You must add at least 1 selected work and no more than 3."),
+          .max(5)
+          .error("You must add at least 1 selected work and no more than 5."),
       of: [
         {
           type: "object",

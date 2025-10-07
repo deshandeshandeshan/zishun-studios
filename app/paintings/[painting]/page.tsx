@@ -2,6 +2,7 @@ import { getPainting } from "@/sanity/sanity.utils";
 import { notFound } from "next/navigation";
 import "./Painting.css";
 import { PaintingsImageSlider } from "@/components/PaintingsImageSlider";
+import { PortableTextBlock } from "next-sanity";
 
 export const revalidate = 5;
 
@@ -33,7 +34,9 @@ export default async function Painting({ params }: Props) {
         imageUrls={imageUrls}
         yearCreated={painting.yearCreated ?? ""}
         paintingTitle={painting.title ?? ""}
-        paintingDescription={painting.description ?? ""}
+        paintingDescription={
+          (painting.description as PortableTextBlock[] | null) ?? []
+        }
       />
     </main>
   );
