@@ -3,6 +3,7 @@ import { HOME_QUERYResult } from "@/sanity/types";
 import Image from "next/image";
 import "./AboutBlock.css";
 import Link from "next/link";
+import { PortableText } from "next-sanity";
 
 type aboutBlockProps = Extract<
   NonNullable<NonNullable<HOME_QUERYResult>["content"]>[number],
@@ -23,11 +24,9 @@ export function AboutBlock({ description, aboutBlockImage }: aboutBlockProps) {
           />
         )}
         <div className="about-block-text">
-          <p className="about-block-description spacing-16 type-sub">
-            {description}
-          </p>
+          <PortableText value={description ?? []} />
           <Link href="/about" className="about-link text-red type-body">
-            Learn more about Zishun Studios &rarr;
+            Learn more &rarr;
           </Link>
         </div>
       </div>

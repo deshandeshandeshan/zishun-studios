@@ -6,11 +6,12 @@ import { useState } from "react";
 
 import "@/components/Grid.css";
 import "@/app/paintings/[painting]/Painting.css";
+import { PortableText, PortableTextBlock } from "next-sanity";
 
 type PaintingsImageSliderProps = {
   imageUrls: string[];
   yearCreated?: string;
-  paintingDescription?: string;
+  paintingDescription?: PortableTextBlock[];
   paintingTitle?: string;
 };
 
@@ -39,13 +40,17 @@ export function PaintingsImageSlider({
   return (
     <div className="image-slider mobile-padding grid">
       <div className="psi-container">
-        <Image
-          src={urlFor(imageUrls[imageIndex]).auto("format").quality(90).url()}
-          alt={""}
-          width={2160}
-          height={3840}
-          className="slider-img"
-        />
+        {imageUrls.length > 0 && imageUrls[imageIndex] ? (
+          <Image
+            src={urlFor(imageUrls[imageIndex]).auto("format").quality(90).url()}
+            alt=""
+            width={2160}
+            height={3840}
+            className="slider-img"
+          />
+        ) : (
+          <div className="slider-placeholder" />
+        )}
       </div>
       <div className="image-counter type-body">
         &#91;{imageIndex + 1}/{imageUrls.length}&#93;
@@ -63,9 +68,9 @@ export function PaintingsImageSlider({
       <h3 className="painting-page-description-header type-body-bold">
         DESCRIPTION
       </h3>
-      <p className="painting-page-description type-body">
-        {paintingDescription}
-      </p>
+      <div className="painting-page-description type-body">
+        <PortableText value={paintingDescription ?? []} />
+      </div>
     </div>
   );
 }

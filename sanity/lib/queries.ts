@@ -11,7 +11,7 @@ export const HOME_QUERY = defineQuery(`
 
       // ABOUT BLOCK
       _type == "aboutBlock" => {
-        description,
+        description[],
         aboutBlockImage {
           caption,
           alt,
@@ -243,7 +243,7 @@ export const SINGLE_PERFORMANCE_QUERY = defineQuery(`
 
       // ABOUT BLOCK
       _type == "aboutBlock" => {
-        description,
+        description[],
         aboutBlockImage {
           caption,
           alt,
@@ -475,7 +475,7 @@ export const SINGLE_FILM_QUERY = defineQuery(`
 
       // ABOUT BLOCK
       _type == "aboutBlock" => {
-        description,
+        description[],
         aboutBlockImage {
           caption,
           alt,
@@ -701,7 +701,7 @@ export const SINGLE_PAINTING_QUERY = defineQuery(`
     _createdAt,
     title,
     yearCreated,
-    description,
+    description[],
     galleryImages[]{
     "url": image.asset->url,
     "alt": image.alt,
@@ -715,7 +715,7 @@ export const ABOUT_QUERY = defineQuery(`
     _id,
     _createdAt,
     title,
-    description,
+    description[],
     aboutImage {
       alt,
       asset->{
@@ -735,7 +735,7 @@ export const ABOUT_QUERY = defineQuery(`
 
       // ABOUT BLOCK
       _type == "aboutBlock" => {
-        description,
+        description[],
         aboutBlockImage {
           caption,
           alt,

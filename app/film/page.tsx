@@ -5,6 +5,8 @@ import Link from "next/link";
 import "./Film.css";
 import "@/components/Grid.css";
 
+export const revalidate = 5;
+
 export default async function FilmWorks() {
   const filmWorks = await getFilmWorks();
 
