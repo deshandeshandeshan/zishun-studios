@@ -9,8 +9,11 @@ export default async function Footer() {
     <footer className="footer">
       <div className="footer-details">
         <h3 className="type-body-bold">ZISHUN STUDIOS</h3>
-        <a href={`mailto:${footerContent?.email}`} className="type-body">
-          ZEDXU@GMAIL.COM
+        <a
+          href={`mailto:${footerContent?.email}`}
+          className="type-body uppercase-text"
+        >
+          {footerContent?.email}
         </a>
       </div>
       <div className="footer-socials">
@@ -22,7 +25,7 @@ export default async function Footer() {
                 <a
                   href={socialLink.url || ""}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer uppercase-text"
                 >
                   {socialLink.platform},
                 </a>
@@ -33,7 +36,9 @@ export default async function Footer() {
       </div>
       <div className="footer-credits">
         <h3 className="type-body-bold">SITE DESIGN & DEVELOPMENT</h3>
-        <p className="type-body">{footerContent?.siteDesignAndDevelopment}</p>
+        <p className="type-body uppercase-text">
+          {footerContent?.siteDesignAndDevelopment}
+        </p>
       </div>
     </footer>
   );

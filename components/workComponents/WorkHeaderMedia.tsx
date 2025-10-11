@@ -33,7 +33,7 @@ export function WorkHeaderMedia({ video, image }: workHeaderMediaProps) {
 
   return (
     <section className="work-header-media">
-      <div>
+      <div className="whm-container">
         {image?.asset?.url ? (
           <Image
             src={urlFor(image).url()}
@@ -54,7 +54,7 @@ export function WorkHeaderMedia({ video, image }: workHeaderMediaProps) {
               muted
               loop
               playsInline
-              className="work-header-media-mux-video-player"
+              className="whm-mux-video-player mux-player"
             />
           </div>
         ) : null}
