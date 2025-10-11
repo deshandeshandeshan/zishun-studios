@@ -15,18 +15,20 @@ export default async function FilmWorks() {
       <ul className="film-works-list selected-works-grid">
         {filmWorks.map((film) => (
           <li key={film._id} className="selected-works-item">
-            {film.filmImage?.asset?.url && (
-              <Image
-                src={urlFor(film.filmImage?.asset?.url)
-                  .auto("format")
-                  .quality(90)
-                  .url()}
-                alt={film.filmImage?.alt || ""}
-                width={2160}
-                height={3840}
-                className="film-works-image"
-              />
-            )}
+            <Link href={`/film/${film.slug}`} className="image-link link">
+              {film.filmImage?.asset?.url && (
+                <Image
+                  src={urlFor(film.filmImage?.asset?.url)
+                    .auto("format")
+                    .quality(90)
+                    .url()}
+                  alt={film.filmImage?.alt || ""}
+                  width={2160}
+                  height={3840}
+                  className="film-works-image"
+                />
+              )}
+            </Link>
             <div className="film-works-info ">
               <div>
                 <h2 className="film-works-title type-body-bold">

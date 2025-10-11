@@ -10,15 +10,15 @@ export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="nav mobile-padding blend">
+    <header className="nav mobile-padding">
       <div className="nav-content">
-        <div className="nav-header text-blend">
+        <div className="nav-header">
           <h1 className="nav-title type-body-bold">ZISHUN STUDIOS</h1>
           <p className="nav-sub-heading type-body">
             BY MIGRANT MULTIDISCIPLINARY ARTIST ZED XU 榛子瞬
           </p>
         </div>
-        <div className="nav-links-container text-blend">
+        <div className="nav-links-container">
           <h2 className="nav-links-heading type-body-bold">NAVIGATION</h2>
           <ul className="nav-links type-body">
             <li className="nav-link">

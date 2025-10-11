@@ -60,7 +60,7 @@ export function HeaderInformationBlock({
               muted
               loop
               playsInline
-              className="header-information-mux-video-player"
+              className="hi-mux-video-player mux-player"
             />
           </div>
         ) : null}

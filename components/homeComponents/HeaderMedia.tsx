@@ -54,7 +54,7 @@ export function HeaderMedia({ video, image }: headerMediaProps) {
                 muted
                 loop
                 playsInline
-                className="header-media-mux-video-player"
+                className="hm-mux-video-player mux-player"
               />
             </div>
           ) : null}

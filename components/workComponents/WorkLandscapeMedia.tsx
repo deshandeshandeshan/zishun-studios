@@ -37,9 +37,9 @@ export function WorkLandscapeMedia({
   const playerRef = useRef<MuxPlayerElement | null>(null);
 
   return (
-    <section className="work-landscape-media mobile-padding">
+    <section className="work-landscape-media mobile-padding grid">
       <div className="work-landscape-media-container">
-        <h2 className="work-landscape-title type-sub">{title}</h2>
+        <h2 className="work-landscape-title type-sub spacing-4">{title}</h2>
         {image?.asset?.url ? (
           <Image
             src={urlFor(image).url()}
@@ -56,15 +56,12 @@ export function WorkLandscapeMedia({
             <MuxPlayer
               playbackId={video.asset.playbackId}
               ref={playerRef}
-              autoPlay={false}
-              muted
-              loop
               playsInline
-              className="work-landscape-media-mux-video-player"
+              className="wlm-mux-video-player"
             />
           </div>
         ) : null}
-        <p className="work-landscape-description type-body-bold">
+        <p className="work-landscape-description type-details-regular">
           {description}
         </p>
       </div>

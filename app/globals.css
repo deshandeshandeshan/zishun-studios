@@ -15,7 +15,7 @@
 
 body {
   font-family: var(--font-inter);
-  color: #414242;
+  color: #1e1f1f;
   background-color: #ecebeb;
   min-height: 100vh;
   display: flex;
@@ -31,6 +31,10 @@ h3 {
 li,
 ul {
   list-style-type: none;
+}
+
+.mux-player {
+  --controls: none;
 }
 
 .mobile-padding {
@@ -57,11 +61,23 @@ button {
   cursor: pointer;
 }
 
+.uppercase-text {
+  text-transform: uppercase;
+}
+
 .site {
   min-height: 100dvh;
   display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-columns: minmax(0, 1fr);
+}
+
+.image-link {
+  cursor: pointer;
+}
+
+.image-link:hover {
+  filter: blur(2px);
 }
 
 .menu-button,

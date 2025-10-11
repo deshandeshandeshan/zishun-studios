@@ -15,18 +15,23 @@ export default async function Paintings() {
       <ul className="paintings-list selected-works-grid">
         {paintings.map((painting) => (
           <li key={painting._id} className="selected-works-item">
-            {painting.paintingImage?.asset?.url && (
-              <Image
-                src={urlFor(painting.paintingImage?.asset?.url)
-                  .auto("format")
-                  .quality(90)
-                  .url()}
-                alt={painting.paintingImage?.alt || ""}
-                width={2160}
-                height={3840}
-                className="painting-image"
-              />
-            )}
+            <Link
+              className="image-link link"
+              href={`/paintings/${painting.slug}`}
+            >
+              {painting.paintingImage?.asset?.url && (
+                <Image
+                  src={urlFor(painting.paintingImage?.asset?.url)
+                    .auto("format")
+                    .quality(90)
+                    .url()}
+                  alt={painting.paintingImage?.alt || ""}
+                  width={2160}
+                  height={3840}
+                  className="painting-image"
+                />
+              )}
+            </Link>
             <div className="painting-info">
               <h2 className="painting-title type-body-bold">
                 {painting.title}

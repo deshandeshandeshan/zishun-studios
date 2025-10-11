@@ -1,7 +1,18 @@
+.header-information-media {
+  width: 100%;
+  height: auto;
+}
+
 .header-information-img {
   width: 100%;
   height: 90vh;
   object-fit: cover;
+}
+
+.hi-mux-video-player {
+  width: 100%;
+  height: 90vh;
+  --media-object-fit: cover;
 }
 
 .work-info-heading-container {

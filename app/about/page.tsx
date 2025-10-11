@@ -36,7 +36,7 @@ export default async function About() {
           <PortableText value={aboutInformation?.description ?? []} />
         </div>
         <h2 className="about-contact-heading type-body-bold">CONTACT</h2>
-        <p className="about-contact-body-text spacing-24 type-body">
+        <p className="about-contact-body-text spacing-24 type-body uppercase-text">
           {aboutInformation?.email}
         </p>
         <h2 className="about-socials-heading type-body-bold">SOCIALS</h2>
@@ -52,7 +52,7 @@ export default async function About() {
                 href={url}
                 target="_blank"
                 key={index}
-                rel="noopener noreferrer"
+                rel="noopener noreferrer uppercase-text"
                 className="about-page-social-link type-body spacing-4"
               >
                 {platform || url}

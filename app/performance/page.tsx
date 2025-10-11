@@ -13,18 +13,23 @@ export default async function PerformanceWorks() {
       <ul className="performances-list selected-works-grid">
         {performances.map((performance) => (
           <li key={performance._id} className="selected-works-item">
-            {performance.performanceImage?.asset?.url && (
-              <Image
-                src={urlFor(performance.performanceImage?.asset?.url)
-                  .auto("format")
-                  .quality(90)
-                  .url()}
-                alt={performance.performanceImage?.alt || ""}
-                width={2160}
-                height={3840}
-                className="performance-image"
-              />
-            )}
+            <Link
+              href={`/performance/${performance.slug}`}
+              className="image-link link"
+            >
+              {performance.performanceImage?.asset?.url && (
+                <Image
+                  src={urlFor(performance.performanceImage?.asset?.url)
+                    .auto("format")
+                    .quality(90)
+                    .url()}
+                  alt={performance.performanceImage?.alt || ""}
+                  width={2160}
+                  height={3840}
+                  className="performance-image"
+                />
+              )}
+            </Link>
             <div className="performance-info">
               <h2 className="performance-title type-body-bold">
                 {performance.title}

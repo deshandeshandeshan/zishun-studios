@@ -10,6 +10,7 @@
   left: 0;
   right: 0;
   z-index: 50;
+  background: rgba(239, 237, 233, 0.8);
 }
 
 .text-blend {
@@ -24,7 +25,7 @@
 
 .nav-content {
   display: flex;
-  padding: 16px 0 0;
+  padding: 16px 0 16px;
 }
 
 .menu-button {
