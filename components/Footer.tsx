@@ -27,7 +27,7 @@ export default async function Footer() {
                   target="_blank"
                   rel="noopener noreferrer uppercase-text"
                 >
-                  {socialLink.platform},
+                  {socialLink.platform}
                 </a>
               </li>
             );

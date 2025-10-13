@@ -24,7 +24,9 @@ export function AboutBlock({ description, aboutBlockImage }: aboutBlockProps) {
           />
         )}
         <div className="about-block-text">
-          <PortableText value={description ?? []} />
+          <div className="type-body">
+            <PortableText value={description ?? []} />
+          </div>
           <Link href="/about" className="about-link text-red type-body">
             Learn more &rarr;
           </Link>
