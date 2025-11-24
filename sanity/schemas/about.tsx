@@ -62,6 +62,23 @@ export const aboutType = defineType({
         }),
       ],
     }),
+    defineField({
+      name: "designAndDevelopment",
+      type: "object",
+      title: "Design & Development",
+      fields: [
+        defineField({
+          name: "name",
+          type: "string",
+          title: "Name",
+        }),
+        defineField({
+          name: "url",
+          type: "url",
+          title: "Website Url",
+        }),
+      ],
+    }),
     {
       name: "content",
       type: "pageBuilder",

@@ -3,6 +3,7 @@ import { HOME_QUERYResult } from "@/sanity/types";
 import Image from "next/image";
 import "./EventBlock.css";
 import "../Grid.css";
+import { PortableText } from "next-sanity";
 
 type eventBlockProps = Extract<
   NonNullable<NonNullable<HOME_QUERYResult>["content"]>[number],
@@ -38,8 +39,15 @@ export function EventBlock({
           />
         ) : null}
       </div>
-      <p className="event-description type-body">{description}</p>
       <ul className="event-details-list">
+        <li className="event-list-item event-description event-details-grid spacing-16">
+          <h3 className="type-body-bold text-grey event-detail-header">
+            Description
+          </h3>
+          <p className="type-body event-detail">
+            <PortableText value={description ?? []} />
+          </p>
+        </li>
         <li className="event-list-item event-date-time event-details-grid spacing-16">
           <h3 className="type-body-bold text-grey event-detail-header">
             Event Time

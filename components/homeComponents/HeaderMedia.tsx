@@ -15,7 +15,7 @@ type headerMediaProps = Extract<
   { _type: "headerMedia" }
 >;
 
-export function HeaderMedia({ video, image }: headerMediaProps) {
+export function HeaderMedia({ video, image, videoCaption }: headerMediaProps) {
   const { ref: inViewRef, inView } = useInView({
     threshold: 0.1,
   });
@@ -37,14 +37,17 @@ export function HeaderMedia({ video, image }: headerMediaProps) {
       <div>
         <div className="header-media-content">
           {image?.asset?.url ? (
-            <Image
-              src={urlFor(image).width(3840).auto("format").quality(85).url()}
-              width={1600}
-              height={800}
-              alt={image.alt || ""}
-              className="header-media-img"
-              priority={false}
-            />
+            <div>
+              <Image
+                src={urlFor(image).width(3840).auto("format").quality(85).url()}
+                width={1600}
+                height={800}
+                alt={image.alt || ""}
+                className="header-media-img"
+                priority={false}
+              />
+              <h2>{image.caption}</h2>
+            </div>
           ) : video?.asset?.playbackId ? (
             <div ref={inViewRef} className="header-media-mux-video-container">
               <MuxPlayer
@@ -56,6 +59,7 @@ export function HeaderMedia({ video, image }: headerMediaProps) {
                 playsInline
                 className="hm-mux-video-player mux-player"
               />
+              <h2 className="home-video-caption type-sub">{videoCaption}</h2>
             </div>
           ) : null}
         </div>

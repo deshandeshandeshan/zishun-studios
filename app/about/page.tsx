@@ -40,7 +40,7 @@ export default async function About() {
           {aboutInformation?.email}
         </p>
         <h2 className="about-socials-heading type-body-bold">SOCIALS</h2>
-        <div className="about-page-social-links spacing-240">
+        <div className="about-page-social-links spacing-24">
           {(aboutInformation?.aboutSocialLinks ?? []).map((link, index) => {
             const url = link?.url ?? "";
             const platform = link?.platform ?? "";
@@ -60,6 +60,15 @@ export default async function About() {
             );
           })}
         </div>
+        <h2 className="about-credit-heading type-body-bold">
+          WEBSITE DESIGN & DEVELOPMENT
+        </h2>
+        <a
+          href={aboutInformation?.designAndDevelopment?.url}
+          className="about-credit-body-text spacing-24 type-body uppercase-text  spacing-240"
+        >
+          {aboutInformation?.designAndDevelopment?.name}
+        </a>
         {Array.isArray(aboutInformation.content) && (
           <div className="about-page-builder">
             <PageBuilder content={aboutInformation.content} />
