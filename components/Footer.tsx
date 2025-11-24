@@ -34,11 +34,9 @@ export default async function Footer() {
           })}
         </ul>
       </div>
-      <div className="footer-credits">
-        <h3 className="type-body-bold">SITE DESIGN & DEVELOPMENT</h3>
-        <p className="type-body uppercase-text">
-          {footerContent?.siteDesignAndDevelopment}
-        </p>
+      <div className="footer-copyright">
+        <h3 className="type-body-bold">COPYRIGHT</h3>
+        <p className="type-body uppercase-text">2025 © All Rights Reserved</p>
       </div>
     </footer>
   );

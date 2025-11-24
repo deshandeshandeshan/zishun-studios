@@ -70,7 +70,7 @@ export const HOME_QUERY = defineQuery(`
             playbackId,
             assetId,
             filename
-          }
+          },
         },
         image {
           caption,
@@ -727,6 +727,7 @@ export const ABOUT_QUERY = defineQuery(`
       platform,
       url
     },
+    designAndDevelopment,
     email,
     content[] {
       _key,

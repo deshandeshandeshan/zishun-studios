@@ -17,6 +17,11 @@ export const headerMediaType = defineType({
       type: "mux.video",
     }),
     defineField({
+      title: "Video Caption",
+      name: "videoCaption",
+      type: "string",
+    }),
+    defineField({
       name: "image",
       type: "image",
       options: {

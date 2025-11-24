@@ -55,7 +55,7 @@
   }
 
   .event-img-container {
-    grid-column: 7 / 14;
+    grid-column: 7 / 13;
     grid-row: 1 / 10;
     padding-bottom: 0;
   }
@@ -68,6 +68,6 @@
 
   .event-details-list {
     grid-column: 17 / 24;
-    grid-row: 2 / 3;
+    grid-row: 1 / 2;
   }
 }

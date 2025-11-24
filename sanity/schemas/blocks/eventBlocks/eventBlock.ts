@@ -36,7 +36,8 @@ export const eventBlockType = defineType({
     defineField({
       name: "description",
       title: "Event Description",
-      type: "text",
+      type: "array",
+      of: [{ type: "block" }],
     }),
     defineField({
       name: "timeAndDate",
