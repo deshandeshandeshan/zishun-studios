@@ -13,8 +13,8 @@ export const creditsAndAwardsType = defineType({
       validation: (rule) =>
         rule
           .min(1)
-          .max(10)
-          .error("You must add at least 1 credit and no more than 10."),
+          .max(30)
+          .error("You must add at least 1 credit and no more than 30."),
       of: [
         {
           type: "object",

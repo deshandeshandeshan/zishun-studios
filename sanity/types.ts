@@ -501,39 +501,63 @@ export type Performance = {
     alt?: string;
     _type: "image";
   };
-  content?: Array<{
-    _key: string;
-  } & AboutBlock | {
-    _key: string;
-  } & FeaturedContent | {
-    _key: string;
-  } & HeaderMedia | {
-    _key: string;
-  } & DoubleLandscape | {
-    _key: string;
-  } & DoublePortrait | {
-    _key: string;
-  } & LargeImageLeft | {
-    _key: string;
-  } & LargeImageRight | {
-    _key: string;
-  } & SingleLandscape | {
-    _key: string;
-  } & SinglePortrait | {
-    _key: string;
-  } & CreditsAndAwards | {
-    _key: string;
-  } & ImageCarousel | {
-    _key: string;
-  } & HeaderInformationBlock | {
-    _key: string;
-  } & WorkHeaderMedia | {
-    _key: string;
-  } & WorkLandscapeMedia | {
-    _key: string;
-  } & EventBlock | {
-    _key: string;
-  } & PressBlock>;
+  content?: PageBuilder;
+};
+
+export type PageBuilder = Array<{
+  _key: string;
+} & AboutBlock | {
+  _key: string;
+} & FeaturedContent | {
+  _key: string;
+} & HeaderMedia | {
+  _key: string;
+} & DoubleLandscape | {
+  _key: string;
+} & DoublePortrait | {
+  _key: string;
+} & LargeImageLeft | {
+  _key: string;
+} & LargeImageRight | {
+  _key: string;
+} & SingleLandscape | {
+  _key: string;
+} & SinglePortrait | {
+  _key: string;
+} & CreditsAndAwards | {
+  _key: string;
+} & ImageCarousel | {
+  _key: string;
+} & HeaderInformationBlock | {
+  _key: string;
+} & WorkHeaderMedia | {
+  _key: string;
+} & WorkLandscapeMedia | {
+  _key: string;
+} & EventBlock | {
+  _key: string;
+} & PressBlock>;
+
+export type SanityImageCrop = {
+  _type: "sanity.imageCrop";
+  top?: number;
+  bottom?: number;
+  left?: number;
+  right?: number;
+};
+
+export type SanityImageHotspot = {
+  _type: "sanity.imageHotspot";
+  x?: number;
+  y?: number;
+  height?: number;
+  width?: number;
+};
+
+export type Slug = {
+  _type: "slug";
+  current?: string;
+  source?: string;
 };
 
 export type Painting = {
@@ -620,39 +644,7 @@ export type Film = {
     alt?: string;
     _type: "image";
   };
-  content?: Array<{
-    _key: string;
-  } & AboutBlock | {
-    _key: string;
-  } & FeaturedContent | {
-    _key: string;
-  } & HeaderMedia | {
-    _key: string;
-  } & DoubleLandscape | {
-    _key: string;
-  } & DoublePortrait | {
-    _key: string;
-  } & LargeImageLeft | {
-    _key: string;
-  } & LargeImageRight | {
-    _key: string;
-  } & SingleLandscape | {
-    _key: string;
-  } & SinglePortrait | {
-    _key: string;
-  } & CreditsAndAwards | {
-    _key: string;
-  } & ImageCarousel | {
-    _key: string;
-  } & HeaderInformationBlock | {
-    _key: string;
-  } & WorkHeaderMedia | {
-    _key: string;
-  } & WorkLandscapeMedia | {
-    _key: string;
-  } & EventBlock | {
-    _key: string;
-  } & PressBlock>;
+  content?: PageBuilder;
 };
 
 export type About = {
@@ -705,39 +697,7 @@ export type About = {
     name?: string;
     url?: string;
   };
-  content?: Array<{
-    _key: string;
-  } & AboutBlock | {
-    _key: string;
-  } & FeaturedContent | {
-    _key: string;
-  } & HeaderMedia | {
-    _key: string;
-  } & DoubleLandscape | {
-    _key: string;
-  } & DoublePortrait | {
-    _key: string;
-  } & LargeImageLeft | {
-    _key: string;
-  } & LargeImageRight | {
-    _key: string;
-  } & SingleLandscape | {
-    _key: string;
-  } & SinglePortrait | {
-    _key: string;
-  } & CreditsAndAwards | {
-    _key: string;
-  } & ImageCarousel | {
-    _key: string;
-  } & HeaderInformationBlock | {
-    _key: string;
-  } & WorkHeaderMedia | {
-    _key: string;
-  } & WorkLandscapeMedia | {
-    _key: string;
-  } & EventBlock | {
-    _key: string;
-  } & PressBlock>;
+  content?: PageBuilder;
 };
 
 export type FooterSettings = {
@@ -755,40 +715,6 @@ export type FooterSettings = {
   }>;
   siteDesignAndDevelopment?: string;
 };
-
-export type PageBuilder = Array<{
-  _key: string;
-} & AboutBlock | {
-  _key: string;
-} & FeaturedContent | {
-  _key: string;
-} & HeaderMedia | {
-  _key: string;
-} & DoubleLandscape | {
-  _key: string;
-} & DoublePortrait | {
-  _key: string;
-} & LargeImageLeft | {
-  _key: string;
-} & LargeImageRight | {
-  _key: string;
-} & SingleLandscape | {
-  _key: string;
-} & SinglePortrait | {
-  _key: string;
-} & CreditsAndAwards | {
-  _key: string;
-} & ImageCarousel | {
-  _key: string;
-} & HeaderInformationBlock | {
-  _key: string;
-} & WorkHeaderMedia | {
-  _key: string;
-} & WorkLandscapeMedia | {
-  _key: string;
-} & EventBlock | {
-  _key: string;
-} & PressBlock>;
 
 export type Home = {
   _id: string;
@@ -838,6 +764,7 @@ export type MuxAssetData = {
   max_stored_resolution?: string;
   passthrough?: string;
   encoding_tier?: string;
+  video_quality?: string;
   master_access?: string;
   aspect_ratio?: string;
   duration?: number;
@@ -863,12 +790,18 @@ export type MuxStaticRenditions = {
 
 export type MuxStaticRenditionFile = {
   _type: "mux.staticRenditionFile";
-  ext?: string;
   name?: string;
+  ext?: string;
+  height?: number;
   width?: number;
   bitrate?: number;
-  filesize?: number;
-  height?: number;
+  filesize?: string;
+  type?: string;
+  status?: string;
+  resolution_tier?: string;
+  resolution?: string;
+  id?: string;
+  passthrough?: string;
 };
 
 export type MuxPlaybackId = {
@@ -913,20 +846,15 @@ export type SanityImageDimensions = {
   aspectRatio?: number;
 };
 
-export type SanityImageHotspot = {
-  _type: "sanity.imageHotspot";
-  x?: number;
-  y?: number;
-  height?: number;
-  width?: number;
-};
-
-export type SanityImageCrop = {
-  _type: "sanity.imageCrop";
-  top?: number;
-  bottom?: number;
-  left?: number;
-  right?: number;
+export type SanityImageMetadata = {
+  _type: "sanity.imageMetadata";
+  location?: Geopoint;
+  dimensions?: SanityImageDimensions;
+  palette?: SanityImagePalette;
+  lqip?: string;
+  blurHash?: string;
+  hasAlpha?: boolean;
+  isOpaque?: boolean;
 };
 
 export type SanityFileAsset = {
@@ -949,6 +877,13 @@ export type SanityFileAsset = {
   path?: string;
   url?: string;
   source?: SanityAssetSourceData;
+};
+
+export type SanityAssetSourceData = {
+  _type: "sanity.assetSourceData";
+  name?: string;
+  id?: string;
+  url?: string;
 };
 
 export type SanityImageAsset = {
@@ -974,17 +909,6 @@ export type SanityImageAsset = {
   source?: SanityAssetSourceData;
 };
 
-export type SanityImageMetadata = {
-  _type: "sanity.imageMetadata";
-  location?: Geopoint;
-  dimensions?: SanityImageDimensions;
-  palette?: SanityImagePalette;
-  lqip?: string;
-  blurHash?: string;
-  hasAlpha?: boolean;
-  isOpaque?: boolean;
-};
-
 export type Geopoint = {
   _type: "geopoint";
   lat?: number;
@@ -992,20 +916,7 @@ export type Geopoint = {
   alt?: number;
 };
 
-export type Slug = {
-  _type: "slug";
-  current?: string;
-  source?: string;
-};
-
-export type SanityAssetSourceData = {
-  _type: "sanity.assetSourceData";
-  name?: string;
-  id?: string;
-  url?: string;
-};
-
-export type AllSanitySchemaTypes = WorkLandscapeMedia | HeaderInformationBlock | WorkHeaderMedia | ImageCarousel | CreditsAndAwards | PressBlock | SinglePortrait | SingleLandscape | LargeImageRight | LargeImageLeft | DoublePortrait | DoubleLandscape | HeaderMedia | FeaturedContent | AboutBlock | EventBlock | Performance | Painting | Film | About | FooterSettings | PageBuilder | Home | MuxVideo | MuxVideoAsset | MuxAssetData | MuxStaticRenditions | MuxStaticRenditionFile | MuxPlaybackId | MuxTrack | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData;
+export type AllSanitySchemaTypes = WorkLandscapeMedia | HeaderInformationBlock | WorkHeaderMedia | ImageCarousel | CreditsAndAwards | PressBlock | SinglePortrait | SingleLandscape | LargeImageRight | LargeImageLeft | DoublePortrait | DoubleLandscape | HeaderMedia | FeaturedContent | AboutBlock | EventBlock | Performance | PageBuilder | SanityImageCrop | SanityImageHotspot | Slug | Painting | Film | About | FooterSettings | Home | MuxVideo | MuxVideoAsset | MuxAssetData | MuxStaticRenditions | MuxStaticRenditionFile | MuxPlaybackId | MuxTrack | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: sanity/lib/queries.ts
 // Variable: HOME_QUERY
