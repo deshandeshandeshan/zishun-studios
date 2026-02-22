@@ -7,7 +7,7 @@ import "./Nav.css";
 import "../app/globals.css";
 
 type NavProps = {
-  navSubheading?: string;
+  navSubheading?: string | null;
 };
 
 export default function Nav({ navSubheading }: NavProps) {
