@@ -4,6 +4,7 @@ export const HOME_QUERY = defineQuery(`
   *[_type == "home"][0] {
     _id,
     _createdAt,
+    title,
     content[] {
       _key,
       _type,
@@ -951,5 +952,12 @@ export const FOOTER_SETTINGS = defineQuery(`
       url
     },
     siteDesignAndDevelopment
+  }
+`);
+
+export const SITE_SETTINGS = defineQuery(`
+  *[_type == "siteSettings"][0]{
+    siteTitle,
+    defaultDescription
   }
 `);

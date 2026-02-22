@@ -39,4 +39,13 @@ export const structure: StructureResolver = (S) =>
             .schemaType("footerSettings")
             .documentId("footerSettings")
         ),
+      S.listItem()
+        .title("Website Settings")
+        .icon(() => "🌐")
+        .child(
+          S.editor()
+            .id("siteSettings")
+            .schemaType("siteSettings")
+            .documentId("siteSettings")
+        ),
     ]);

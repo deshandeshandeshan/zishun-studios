@@ -22,6 +22,7 @@ import { filmType } from "./film";
 import { paintingType } from "./painting";
 import { homeType } from "./home";
 import { performanceType } from "./performance";
+import { siteSettings } from "./siteSettings";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -32,6 +33,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     filmType,
     paintingType,
     performanceType,
+    siteSettings,
 
     eventBlockType,
     aboutBlockType,

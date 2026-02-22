@@ -9,6 +9,7 @@ import {
   SINGLE_PERFORMANCE_QUERY,
   FILM_QUERY,
   SINGLE_FILM_QUERY,
+  SITE_SETTINGS,
 } from "./lib/queries";
 
 export const client = createClient({
@@ -115,4 +116,15 @@ export async function getFooterSettings() {
   });
 
   return client.fetch(FOOTER_SETTINGS);
+}
+
+export async function getSiteSettings() {
+  const client = createClient({
+    projectId: "5wl8so4j",
+    dataset: "production",
+    apiVersion: "2025-07-23",
+    useCdn: true,
+  });
+
+  return client.fetch(SITE_SETTINGS);
 }
