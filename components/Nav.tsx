@@ -6,7 +6,11 @@ import { useState } from "react";
 import "./Nav.css";
 import "../app/globals.css";
 
-export default function Nav() {
+type NavProps = {
+  navSubheading?: string | null;
+};
+
+export default function Nav({ navSubheading }: NavProps) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -15,7 +19,8 @@ export default function Nav() {
         <div className="nav-header">
           <h1 className="nav-title type-body-bold">ZISHUN STUDIOS</h1>
           <p className="nav-sub-heading type-body">
-            BY MIGRANT MULTIDISCIPLINARY ARTIST ZED XU 榛子瞬
+            {navSubheading ??
+              "BY MIGRANT MULTIDISCIPLINARY ARTIST ZED XU 榛子瞬"}
           </p>
         </div>
         <div className="nav-links-container">

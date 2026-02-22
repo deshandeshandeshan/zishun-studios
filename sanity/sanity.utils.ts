@@ -126,5 +126,5 @@ export async function getSiteSettings() {
     useCdn: true,
   });
 
-  return client.fetch(SITE_SETTINGS);
+  return client.fetch(SITE_SETTINGS, {}, { next: { revalidate: 60 } });
 }

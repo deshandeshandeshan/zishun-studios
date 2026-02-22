@@ -20,16 +20,17 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const settings = await getSiteSettings();
   return (
     <html lang="en">
       <body className="body">
         <div className="site">
-          <Nav />
+          <Nav navSubheading={settings?.navSubheading} />
           {children}
           <Footer />
         </div>

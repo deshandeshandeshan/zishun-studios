@@ -958,6 +958,7 @@ export const FOOTER_SETTINGS = defineQuery(`
 export const SITE_SETTINGS = defineQuery(`
   *[_type == "siteSettings"][0]{
     siteTitle,
-    defaultDescription
+    defaultDescription,
+    navSubheading
   }
 `);
