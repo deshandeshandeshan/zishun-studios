@@ -47,7 +47,7 @@ export const eventBlockType = defineType({
         defineField({
           name: "date",
           title: "Date",
-          type: "date",
+          type: "string",
         }),
         defineField({
           name: "time",
