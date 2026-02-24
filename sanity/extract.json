@@ -2907,6 +2907,13 @@
           "type": "string"
         },
         "optional": true
+      },
+      "navSubheading": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
       }
     }
   },
