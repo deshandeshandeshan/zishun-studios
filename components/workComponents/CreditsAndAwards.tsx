@@ -11,6 +11,7 @@ type creditsAndAwardsProps = Extract<
 export function CreditsAndAwards({
   credits,
   awards,
+  exhibitions,
   image,
 }: creditsAndAwardsProps) {
   return (
@@ -53,6 +54,28 @@ export function CreditsAndAwards({
                     {award.awardName}
                   </h3>
                   <p className="awarded-from type-body">{award.awardedFrom}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {exhibitions && exhibitions.length > 0 && (
+          <div className="exhibitions">
+            <h2 className="exhibitions-title type-sub spacing-12">
+              Exhibitions
+            </h2>
+            <ul className="exhibitions-list">
+              {exhibitions.map((exhibition, index) => (
+                <li
+                  key={index}
+                  className="exhibition-item credits-and-awards-grid"
+                >
+                  <h3 className="exhibition-name type-body-bold spacing-16 text-grey">
+                    {exhibition.exhibitionName}
+                  </h3>
+                  <p className="exhibited-at type-body">
+                    {exhibition.exhibitedAt}
+                  </p>
                 </li>
               ))}
             </ul>
