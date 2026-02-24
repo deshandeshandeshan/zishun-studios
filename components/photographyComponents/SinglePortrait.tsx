@@ -28,7 +28,7 @@ export function SinglePortrait({ image }: singlePortraitProps) {
             width={1080}
             height={1920}
             alt={image.alt || ""}
-            className="single-potrait-image caption-spacing pointer"
+            className="single-potrait-image caption-spacing pointer image-link"
           />
         ) : null}
         {image?.caption && (
