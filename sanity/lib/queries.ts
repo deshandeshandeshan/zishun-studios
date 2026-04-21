@@ -105,6 +105,10 @@ export const HOME_QUERY = defineQuery(`
           awardName,
           awardedFrom
         },
+        exhibitions[] {
+          exhibitionName,
+          exhibitedAt
+        },
         image {
           caption,
           alt,
@@ -337,6 +341,10 @@ export const SINGLE_PERFORMANCE_QUERY = defineQuery(`
           awardName,
           awardedFrom
         },
+        exhibitions[] {
+          exhibitionName,
+          exhibitedAt
+        },
         image {
           caption,
           alt,
@@ -568,6 +576,10 @@ export const SINGLE_FILM_QUERY = defineQuery(`
         awards[] {
           awardName,
           awardedFrom
+        },
+        exhibitions[] {
+          exhibitionName,
+          exhibitedAt
         },
         image {
           caption,
@@ -829,6 +841,10 @@ export const ABOUT_QUERY = defineQuery(`
         awards[] {
           awardName,
           awardedFrom
+        },
+        exhibitions[] {
+          exhibitionName,
+          exhibitedAt
         },
         image {
           caption,

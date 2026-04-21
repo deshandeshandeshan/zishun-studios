@@ -28,7 +28,7 @@ export function SingleLandscape({ image }: singleLandscapeProps) {
             width={1920}
             height={1080}
             alt={image.alt || ""}
-            className="single-landscape-img pointer caption-spacing"
+            className="single-landscape-img pointer caption-spacing image-link"
           />
         ) : null}
         {image?.caption && (

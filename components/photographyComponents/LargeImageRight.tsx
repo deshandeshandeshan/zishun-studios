@@ -37,7 +37,7 @@ export function LargeImageRight({
             width={1080}
             height={1920}
             alt={leftImage.alt || ""}
-            className="image-large-right-left-img pointer caption-spacing"
+            className="image-large-right-left-img pointer caption-spacing image-link"
           />
         ) : null}
         {leftImage?.caption && (
@@ -59,7 +59,7 @@ export function LargeImageRight({
             width={1080}
             height={1920}
             alt={rightImage.alt || ""}
-            className="large-image-right-right-img pointer caption-spacing"
+            className="large-image-right-right-img pointer caption-spacing image-link"
           />
         ) : null}
         {rightImage?.caption && (

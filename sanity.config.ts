@@ -8,7 +8,7 @@ const config = defineConfig({
   projectId: "5wl8so4j",
   dataset: "production",
   title: "Zishun Studios",
-  apiVersion: "23-07-2025",
+  apiVersion: "2025-07-23",
   basePath: "/admin",
 
   schema,

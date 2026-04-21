@@ -11,10 +11,7 @@ export const creditsAndAwardsType = defineType({
       type: "array",
       title: "Credits",
       validation: (rule) =>
-        rule
-          .min(1)
-          .max(30)
-          .error("You must add at least 1 credit and no more than 30."),
+        rule.max(30).error("You must add no more than 30 credits."),
       of: [
         {
           type: "object",
@@ -40,10 +37,7 @@ export const creditsAndAwardsType = defineType({
       type: "array",
       title: "Awards",
       validation: (rule) =>
-        rule
-          .min(1)
-          .max(10)
-          .error("You must add at least 1 credit and no more than 10."),
+        rule.max(10).error("You must add no more than 10 awards."),
       of: [
         {
           type: "object",
@@ -59,6 +53,32 @@ export const creditsAndAwardsType = defineType({
               name: "awardedFrom",
               type: "string",
               title: "Awarded From",
+            }),
+          ],
+        },
+      ],
+    }),
+    defineField({
+      name: "exhibitions",
+      type: "array",
+      title: "Exhibitions",
+      validation: (rule) =>
+        rule.max(10).error("You must add no more than 10 exhibitions."),
+      of: [
+        {
+          type: "object",
+          name: "exhibition",
+          title: "Exhibition",
+          fields: [
+            defineField({
+              name: "exhibitionName",
+              type: "string",
+              title: "Exhibition Name",
+            }),
+            defineField({
+              name: "exhibitedAt",
+              type: "string",
+              title: "Exhibited At",
             }),
           ],
         },

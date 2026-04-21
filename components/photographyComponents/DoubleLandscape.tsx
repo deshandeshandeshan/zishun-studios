@@ -39,7 +39,7 @@ export function DoubleLandscape({
               alt={leftImage?.alt || ""}
               width={2160}
               height={3840}
-              className="double-landscape-left-img"
+              className="double-landscape-left-img image-link"
             />
           ) : null}
           {leftImage?.caption && (
@@ -61,7 +61,7 @@ export function DoubleLandscape({
               alt={rightImage?.alt || ""}
               width={2160}
               height={3840}
-              className="double-landscape-right-img"
+              className="double-landscape-right-img image-link"
             />
           ) : null}
           {rightImage?.caption && (
