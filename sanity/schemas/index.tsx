@@ -17,6 +17,7 @@ import { imageCarouselType } from "./blocks/workBlocks/imageCarousel";
 import { workHeaderMediaType } from "./blocks/workBlocks/workHeaderMedia";
 import { headerInformationBlockType } from "./blocks/workBlocks/headerInformationBlock";
 import { workLandscapeMediaType } from "./blocks/workBlocks/workLandscapeMedia";
+import { vimeoBlockType } from "./blocks/videoBlocks/vimeoBlock";
 import { aboutType } from "./about";
 import { filmType } from "./film";
 import { paintingType } from "./painting";
@@ -51,5 +52,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     workHeaderMediaType,
     headerInformationBlockType,
     workLandscapeMediaType,
+    vimeoBlockType,
   ],
 };

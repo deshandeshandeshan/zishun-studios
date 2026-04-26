@@ -1,0 +1,20 @@
+.vimeo-block__frame {
+  grid-column: 1 / -1;
+  position: relative;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+}
+
+.vimeo-block__iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+@media screen and (min-width: 480px) {
+  .vimeo-block__frame {
+    grid-column: 7 / 19;
+  }
+}
