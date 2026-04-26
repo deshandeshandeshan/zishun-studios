@@ -60,12 +60,26 @@ export default async function About() {
             );
           })}
         </div>
+        {aboutInformation?.resume?.asset?.url && (
+          <>
+            <h2 className="about-resume-heading type-body-bold">RESUME</h2>
+            <a
+              href={aboutInformation.resume.asset.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="about-resume-body-text spacing-24 type-body uppercase-text"
+              download
+            >
+              VIEW HERE
+            </a>
+          </>
+        )}
         <h2 className="about-credit-heading type-body-bold">
           WEBSITE DESIGN & DEVELOPMENT
         </h2>
         <a
           href={aboutInformation?.designAndDevelopment?.url}
-          className="about-credit-body-text spacing-24 type-body uppercase-text  spacing-240"
+          className="about-credit-body-text spacing-24 type-body uppercase-text spacing-240"
         >
           {aboutInformation?.designAndDevelopment?.name}
         </a>

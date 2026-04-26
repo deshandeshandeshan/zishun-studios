@@ -63,6 +63,11 @@ export const aboutType = defineType({
       ],
     }),
     defineField({
+      name: "resume",
+      title: "Resume",
+      type: "file",
+    }),
+    defineField({
       name: "designAndDevelopment",
       type: "object",
       title: "Design & Development",

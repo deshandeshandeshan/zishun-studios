@@ -215,6 +215,10 @@ export const HOME_QUERY = defineQuery(`
       _type == "singlePortrait" => {
         title,
         image { alt, caption, asset->{ _id, url } }
+      },
+
+      _type == "vimeoBlock" => {
+        url
       }
     }
   }
@@ -451,6 +455,10 @@ export const SINGLE_PERFORMANCE_QUERY = defineQuery(`
       _type == "singlePortrait" => {
         title,
         image { alt, caption, asset->{ _id, url } }
+      },
+
+      _type == "vimeoBlock" => {
+        url
       }
     }
   }
@@ -687,6 +695,10 @@ export const SINGLE_FILM_QUERY = defineQuery(`
       _type == "singlePortrait" => {
         title,
         image { alt, caption, asset->{ _id, url } }
+      },
+
+      _type == "vimeoBlock" => {
+        url
       }
     }
   }
@@ -741,6 +753,7 @@ export const ABOUT_QUERY = defineQuery(`
       url
     },
     designAndDevelopment,
+    resume { asset->{ url } },
     email,
     content[] {
       _key,
@@ -952,6 +965,10 @@ export const ABOUT_QUERY = defineQuery(`
       _type == "singlePortrait" => {
         title,
         image { alt, caption, asset->{ _id, url } }
+      },
+
+      _type == "vimeoBlock" => {
+        url
       }
     }
   }

@@ -15,6 +15,7 @@ import { LargeImageLeft } from "./photographyComponents/LargeImageLeft";
 import { LargeImageRight } from "./photographyComponents/LargeImageRight";
 import { SingleLandscape } from "./photographyComponents/SingleLandscape";
 import { SinglePortrait } from "./photographyComponents/SinglePortrait";
+import { VimeoBlock } from "./videoComponents/VimeoBlock";
 
 import "./PageBuilder.css";
 
@@ -69,6 +70,8 @@ export function PageBuilder({
             return <SingleLandscape key={block._key} {...block} />;
           case "singlePortrait":
             return <SinglePortrait key={block._key} {...block} />;
+          case "vimeoBlock":
+            return <VimeoBlock key={block._key} {...block} />;
           default: {
             const fallbackBlock = block as { _type: string; _key: string };
             return (

@@ -20,5 +20,6 @@ export const pageBuilderType = defineType({
     defineArrayMember({ type: "workLandscapeMedia" }),
     defineArrayMember({ type: "eventBlock" }),
     defineArrayMember({ type: "pressBlock" }),
+    defineArrayMember({ type: "vimeoBlock" }),
   ],
 });
