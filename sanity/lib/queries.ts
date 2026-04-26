@@ -957,6 +957,10 @@ export const ABOUT_QUERY = defineQuery(`
       _type == "singlePortrait" => {
         title,
         image { alt, caption, asset->{ _id, url } }
+      },
+
+      _type == "vimeoBlock" => {
+        url
       }
     }
   }
