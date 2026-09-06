@@ -20,7 +20,7 @@ import { workLandscapeMediaType } from "./blocks/workBlocks/workLandscapeMedia";
 import { vimeoBlockType } from "./blocks/videoBlocks/vimeoBlock";
 import { aboutType } from "./about";
 import { filmType } from "./film";
-import { paintingType } from "./painting";
+import { markMakingType } from "./markMaking";
 import { homeType } from "./home";
 import { performanceType } from "./performance";
 import { siteSettings } from "./siteSettings";
@@ -32,7 +32,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     footerSettingsType,
     aboutType,
     filmType,
-    paintingType,
+    markMakingType,
     performanceType,
     siteSettings,
 

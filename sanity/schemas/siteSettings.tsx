@@ -28,6 +28,12 @@ export const siteSettings = defineType({
         Rule.max(160).warning("Should be under 160 characters."),
     }),
     defineField({
+      name: "navTitle",
+      title: "Nav title",
+      description: "The studio name shown at the top of the navigation, e.g. 'ZISHUN STUDIOS'.",
+      type: "string",
+    }),
+    defineField({
       name: "navSubheading",
       title: "Nav subheading",
       type: "string",

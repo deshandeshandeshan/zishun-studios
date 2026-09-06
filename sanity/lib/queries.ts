@@ -704,8 +704,8 @@ export const SINGLE_FILM_QUERY = defineQuery(`
   }
 `);
 
-export const PAINTINGS_QUERY = defineQuery(`
-  *[_type == "painting"] {
+export const MARK_MAKING_QUERY = defineQuery(`
+  *[_type == "markMaking"] {
     _id,
     _createdAt,
     title,
@@ -720,8 +720,8 @@ export const PAINTINGS_QUERY = defineQuery(`
   }
 `);
 
-export const SINGLE_PAINTING_QUERY = defineQuery(`
-  *[_type == "painting" && slug.current == $slug][0] {
+export const SINGLE_MARK_MAKING_QUERY = defineQuery(`
+  *[_type == "markMaking" && slug.current == $slug][0] {
     _id,
     _createdAt,
     title,
@@ -992,6 +992,7 @@ export const SITE_SETTINGS = defineQuery(`
   *[_type == "siteSettings"][0]{
     siteTitle,
     defaultDescription,
+    navTitle,
     navSubheading
   }
 `);

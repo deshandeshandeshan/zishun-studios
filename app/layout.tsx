@@ -30,7 +30,10 @@ export default async function RootLayout({
     <html lang="en">
       <body className="body">
         <div className="site">
-          <Nav navSubheading={settings?.navSubheading} />
+          <Nav
+            navTitle={settings?.navTitle}
+            navSubheading={settings?.navSubheading}
+          />
           {children}
           <Footer />
         </div>

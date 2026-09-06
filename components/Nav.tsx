@@ -7,17 +7,20 @@ import "./Nav.css";
 import "../app/globals.css";
 
 type NavProps = {
+  navTitle?: string | null;
   navSubheading?: string | null;
 };
 
-export default function Nav({ navSubheading }: NavProps) {
+export default function Nav({ navTitle, navSubheading }: NavProps) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <header className="nav mobile-padding">
       <div className="nav-content">
         <div className="nav-header">
-          <h1 className="nav-title type-body-bold">ZISHUN STUDIOS</h1>
+          <h1 className="nav-title type-body-bold">
+            {navTitle ?? "ZISHUN STUDIOS"}
+          </h1>
           <p className="nav-sub-heading type-body">
             {navSubheading ??
               "BY MIGRANT MULTIDISCIPLINARY ARTIST ZED XU 榛子瞬"}
@@ -33,7 +36,7 @@ export default function Nav({ navSubheading }: NavProps) {
               <Link href="/film">FILM,</Link>
             </li>
             <li className="nav-link">
-              <Link href="/paintings">PAINTING,</Link>
+              <Link href="/mark-making">MARK-MAKING,</Link>
             </li>
             <li className="nav-link">
               <Link href="/performance">PERFORMANCE,</Link>
@@ -65,8 +68,8 @@ export default function Nav({ navSubheading }: NavProps) {
               </Link>
             </li>
             <li>
-              <Link href="/paintings" onClick={() => setMenuOpen(false)}>
-                PAINTING
+              <Link href="/mark-making" onClick={() => setMenuOpen(false)}>
+                MARK-MAKING
               </Link>
             </li>
             <li>

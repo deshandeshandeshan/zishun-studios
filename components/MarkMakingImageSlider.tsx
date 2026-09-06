@@ -5,22 +5,22 @@ import Image from "next/image";
 import { useState } from "react";
 
 import "@/components/Grid.css";
-import "@/app/paintings/[painting]/Painting.css";
+import "@/app/mark-making/[markMaking]/MarkMaking.css";
 import { PortableText, PortableTextBlock } from "next-sanity";
 
-type PaintingsImageSliderProps = {
+type MarkMakingImageSliderProps = {
   imageUrls: string[];
   yearCreated?: string;
-  paintingDescription?: PortableTextBlock[];
-  paintingTitle?: string;
+  markMakingDescription?: PortableTextBlock[];
+  markMakingTitle?: string;
 };
 
-export function PaintingsImageSlider({
+export function MarkMakingImageSlider({
   imageUrls,
   yearCreated,
-  paintingDescription,
-  paintingTitle,
-}: PaintingsImageSliderProps) {
+  markMakingDescription,
+  markMakingTitle,
+}: MarkMakingImageSliderProps) {
   const [imageIndex, setImageIndex] = useState(0);
 
   const showPrevImage = () => {
@@ -63,13 +63,17 @@ export function PaintingsImageSlider({
           &gt;
         </button>
       </div>
-      <h2 className="painting-page-title type-body-bold">{paintingTitle}</h2>
-      <p className="painting-page-year-created type-body">{yearCreated}</p>
-      <h3 className="painting-page-description-header type-body-bold">
+      <h2 className="mark-making-page-title type-body-bold">
+        {markMakingTitle}
+      </h2>
+      <p className="mark-making-page-year-created type-body">
+        {yearCreated}
+      </p>
+      <h3 className="mark-making-page-description-header type-body-bold">
         DESCRIPTION
       </h3>
-      <div className="painting-page-description type-body">
-        <PortableText value={paintingDescription ?? []} />
+      <div className="mark-making-page-description type-body">
+        <PortableText value={markMakingDescription ?? []} />
       </div>
     </div>
   );

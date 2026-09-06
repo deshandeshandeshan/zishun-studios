@@ -1,8 +1,8 @@
 import { createClient } from "next-sanity";
 import {
   HOME_QUERY,
-  PAINTINGS_QUERY,
-  SINGLE_PAINTING_QUERY,
+  MARK_MAKING_QUERY,
+  SINGLE_MARK_MAKING_QUERY,
   ABOUT_QUERY,
   FOOTER_SETTINGS,
   PERFORMANCE_QUERY,
@@ -74,7 +74,7 @@ export async function getFilmWork(slug: string) {
   return client.fetch(SINGLE_FILM_QUERY, { slug });
 }
 
-export async function getPaintings() {
+export async function getMarkMakingWorks() {
   const client = createClient({
     projectId: "5wl8so4j",
     dataset: "production",
@@ -82,10 +82,10 @@ export async function getPaintings() {
     useCdn: true,
   });
 
-  return client.fetch(PAINTINGS_QUERY);
+  return client.fetch(MARK_MAKING_QUERY);
 }
 
-export async function getPainting(slug: string) {
+export async function getMarkMakingWork(slug: string) {
   const client = createClient({
     projectId: "5wl8so4j",
     dataset: "production",
@@ -93,7 +93,7 @@ export async function getPainting(slug: string) {
     useCdn: true,
   });
 
-  return client.fetch(SINGLE_PAINTING_QUERY, { slug });
+  return client.fetch(SINGLE_MARK_MAKING_QUERY, { slug });
 }
 
 export async function getAbout() {

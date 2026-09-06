@@ -2975,6 +2975,13 @@
         },
         "optional": true
       },
+      "navTitle": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
       "navSubheading": {
         "type": "objectAttribute",
         "value": {
@@ -3520,7 +3527,7 @@
     }
   },
   {
-    "name": "painting",
+    "name": "markMaking",
     "type": "document",
     "attributes": {
       "_id": {
@@ -3533,7 +3540,7 @@
         "type": "objectAttribute",
         "value": {
           "type": "string",
-          "value": "painting"
+          "value": "markMaking"
         }
       },
       "_createdAt": {
