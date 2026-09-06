@@ -15,7 +15,7 @@ export const structure: StructureResolver = (S) =>
             .documentId("home")
         ),
       S.documentTypeListItem("film").title("Film Work"),
-      S.documentTypeListItem("painting").title("Painting"),
+      S.documentTypeListItem("markMaking").title("Mark Making"),
       S.documentTypeListItem("performance").title("Performance Work"),
       S.listItem()
         .title("About Page")

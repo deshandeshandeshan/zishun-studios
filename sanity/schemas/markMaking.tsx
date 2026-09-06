@@ -1,8 +1,8 @@
 import { defineField, defineType } from "sanity";
 
-export const paintingType = defineType({
-  name: "painting",
-  title: "Paintings",
+export const markMakingType = defineType({
+  name: "markMaking",
+  title: "Mark Making",
   type: "document",
   fields: [
     defineField({
@@ -30,7 +30,7 @@ export const paintingType = defineType({
     defineField({
       name: "paintingImage",
       type: "image",
-      title: "Painting Image",
+      title: "Mark Making Image",
       options: { hotspot: true },
       fields: [
         defineField({
